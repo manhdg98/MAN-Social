@@ -1,25 +1,60 @@
 {
-  "name": "with-redux-wrapper-and-material-ui",
-  "version": "2.0.0",
-  "dependencies": {
-    "@material-ui/core": "latest",
-    "@material-ui/icons": "latest",
-    "@material-ui/styles": "latest",
-    "next": "latest",
-    "next-redux-wrapper": "latest",
-    "react": "^16.8.0",
-    "react-dom": "^16.8.0",
-    "react-redux": "6.0.0",
-    "redux": "4.0.1",
-    "redux-thunk": "2.3.0"
-  },
+  "name": "nextjs-template",
+  "description": "Full-featured template for JAMstack websites using next.js",
+  "repository": "github:jsulpis/nextjs-template",
+  "license": "MIT",
+  "author": "Julien Sulpis",
   "scripts": {
-    "dev": "next",
-    "build": "next build",
-    "start": "next start"
+    "dev": "next src",
+    "build": "yarn clean && next build src",
+    "build:now": "yarn build && cp -r src/.next .next && cp -r src/public public",
+    "export": "next export src",
+    "start": "next start src",
+    "clean": "rm -rf .next src/.next public src/out",
+    "lint": "prettier --check .",
+    "lint:fix": "prettier --write .",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "analyze": "BUNDLE_ANALYZE=both yarn build",
+    "analyze:server": "BUNDLE_ANALYZE=server yarn build",
+    "analyze:browser": "BUNDLE_ANALYZE=browser yarn build"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.28",
+    "@fortawesome/free-solid-svg-icons": "^5.13.0",
+    "@fortawesome/react-fontawesome": "^0.1.9",
+    "dotenv": "^8.2.0",
+    "isomorphic-unfetch": "^3.0.0",
+    "next": "^9.3.4",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "tailwindcss": "^1.2.0"
   },
   "devDependencies": {
-    "redux-devtools-extension": "2.13.7"
+    "@testing-library/react": "^10.0.2",
+    "@types/jest": "^25.1.5",
+    "@types/node": "^13.11.0",
+    "@types/react": "^16.9.32",
+    "@types/react-dom": "^16.9.6",
+    "@zeit/next-bundle-analyzer": "^0.1.2",
+    "@zeit/next-css": "^1.0.1",
+    "@zeit/next-sass": "^1.0.1",
+    "babel-core": "^6.26.3",
+    "babel-jest": "^25.2.6",
+    "husky": "^4.2.3",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^25.2.7",
+    "next-fonts": "^1.0.3",
+    "next-purgecss": "^4.0.0",
+    "node-sass": "^4.13.1",
+    "prettier": "^2.0.2",
+    "pretty-quick": "^2.0.1",
+    "typescript": "^3.8.3"
   },
-  "license": "ISC"
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
+  }
 }

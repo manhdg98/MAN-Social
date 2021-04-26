@@ -1,0 +1,13 @@
+// Processed by the Tailwind postcss plugin
+@tailwind base;
+@tailwind components;
+
+// Styles using Tailwind utilities
+@import "./buttons";
+@import "./layout";
+@import "./typography";
+
+@tailwind utilities;
+
+// Styles not using Tailwind utilities
+@import "./global";
