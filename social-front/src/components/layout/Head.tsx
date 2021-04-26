@@ -27,6 +27,13 @@ const Head = (props: HeadProps) => (
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:image" content={props.ogImage || defaultOGImage} />
     <meta property="og:image" content={props.ogImage || defaultOGImage} />
+    <link rel="stylesheet" href="/assests/css/main.min.css" />
+    <link rel="stylesheet" href="/assests/css/weather-icons.min.css" />
+    <link rel="stylesheet" href="/assests/css/toast-notification.css" />
+    <link rel="stylesheet" href="/assests/css/page-tour.css" />
+    <link rel="stylesheet" href="/assests/css/style.css" />
+    <link rel="stylesheet" href="/assests/css/color.css" />
+    <link rel="stylesheet" href="/assests/css/responsive.css" />
   </NextHead>
 );
 

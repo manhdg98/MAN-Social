@@ -1,57 +1,123 @@
 import Link from "next/link";
-import React, { useState } from "react";
-import { useRouter } from "next/router";
-
-const routes = [
-  { href: "/", label: "Home" },
-  { href: "/docs", label: "Documentation" },
-  { href: "/contact", label: "Contact" }
-];
+import React from "react";
 
 function Header() {
-  const [isCollapsed, setIsCollapsed] = useState(true);
-  const router = useRouter();
-
   return (
-    <header className="absolute top-0 z-50 w-full bg-white shadow-lg">
-      <nav className="container flex flex-wrap items-center justify-between px-2 py-3 mx-auto">
-        <div className="relative flex justify-between w-full px-3 md:w-auto md:static md:block md:justify-start">
-          <Link href="/">
-            <a className="inline-block py-2 text-lg font-bold">{process.env.appTitle}</a>
-          </Link>
-          <button
-            className="px-3 py-1 text-xl outline-none md:hidden focus:outline-none"
-            type="button"
-            onClick={() => setIsCollapsed(!isCollapsed)}
-          >
-            <span className="block w-6 h-px bg-gray-700 rounded-sm"></span>
-            <span className="block w-6 h-px mt-1 bg-gray-700 rounded-sm"></span>
-            <span className="block w-6 h-px mt-1 bg-gray-700 rounded-sm"></span>
-          </button>
+    <header>
+      <div className="topbar stick d-flex align-items-center justify-content-between pt-3 pb-3">
+        <div className="logo h-100">
+          <a href="newsfeed.html" className="h-100 d-block">
+            <img src="static/logo.png" className="mh-100 mw-100" />
+          </a>
         </div>
-        <div
-          className={`flex overflow-hidden transition-height duration-300 md:h-auto ${
-            isCollapsed ? "h-0" : "h-24"
-          } `}
-          id="list-mobile"
-        >
-          <ul className="flex flex-col list-none md:flex-row">
-            {routes.map(route => (
-              <li className="py-1 text-left" key={route.label}>
-                <Link href={route.href}>
-                  <a
-                    className={`px-3 font-semibold hover:opacity-75 ${
-                      router.pathname === route.href ? "text-primary-500" : ""
-                    }`}
-                  >
-                    {route.label}
-                  </a>
-                </Link>
-              </li>
-            ))}
+        <div className="top-area">
+          <div className="top-search">
+            <form method="post">
+              <input type="text" placeholder="Search People, Pages, Groups etc" />
+              <button data-ripple>
+                <i className="ti-search" />
+              </button>
+            </form>
+          </div>
+          <ul className="setting-area">
+            <li>
+              <a href="newsfeed.html" title="Home" data-ripple>
+                <i className="fa fa-home" />
+              </a>
+            </li>
+            <li>
+              <a href="#" title="Friend Requests" data-ripple>
+                <i className="fa fa-user" />
+                <em className="bg-red">5</em>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="Notification" data-ripple>
+                <i className="fa fa-bell" />
+                <em className="bg-purple">7</em>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="Messages" data-ripple>
+                <i className="fa fa-commenting" />
+                <em className="bg-blue">9</em>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="Languages" data-ripple>
+                <i className="fa fa-globe" />
+                <em>EN</em>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="Help" data-ripple>
+                <i className="fa fa-question-circle" />
+              </a>
+            </li>
           </ul>
+          <div className="user-img">
+            <h5>Jack Carter</h5>
+            <img src="images/avatars/side-friend2.jpg" />
+            <span className="status f-online" />
+            <div className="user-setting">
+              <ul className="chat-setting">
+                <li>
+                  <a href="#">
+                    <span className="status f-online" />
+                    online
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <span className="status f-away" />
+                    away
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <span className="status f-off" />
+                    offline
+                  </a>
+                </li>
+              </ul>
+              <span className="seting-title">
+                User setting <a href="#">see all</a>
+              </span>
+              <ul className="log-out">
+                <li>
+                  <a href="about.html">
+                    <i className="ti-user" /> view profile
+                  </a>
+                </li>
+                <li>
+                  <a href="setting.html">
+                    <i className="ti-pencil-alt" />
+                    edit profile
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <i className="ti-target" />
+                    activity log
+                  </a>
+                </li>
+                <li>
+                  <a href="setting.html">
+                    <i className="ti-settings" />
+                    account setting
+                  </a>
+                </li>
+                <li>
+                  <a href="logout.html">
+                    <i className="ti-power-off" />
+                    log out
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
-      </nav>
+      </div>
     </header>
   );
 }
