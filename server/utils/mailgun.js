@@ -1,24 +1,40 @@
-var api_key = 'MAILGUN-API-KEY'
-var domain = 'mg.studytracker.tech'
-var mailgun = require('mailgun-js')({apiKey: api_key, domain: domain})
- 
-async function sendEmail(payload) {
-  const { code, email } = payload
-  var data = {
-    from: 'Admin <contact@studytracker.tech>',
-    to: email,
-    subject: `Curricula App Verification Code: ${code}`,
-    text: `Enter this code: ${code}`
-  }
+const nodeMailer = require("nodemailer");
+const adminEmail = "manhvptt@gmail.com";
+const adminPassword = "Tahuynh@1998";
+const mailHost = "smtp.gmail.com";
+const mailPort = 587;
+const sendEmail = (payload) => {
+  const { code, email, username } = payload;
+  console.log("payload", payload);
+  const subject = "Verify account";
+  // Create admin email
+  const transporter = nodeMailer.createTransport({
+    host: mailHost,
+    port: mailPort,
+    secure: false,
+    auth: {
+      user: adminEmail,
+      pass: adminPassword,
+    },
+  });
+  const options = {
+    from: adminEmail,
+    to: email, // send email to
+    subject: subject,
+    html: `<pre>
+    Hi ${username},
 
-  await mailgun.messages().send(data).then(() => {
-    console.log('message sent')
-    console.log(data)
-  }).catch((error) => {
-    console.log(error)
-    // console.log(error.response.body.errors[0].message)
-  })
-  return true
-}
+    We just need to verify your email address before you can access.
+    
+    Verify your email address equal code: <b> ${code} <b>
+    
+    Thanks! – The MAN team
 
-module.exports = { sendEmail }
+    </pre> `,
+  };
+
+  return transporter.sendMail(options);
+};
+module.exports = {
+  sendEmail: sendEmail,
+};
