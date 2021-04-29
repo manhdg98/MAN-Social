@@ -1,10 +1,10 @@
 import Page from "components/layout/Page";
 import React from "react";
-import LoginForm from "components/authen/login/LoginForm";
+import PageLogin from "components/authen/PageLogin";
 
 const Login = () => (
   <Page>
-    <LoginForm />
+    <PageLogin />
   </Page>
 );
 
