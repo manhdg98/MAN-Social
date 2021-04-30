@@ -26,15 +26,12 @@ const PageLogin = () => {
   return (
     <>
       <section>
-        {console.log(TypeEnum.LOGIN)}
         <div className="page-header">
           <div className="header-inner">
             <h2>Now You are out of Pitnik</h2>
             <p> Discover what's happining right now in the world. </p>
           </div>
-          <figure>
-            <img src="images/resources/baner-forum.png" />
-          </figure>
+          <figure>{/* <img src="images/resources/baner-forum.png" /> */}</figure>
         </div>
       </section>
       <section>

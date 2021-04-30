@@ -13,8 +13,8 @@ const RecenLogin = () => {
           <div className="col-lg-4 col-md-4 col-sm-4">
             <div className="user-log">
               <i className="ti-close" title="Remove Account" />
-              <a href="#" title>
-                <img src="images/resources/author.jpg" />
+              <a href="#">
+                {/* <img src="images/author.jpg" /> */}
                 <span>Adam James</span>
               </a>
             </div>
@@ -22,8 +22,8 @@ const RecenLogin = () => {
           <div className="col-lg-4 col-md-4 col-sm-4">
             <div className="user-log">
               <i className="ti-close" title="Remove Account" />
-              <a href="#" title>
-                <img src="images/resources/author2.jpg" />
+              <a href="#">
+                {/* <img src="images/resources/author2.jpg" /> */}
                 <span>Emma Watson</span>
               </a>
             </div>
