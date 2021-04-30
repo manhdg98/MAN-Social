@@ -1,5 +1,5 @@
 const nodeMailer = require("nodemailer");
-const adminEmail = "manhvptt@gmail.com";
+const adminEmail = "manteam9x@gmail.com";
 const adminPassword = "a3580323A";
 const mailHost = "smtp.gmail.com";
 const mailPort = 587;
