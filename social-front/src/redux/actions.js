@@ -1,53 +1,26 @@
 export const actionTypes = {
-  FAILURE: "FAILURE",
-  INCREMENT: "INCREMENT",
-  DECREMENT: "DECREMENT",
-  RESET: "RESET",
-  LOAD_DATA: "LOAD_DATA",
-  LOAD_DATA_SUCCESS: "LOAD_DATA_SUCCESS",
-  START_CLOCK: "START_CLOCK",
-  TICK_CLOCK: "TICK_CLOCK",
-  HYDRATE: "HYDRATE"
+  LOGIN: "LOGIN",
+  REGISTER: "REGISTER",
+  VERIFY: "VERIFY"
 };
 
-export function failure(error) {
+export function login(account) {
   return {
-    type: actionTypes.FAILURE,
-    error
-  };
+    type: actionTypes.LOGIN,
+    payload: account
+  }
 }
 
-export function increment() {
-  return { type: actionTypes.INCREMENT };
-}
-
-export function decrement() {
-  return { type: actionTypes.DECREMENT };
-}
-
-export function reset() {
-  return { type: actionTypes.RESET };
-}
-
-export function loadData() {
-  return { type: actionTypes.LOAD_DATA };
-}
-
-export function loadDataSuccess(data) {
+export function register(infor) {
   return {
-    type: actionTypes.LOAD_DATA_SUCCESS,
-    data
-  };
+    type: actionTypes.REGISTER,
+    payload: infor
+  }
 }
 
-export function startClock() {
-  return { type: actionTypes.START_CLOCK };
-}
-
-export function tickClock(isServer) {
+export function verify(code) {
   return {
-    type: actionTypes.TICK_CLOCK,
-    light: !isServer,
-    ts: Date.now()
-  };
+    type: actionTypes.VERIFY,
+    payload: code
+  }
 }
