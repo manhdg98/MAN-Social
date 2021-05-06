@@ -1,8 +1,12 @@
 import axios from "axios";
 
-axios.defaults.baseURL = `http://localhost:5000/api/v1`;
-const token = localStorage.getItem("token");
-axios.defaults.headers.common["Authorization"] = token ? `Bearer ${token}` : "";
+if (typeof window !== "undefined") {
+  axios.defaults.baseURL = `http://localhost:5000/api/v1`;
+  const token = localStorage.getItem("token");
+  axios.defaults.headers.common["Authorization"] = token ? `Bearer ${token}` : "";
+} else {
+  console.log("we are running on the server");
+}
 
 axios.interceptors.response.use(
   function (response) {

@@ -25,6 +25,8 @@
     "@fortawesome/free-solid-svg-icons": "^5.13.0",
     "@fortawesome/react-fontawesome": "^0.1.9",
     "axios": "^0.21.1",
+    "browserslist": "^4.16.6",
+    "caniuse-lite": "^1.0.30001223",
     "dotenv": "^8.2.0",
     "isomorphic-unfetch": "^3.0.0",
     "next": "^9.3.4",
@@ -32,8 +34,10 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-redux": "^7.2.4",
+    "react-saga": "^0.3.1",
     "react-toastify": "^7.0.4",
     "redux": "^4.1.0",
+    "redux-devtools-extension": "^2.13.9",
     "tailwindcss": "^1.2.0"
   },
   "devDependencies": {

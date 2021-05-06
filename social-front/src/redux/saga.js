@@ -1,6 +1,7 @@
 import { all, call, delay, put, take, takeLatest } from "redux-saga/effects";
 import { register } from "./actions";
-import axios  from '../common/axiosConfig'
+import axios from "../common/axiosConfig";
+import { actionTypes } from "../redux/actions";
 
 // function* runClockSaga() {
 //   yield take(actionTypes.START_CLOCK);
@@ -27,25 +28,27 @@ import axios  from '../common/axiosConfig'
 //       lastName: 'Last name'
 //     })
 //   } catch (error) {
-    
+
 //   }
 // }
 
-function* sagaRegister(info) {
-  console.log(info);
+function* sagaRegister(action) {
+  const { username, email, password } = action.payload;
+  const info = {
+    username,
+    email,
+    password
+  };
   try {
-    const res = yield axios.post('/auth/register', info);
-    yield put(loadDataSuccess(data));
-    console.log(res)
+    const response = yield axios.post("/auth/register", info);
+    return response;
   } catch (error) {
     console.log(error);
   }
 }
 
 function* rootSaga() {
-  yield all([
-    register()
-  ]);
+  yield all([takeLatest(actionTypes.REGISTER, sagaRegister)]);
 }
 
 export default rootSaga;
