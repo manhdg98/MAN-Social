@@ -3,6 +3,8 @@ import LoginForm from "./LoginForm";
 import RecenLogin from "./RecenLogin";
 import Register from "./Register";
 import Verify from "./Verify";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const PageLogin = () => {
   const TypeEnum = { LOGIN: "login", REGISTER: "register", VERRIFY: "verify" };
@@ -42,6 +44,7 @@ const PageLogin = () => {
                 <div className="row border-center">
                   <div className="col-lg-6 col-md-6">
                     <RecenLogin />
+                    <ToastContainer />
                   </div>
                   <div className="col-lg-6 col-md-6">{showForm()}</div>
                 </div>

@@ -12,7 +12,6 @@ function reducer(state, action) {
     }
 
     case actionTypes.REGISTER:
-      console.log("state", action);
       return {
         ...state,
         ...action

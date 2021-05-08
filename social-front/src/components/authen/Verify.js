@@ -4,8 +4,7 @@ const Verify = props => {
   return (
     <div className="logout-f">
       <h4>
-        {" "}
-        <i className="fa fa-key" /> Verify your account{" "}
+        <i className="fa fa-key" /> Verify your account
       </h4>
       <p>Please check your mail, and enter your code in hese</p>
       <div className="logout-form">

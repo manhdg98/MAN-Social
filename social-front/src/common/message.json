@@ -1,0 +1,12 @@
+{
+  "mess": {
+    "login": {
+      "success": "Login success.",
+      "error": "Login false!"
+    },
+    "register": {
+      "success": "Register success.",
+      "error": "Register false!"
+    }
+  }
+}

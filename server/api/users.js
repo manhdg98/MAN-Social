@@ -67,8 +67,6 @@ router
   .delete(async (req, res) => {});
 
 router.route("/").get(async (req, res) => {
-  // const users = await User.findAll()
-  // res.send(users)
   User.find({}, (err, users) => {
     let userMap = {};
 
