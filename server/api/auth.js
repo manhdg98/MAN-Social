@@ -46,7 +46,9 @@ router.route("/register").post(async (req, res) => {
   try {
     const emailDB = await User.findOne({ email });
     if (emailDB) {
-      res.status(400).send("Email address exists!");
+      res.status(400).send({
+        statusEmail: "exist",
+      });
     }
     if (password.length >= 8) {
       const hash = await hashPassword(password);
