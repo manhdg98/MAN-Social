@@ -3,7 +3,12 @@ Tech Stack:
 - NEXTjs
 - Express
 - MongoDB
-- Nodejs
+- Nodejs  
+- 
+UI  
+- Login
+- Verify
+- Register
 
 Author: 
 ManhNT, 
