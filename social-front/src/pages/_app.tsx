@@ -1,11 +1,25 @@
-import App from "next/app";
-import Router from "next/router";
+// import App from "next/app";
+import Router, { useRouter } from "next/router";
+import 'antd/dist/antd.css';
 import "../styles/styles.scss";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import { wrapper } from '../redux/store';
 
 import * as gtag from "lib/gtag";
+import { useEffect } from "react";
+
+function MyApp({ Component, pageProps }) {
+    const router = useRouter();
+    useEffect(() => {
+        const token = localStorage.getItem("token");
+        console.log('token', token);
+        if (!token) {
+        router.push("/");
+        }
+    }, []);
+    return <Component {...pageProps} />
+}
 
 Router.events.on("routeChangeComplete", url => gtag.pageview(url));
 
-export default wrapper.withRedux(App);
+export default wrapper.withRedux(MyApp);
