@@ -26,6 +26,7 @@
     "@fortawesome/react-fontawesome": "^0.1.14",
     "antd": "^4.15.5",
     "axios": "^0.21.1",
+    "babel-eslint": "^10.1.0",
     "browserslist": "^4.16.6",
     "caniuse-lite": "^1.0.30001223",
     "dotenv": "^8.6.0",
