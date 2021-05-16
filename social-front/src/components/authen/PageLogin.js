@@ -1,27 +1,31 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import LoginForm from "./LoginForm";
 import RecenLogin from "./RecenLogin";
 import Register from "./Register";
 import Verify from "./Verify";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useSelector, useDispatch } from "react-redux";
+import { actionTypes } from "redux/actions";
 
 const PageLogin = () => {
-  const TypeEnum = { LOGIN: "login", REGISTER: "register", VERRIFY: "verify" };
-  const [Type, setType] = useState(TypeEnum.LOGIN);
+  const dispatch = useDispatch();
+
+  let data = useSelector((state) => state);
+
+  useEffect(() => {
+    dispatch({
+      type: actionTypes.TO_LOGIN
+    });
+  }, []);
 
   const showForm = () => {
-    if (Type === TypeEnum.LOGIN) {
-      return <LoginForm changeType={() => setType(TypeEnum.REGISTER)} />;
-    } else if (Type === TypeEnum.REGISTER) {
-      return (
-        <Register
-          changeTypeToLogin={() => setType(TypeEnum.LOGIN)}
-          changeTypeToVerify={() => setType(TypeEnum.VERRIFY)}
-        />
-      );
-    } else if (Type === TypeEnum.VERRIFY) {
-      return <Verify changeType={() => setType(TypeEnum.LOGIN)} />;
+    if (data === undefined || data.type === actionTypes.TO_LOGIN) {
+      return <LoginForm/>;
+    } else if (data.type === actionTypes.TO_REGISTER) {
+      return <Register/>;
+    } else if (data.type === actionTypes.TO_VERIFY) {
+      return <Verify/>;
     }
   };
 

@@ -35,6 +35,7 @@
     "next-redux-wrapper": "^6.0.2",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
+    "react-hook-form": "^7.6.0",
     "react-material-ui-form-validator": "^2.1.4",
     "react-redux": "^7.2.4",
     "react-saga": "^0.3.1",
