@@ -1,27 +1,25 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { isEmail, isEmpty } from "validator";
+import { useForm } from "react-hook-form";
+import { actionTypes } from '../../redux/actions';
 
 const Register = props => {
   const dispatch = useDispatch();
+  
+  const { register, watch, formState: { errors }, handleSubmit } = useForm();
 
   const [username, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
-  const postInfor = () => {
+  const onSubmit = () => {
     const info = {
       username,
       email,
       password,
       confirmPassword
     };
-
-    // if(isEmail(email) || isEmpty(email)) {
-    //   console.log('sai');
-    //   return false
-    // }
 
     dispatch({
       type: "REGISTER",
@@ -35,52 +33,68 @@ const Register = props => {
         <i className="fa fa-key" /> Register{" "}
       </h4>
       <p>Create your account, to try app</p>
-      <div className="again-login">
+      <form className="again-login" onSubmit={handleSubmit(onSubmit)}>
         <input
+          {...register("username", { required: true, min: 8 })}
           type="text"
           placeholder="User Name"
           autoComplete="off"
           defaultValue={username}
           onChange={e => setName(e.currentTarget.value)}
         />
-        <label id="noti_name"></label>
+        <div className="text-danger">
+          {errors.email?.type === 'required' && "Please enter your name."}
+        </div>
         <input
-          type="email"
+          {...register("email", {required: true, pattern: /(^$|^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$)/i})}
+          type="email" 
           placeholder="Enter your email"
           autoComplete="off"
           defaultValue={email}
           onChange={e => setEmail(e.currentTarget.value)}
         />
-        <label id="noti_email"></label>
+        <div className="text-danger">
+          {errors.email?.type === 'required' && "Please enter your email."}
+          {errors.email?.type === 'pattern' && "Email should be in the format 'abc@gmail.com'."}
+        </div>
         <input
+          {...register("password", { required: true, min: 8 })}
           type="password"
           placeholder="Enter your password"
           autoComplete="new-password"
           defaultValue={password}
           onChange={e => setPassword(e.currentTarget.value)}
         />
-        <label id="noti_pass"></label>
+        <div className="text-danger">
+          {errors.password?.type === 'required' && "Please enter your password."}
+          {errors.password?.type === 'min' && "Password should be 8 character."}
+        </div>
         <input
+          {...register("confirmPassword", {
+            required: true,
+            validate: (value) => value === watch('password')
+          })}
           type="password"
           placeholder="Enter your confirm password"
           autoComplete="new-password"
           defaultValue={confirmPassword}
           onChange={e => setConfirmPassword(e.currentTarget.value)}
         />
-        <label id="noti_name"></label>
+        <div className="text-danger">
+          {errors.confirmPassword?.type === 'validate' && "Passwoed and confirm password not match."}
+          {errors.password?.type === 'required' && "Please enter your password."}
+        </div>
         <div className="d-flex align-items-center justify-content-center mt-3">
-          <button className="mr-3 btn btn-dark btn-sm" onClick={() => postInfor()}>
-            Sign in
-          </button>
-          <a
+          <button type="submit" className="mr-3 btn btn-dark btn-sm">Register</button>
+          <button
             className="btn btn-light btn-sm"
             style={{ cursor: "pointer" }}
-            onClick={props.changeTypeToLogin}
-          >
-            Login in
-          </a>
+            onClick={  () => dispatch({
+              type: actionTypes.TO_LOGIN
+            })}
+          >Login in</button>
         </div>
-      </div>
+      </form>
     </div>
   );
 };

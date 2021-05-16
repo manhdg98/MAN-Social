@@ -11,10 +11,9 @@ import { useEffect } from "react";
 function MyApp({ Component, pageProps }) {
     const router = useRouter();
     useEffect(() => {
-        const token = localStorage.getItem("token");
-        console.log('token', token);
+        const token = localStorage.getItem("MAN-Social-Token");
         if (!token) {
-        router.push("/");
+            router.push("/");
         }
     }, []);
     return <Component {...pageProps} />
