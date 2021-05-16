@@ -30,7 +30,11 @@ const LoginForm = props => {
       <div className="logout-form">
         <form className="again-login" onSubmit={handleSubmit(onSubmit)}>
           <input
-            {...register("email", {required: true, pattern: /(^$|^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$)/i})}
+            {...register("email", {
+              required: true, 
+              pattern: /(^$|^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$)/i
+            })}
+            maxLength="255"
             type="email" 
             placeholder="User Name" 
             autoComplete="off" 
@@ -43,6 +47,7 @@ const LoginForm = props => {
           </div>
           <input 
             {...register("password", { required: true, min: 8 })}
+            maxLength="255"
             type="password"
             placeholder="Enter your password"
             autoComplete="new-password"
@@ -51,7 +56,7 @@ const LoginForm = props => {
           />
           <div className="text-danger">
             {errors.password?.type === 'required' && "Please enter your password."}
-            {errors.password?.type === 'min' && "Password should be 8 character."}
+            {errors.password?.type === 'min' && "Password must more than or equal 8 characters"}
           </div>
           <div className="d-flex align-items-center justify-content-center mt-3">
             <button type="submit" className="mr-3 btn btn-dark btn-sm">Login</button>

@@ -36,6 +36,7 @@ const Register = props => {
       <form className="again-login" onSubmit={handleSubmit(onSubmit)}>
         <input
           {...register("username", { required: true, min: 8 })}
+          maxLength="255"
           type="text"
           placeholder="User Name"
           autoComplete="off"
@@ -47,6 +48,7 @@ const Register = props => {
         </div>
         <input
           {...register("email", {required: true, pattern: /(^$|^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$)/i})}
+          maxLength="255"
           type="email" 
           placeholder="Enter your email"
           autoComplete="off"
@@ -59,6 +61,7 @@ const Register = props => {
         </div>
         <input
           {...register("password", { required: true, min: 8 })}
+          maxLength="255"
           type="password"
           placeholder="Enter your password"
           autoComplete="new-password"
@@ -67,13 +70,14 @@ const Register = props => {
         />
         <div className="text-danger">
           {errors.password?.type === 'required' && "Please enter your password."}
-          {errors.password?.type === 'min' && "Password should be 8 character."}
+          {errors.password?.type === 'min' && "Password must more than or equal 8 characters"}
         </div>
         <input
           {...register("confirmPassword", {
             required: true,
             validate: (value) => value === watch('password')
           })}
+          maxLength="255"
           type="password"
           placeholder="Enter your confirm password"
           autoComplete="new-password"

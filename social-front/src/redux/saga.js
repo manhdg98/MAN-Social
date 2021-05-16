@@ -14,7 +14,7 @@ function* sagaRegister(action) {
   let response;
   try {
     response = yield call(() => axios.post("/auth/register", info));
-    if (response.status < 300) {
+    if (response.status >= 200 && response.status < 300) {
       toastify.toastifySuccess('Create new account successful, please check your email.');
       yield put({
         type: actionTypes.TO_VERIFY,
@@ -29,7 +29,7 @@ function* sagaRegister(action) {
   }
 }
 
-function* sageVerify(action) {
+function* sagaVerify(action) {
   const { code, email } = action.payload;
   const info = {
     code,
@@ -38,7 +38,7 @@ function* sageVerify(action) {
   let response;
   try {
     response = yield call(() => axios.post("/auth/verify", info));
-    if (response.status < 300) {
+    if (response.status >= 200 && response.status < 300) {
       toastify.toastifySuccess('Verify successfull!');
       yield put({
         type: actionTypes.TO_LOGIN
@@ -61,8 +61,7 @@ function* sagaLogin(action) {
   let response;
   try {
     response = yield call(() => axios.post("/auth/login", info));
-    console.log(response);
-    if (response.status < 300) {
+    if (response.status >= 200 && response.status < 300) {
       toastify.toastifySuccess('Login successfull!');
       axios.defaults.headers.common["Authorization"] = `Bearer ${response.data.token}`;
       localStorage.setItem("MAN-Social-Token", response.data.token);
@@ -81,7 +80,7 @@ function* sagaLogin(action) {
 function* rootSaga() {
   yield all([
     takeLatest(actionTypes.REGISTER, sagaRegister),
-    takeLatest(actionTypes.VERIFY, sageVerify),
+    takeLatest(actionTypes.VERIFY, sagaVerify),
     takeLatest(actionTypes.LOGIN, sagaLogin)
   ]);
 }

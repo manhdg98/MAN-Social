@@ -34,6 +34,7 @@ const Verify = props => {
         <form className="again-login" onSubmit={handleSubmit(onSubmit)}>
           <input
             {...register("code", { required: true, pattern: /^\d{6}$/ })}
+            maxLength="255"
             type="number" 
             placeholder="Enter your code..." 
             autoComplete="off"
