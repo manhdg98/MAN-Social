@@ -1,7 +1,25 @@
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { actionTypes } from "redux/actions";
 
 function Header() {
+
+  const [active, setActive] = useState(false);
+  
+  const dispatch = useDispatch();
+  let data = useSelector((state) => state);
+  useEffect(() => {
+      dispatch({
+          type: actionTypes.INFO
+      });
+  }, []);
+
+  const onLogout = () => {
+    console.log('object');
+    dispatch({ type: actionTypes.LOGOUT })
+  }
+
   return (
     <header>
       <div className="topbar stick d-flex align-items-center justify-content-between pt-3 pb-3">
@@ -56,65 +74,19 @@ function Header() {
             </li>
           </ul>
           <div className="user-img">
-            <h5>Jack Carter</h5>
-            <img src="images/avatars/side-friend2.jpg" />
-            <span className="status f-online" />
-            <div className="user-setting">
-              <ul className="chat-setting">
-                <li>
-                  <a href="#">
-                    <span className="status f-online" />
-                    online
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <span className="status f-away" />
-                    away
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <span className="status f-off" />
-                    offline
-                  </a>
-                </li>
-              </ul>
-              <span className="seting-title">
-                User setting <a href="#">see all</a>
-              </span>
-              <ul className="log-out">
-                <li>
-                  <a href="about.html">
-                    <i className="ti-user" /> view profile
-                  </a>
-                </li>
-                <li>
-                  <a href="setting.html">
-                    <i className="ti-pencil-alt" />
-                    edit profile
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <i className="ti-target" />
-                    activity log
-                  </a>
-                </li>
-                <li>
-                  <a href="setting.html">
-                    <i className="ti-settings" />
-                    account setting
-                  </a>
-                </li>
-                <li>
-                  <a href="logout.html">
-                    <i className="ti-power-off" />
-                    log out
-                  </a>
-                </li>
-              </ul>
-            </div>
+            {data != undefined ? ( <>
+              <div className="user-img" onClick={() => setActive(!active)}>
+                <h5 className="mr-1">{data.info.username}</h5>
+                <img src="images/avatars/side-friend2.jpg" />
+              </div>
+              <div className={`${active ? 'active' : ''} user-setting`}>
+                <span className="seting-title">User setting <a href="#">see all</a></span>
+                <ul className="log-out">
+                  <li> <Link href="/profile"><a><i className="ti-user" /> view profile</a></Link></li>
+                  <li><a onClick={() => onLogout}><i className="ti-power-off"/>log out</a></li>
+                </ul>
+              </div>
+            </> ) : <></> }
           </div>
         </div>
       </div>

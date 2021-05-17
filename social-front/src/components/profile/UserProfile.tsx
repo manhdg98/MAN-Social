@@ -1,6 +1,19 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from "react-redux";
+import SideBar from './about/SideBar';
+import Content from './about/Content';
+import { actionTypes } from 'redux/actions';
 
-const Index = () => {
+const UserProfile = () => {
+
+    const dispatch = useDispatch();
+    let data = useSelector((state) => state);
+    useEffect(() => {
+        dispatch({
+            type: actionTypes.INFO
+        });
+    }, []);
+
     return (
     <section>
         <div className="gap2 gray-bg">
@@ -8,6 +21,7 @@ const Index = () => {
                 <div className="row">
                     <div className="col-lg-12">
                         <div className="row merged20" id="page-contents">
+                            {/* user profile */}
                             <div className="user-profile">
                                 <figure>
                                     <div className="edit-pp">
@@ -16,7 +30,7 @@ const Index = () => {
                                             <input type="file" />
                                         </label>
                                     </div>
-                                    <img src="images/resources/profile-image.jpg" />
+                                    <img alt="author" src="images/backgrounds/profile-image.jpg" />
                                     <ul className="profile-controls">
                                         <li><a href="#" title="Add friend" data-toggle="tooltip"><i className="fa fa-user-plus" /></a></li>
                                         <li><a href="#" title="Follow" data-toggle="tooltip"><i className="fa fa-star" /></a></li>
@@ -47,19 +61,21 @@ const Index = () => {
                                     <div className="row">
                                         <div className="col-lg-2 col-md-3">
                                             <div className="profile-author">
-                                            <div className="profile-author-thumb">
-                                                <img alt="author" src="images/resources/author.jpg" />
-                                                <div className="edit-dp">
-                                                <label className="fileContainer">
-                                                    <i className="fa fa-camera" />
-                                                    <input type="file" />
-                                                </label>
+                                            {data != undefined ? ( <>
+                                                <div className="profile-author-thumb">
+                                                    <img alt="author" src="images/avatars/author.jpg" />
+                                                    <div className="edit-dp">
+                                                    <label className="fileContainer">
+                                                        <i className="fa fa-camera" />
+                                                        <input type="file" />
+                                                    </label>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div className="author-content">
-                                                <a className="h4 author-name" href="about.html">Jack Carter</a>
-                                                <div className="country">Ontario, CA</div>
-                                            </div>
+                                                <div className="author-content">
+                                                    <a className="h4 author-name" href="about.html">{data.info.username}</a>
+                                                    <div className="country">{data.info.email}</div>
+                                                </div>
+                                            </> ) : <></> }
                                             </div>
                                         </div>
                                         <div className="col-lg-10 col-md-9">
@@ -102,7 +118,10 @@ const Index = () => {
                                     </div>
                                 </div>	
                             </div>
-                        </div>	
+                            {/*  */}
+                            <SideBar/>
+                            <Content/>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -111,4 +130,4 @@ const Index = () => {
     );
 };
 
-export default Index;
+export default UserProfile;

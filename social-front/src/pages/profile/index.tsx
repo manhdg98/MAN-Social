@@ -1,10 +1,11 @@
 import React from "react";
 import Page from "components/layout/Page";
-import { Skeleton } from 'antd';
-const Index = () => (
+import UserProfile from '../../components/profile/UserProfile'
+
+const index = () => (
   <Page>
-    <Skeleton avatar paragraph={{ rows: 4 }} />
+    <UserProfile/>
   </Page>
 );
 
-export default Index;
+export default index;
