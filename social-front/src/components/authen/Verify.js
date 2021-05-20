@@ -46,7 +46,7 @@ const Verify = props => {
             {errors.code?.type === 'pattern' && "Verify code has only 6 character."}
           </div>
           <div className="d-flex align-items-center justify-content-center mt-3">
-            <button type="submit" className="mr-3 btn btn-dark btn-sm">Submit</button>
+            <button type="submit" className="mr-3 btn-dark">Submit</button>
           </div>
         </form>
       </div>

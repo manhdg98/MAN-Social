@@ -8,5 +8,9 @@
       "success": "Register success.",
       "error": "Register false!"
     }
+  },
+  "local_storage": {
+    "token": "MAN-Social-Token",
+    "_ID": "UID"
   }
 }

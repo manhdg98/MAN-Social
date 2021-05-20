@@ -46,7 +46,7 @@ const LoginForm = props => {
             {errors.email?.type === 'pattern' && "Email should be in the format 'abc@gmail.com'."}
           </div>
           <input 
-            {...register("password", { required: true, min: 8 })}
+            {...register("password", { required: true, minLength: 8 })}
             maxLength="255"
             type="password"
             placeholder="Enter your password"
@@ -56,14 +56,14 @@ const LoginForm = props => {
           />
           <div className="text-danger">
             {errors.password?.type === 'required' && "Please enter your password."}
-            {errors.password?.type === 'min' && "Password must more than or equal 8 characters"}
+            {errors.password?.type === 'minLength' && "Password must more than or equal 8 characters"}
           </div>
           <div className="d-flex align-items-center justify-content-center mt-3">
-            <button type="submit" className="mr-3 btn btn-dark btn-sm">Login</button>
+            <button type="submit" className="mr-3 btn-dark">Login</button>
             <button onClick={  () => dispatch({
                 type: actionTypes.TO_REGISTER
               })}
-              className="btn btn-light btn-sm"
+              className="btn-light"
             >Register</button>
           </div>
         </form>

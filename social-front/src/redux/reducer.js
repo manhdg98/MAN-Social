@@ -3,7 +3,12 @@ import { HYDRATE } from "next-redux-wrapper";
 
 const initialState = {
   type: null,
-  email: null
+  email: null,
+  info: {
+    email: null,
+    id: null,
+    username: null
+  }
 };
 
 function reducer(state, action) {
@@ -24,9 +29,13 @@ function reducer(state, action) {
     case actionTypes.TO_VERIFY:
       return {
         ...state,
-        type: action.type,
+        type: action.type, 
         email: action.payload
       };
+    case actionTypes.GET_INFO:
+      return {
+        info: action.payload
+      }
     default:
       return state;
   }

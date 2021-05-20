@@ -1,7 +1,10 @@
 export const actionTypes = {
   LOGIN: "LOGIN",
+  LOGOUT: "LOGOUT",
   REGISTER: "REGISTER",
   VERIFY: "VERIFY",
+  INFO: "INFO",
+  GET_INFO: "GET_INFO",
   TO_LOGIN: "TO_LOGIN",
   TO_REGISTER: "TO_REGISTER",
   TO_VERIFY: "TO_VERIFY"

@@ -1,6 +1,6 @@
 {
   "extends": "../tsconfig.json",
   "compilerOptions": {},
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "components/authen/RecenLogin.js", "components/authen/Verify.js", "components/authen/Verify.js", "components/authen/Register.js", "components/authen/PageLogin.js", "components/authen/PageLogin.js", "components/authen/Register.js", "components/authen/Register.js", "components/authen/LoginForm.js"],
   "exclude": ["node_modules"]
 }

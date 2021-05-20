@@ -35,7 +35,7 @@ const Register = props => {
       <p>Create your account, to try app</p>
       <form className="again-login" onSubmit={handleSubmit(onSubmit)}>
         <input
-          {...register("username", { required: true, min: 8 })}
+          {...register("username", { required: true })}
           maxLength="255"
           type="text"
           placeholder="User Name"
@@ -60,7 +60,7 @@ const Register = props => {
           {errors.email?.type === 'pattern' && "Email should be in the format 'abc@gmail.com'."}
         </div>
         <input
-          {...register("password", { required: true, min: 8 })}
+          {...register("password", { required: true, minLength: 8 })}
           maxLength="255"
           type="password"
           placeholder="Enter your password"
@@ -70,7 +70,7 @@ const Register = props => {
         />
         <div className="text-danger">
           {errors.password?.type === 'required' && "Please enter your password."}
-          {errors.password?.type === 'min' && "Password must more than or equal 8 characters"}
+          {errors.password?.type === 'minLength' && "Password must more than or equal 8 characters"}
         </div>
         <input
           {...register("confirmPassword", {
@@ -86,12 +86,12 @@ const Register = props => {
         />
         <div className="text-danger">
           {errors.confirmPassword?.type === 'validate' && "Passwoed and confirm password not match."}
-          {errors.password?.type === 'required' && "Please enter your password."}
+          {errors.confirmPassword?.type === 'required' && "Please enter your password."}
         </div>
         <div className="d-flex align-items-center justify-content-center mt-3">
-          <button type="submit" className="mr-3 btn btn-dark btn-sm">Register</button>
+          <button type="submit" className="mr-3 btn-dark">Register</button>
           <button
-            className="btn btn-light btn-sm"
+            className="btn-light"
             style={{ cursor: "pointer" }}
             onClick={  () => dispatch({
               type: actionTypes.TO_LOGIN

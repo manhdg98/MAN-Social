@@ -3,6 +3,8 @@ import { actionTypes } from "./actions";
 import axios from "../common/axiosConfig";
 import * as toastify from "../common/toastify";
 import { useDispatch } from 'react-redux';
+import Router from "next/router";
+import config from "../common/config.json";
 
 function* sagaRegister(action) {
   const { username, email, password } = action.payload;
@@ -63,12 +65,10 @@ function* sagaLogin(action) {
     response = yield call(() => axios.post("/auth/login", info));
     if (response.status >= 200 && response.status < 300) {
       toastify.toastifySuccess('Login successfull!');
-      axios.defaults.headers.common["Authorization"] = `Bearer ${response.data.token}`;
-      localStorage.setItem("MAN-Social-Token", response.data.token);
-      // yield put({
-      //   type: actionTypes.TO_LOGIN
-      // });
-      return response;
+      yield localStorage.setItem(config.local_storage.token, response.data.token);
+      yield localStorage.setItem(config.local_storage._ID, response.data.id);
+      yield axios.defaults.headers.common["Authorization"] = `Bearer ${localStorage.getItem(config.local_storage.token)}`;
+      yield Router.push("/profile")
     } else {
       console.log(response);
     }
@@ -77,11 +77,39 @@ function* sagaLogin(action) {
   }
 }
 
+function* sagaInfo() {
+  if(localStorage.getItem(config.local_storage._ID) != undefined) {
+    let response;
+    try {
+      response = yield call(() => axios.get(`/users/${localStorage.getItem(config.local_storage._ID)}`));
+      if (response.status >= 200 && response.status < 300) {
+        yield put({
+          type: actionTypes.GET_INFO,
+          payload: response.data
+        });
+      } else {
+        console.log(response);
+      }
+    } catch (error) {
+      toastify.toastifyError(error.response.data.message ? error.response.data.message : error.response.data);
+    }
+  }
+}
+
+function* sagaLogout() {
+  yield localStorage.removeItem(config.local_storage.token);
+  yield localStorage.removeItem(config.local_storage._ID);
+  yield axios.defaults.headers.common["Authorization"] = '';
+  yield Router.push("/");
+}
+
 function* rootSaga() {
   yield all([
     takeLatest(actionTypes.REGISTER, sagaRegister),
     takeLatest(actionTypes.VERIFY, sagaVerify),
-    takeLatest(actionTypes.LOGIN, sagaLogin)
+    takeLatest(actionTypes.LOGIN, sagaLogin),
+    takeLatest(actionTypes.INFO, sagaInfo),
+    takeLatest(actionTypes.LOGOUT, sagaLogout),
   ]);
 }
 

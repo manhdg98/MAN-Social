@@ -1,10 +1,8 @@
-// import App from "next/app";
 import Router, { useRouter } from "next/router";
 import 'antd/dist/antd.css';
 import "../styles/styles.scss";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import { wrapper } from '../redux/store';
-
 import * as gtag from "lib/gtag";
 import { useEffect } from "react";
 

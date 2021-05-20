@@ -1,13 +1,22 @@
-// Processed by the Tailwind postcss plugin
-@tailwind base;
-@tailwind components;
+.input-password {
+    position: relative;
 
-// Styles using Tailwind utilities
-@import "./buttons";
-@import "./layout";
-@import "./typography";
+    .input-group-addon {
+        position: absolute;
+        height: 100%;
+        display: flex;
+        z-index: 1;
+        width: 50px;
+        background-color: #ccc;
+        justify-content: center;
+        align-items: center;
+        right: 0;
+        top: 0;
+        cursor: pointer;
+        transition: .3s;
 
-@tailwind utilities;
-
-// Styles not using Tailwind utilities
-@import "./global";
+        &:hover {
+            background-color: #aaa;
+        }
+    }
+}

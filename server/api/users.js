@@ -22,18 +22,7 @@ router.route("/:id/update-password").post(async (req, res) => {
 
   const { id } = req.params;
   const user = await User.findById(id);
-  console.log(
-    "user",
-    user,
-    "user-password",
-    user.password,
-    "oldPassword",
-    oldPassword
-  );
-
   const isValid = await bcrypt.compare(oldPassword, user.password);
-
-  console.log("manhnt", isValid);
   if (!isValid) {
     res.status(400).send("Invalid Password");
   }

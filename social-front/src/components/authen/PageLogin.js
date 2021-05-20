@@ -11,13 +11,13 @@ import { actionTypes } from "redux/actions";
 const PageLogin = () => {
   const dispatch = useDispatch();
 
-  let data = useSelector((state) => state);
-
   useEffect(() => {
     dispatch({
       type: actionTypes.TO_LOGIN
     });
   }, []);
+
+  let data = useSelector((state) => state);
 
   const showForm = () => {
     if (data === undefined || data.type === actionTypes.TO_LOGIN) {
