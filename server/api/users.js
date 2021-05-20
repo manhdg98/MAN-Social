@@ -3,7 +3,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 
-const { User, Curriculum } = require("@db");
+const { User } = require("@db");
 const bcrypt = require("bcrypt");
 const { hashPassword } = require("../utils/auth");
 
@@ -47,6 +47,7 @@ router.route("/:id/update-password").post(async (req, res) => {
 router
   .route("/:id")
   .get(async (req, res) => {
+    console.log("manhnt");
     const userId = req.params.id;
     const user = await User.findById(userId);
     res.send(user);
