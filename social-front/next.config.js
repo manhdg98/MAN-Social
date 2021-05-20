@@ -9,7 +9,7 @@ const path = require("path");
 
 const nextConfig = {
   env: {
-    appTitle: "Next.js Template",
+    appTitle: "MAN Social",
     appUrl: process.env.APP_URL
   },
   analyzeServer: ["server", "both"].includes(process.env.BUNDLE_ANALYZE),

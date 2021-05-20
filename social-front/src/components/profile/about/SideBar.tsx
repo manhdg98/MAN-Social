@@ -1,6 +1,6 @@
 import React from 'react';
 
-const SideBar = () => {
+const Sidebar = () => {
     return (
     <div className="col-lg-4 col-md-4">
         <aside className="sidebar">
@@ -50,4 +50,4 @@ const SideBar = () => {
     );
 };
 
-export default SideBar;
+export default React.memo(Sidebar);

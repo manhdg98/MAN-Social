@@ -4,21 +4,15 @@ import { useDispatch, useSelector } from "react-redux";
 import { actionTypes } from "redux/actions";
 
 function Header() {
-
   const [active, setActive] = useState(false);
-  
   const dispatch = useDispatch();
-  let data = useSelector((state) => state);
+  let data;
+  useSelector((state) => data = state);
   useEffect(() => {
       dispatch({
           type: actionTypes.INFO
       });
   }, []);
-
-  const onLogout = () => {
-    console.log('object');
-    dispatch({ type: actionTypes.LOGOUT })
-  }
 
   return (
     <header>
@@ -74,7 +68,7 @@ function Header() {
             </li>
           </ul>
           <div className="user-img">
-            {data != undefined ? ( <>
+            {(data != undefined && data.info != undefined) ? ( <>
               <div className="user-img" onClick={() => setActive(!active)}>
                 <h5 className="mr-1">{data.info.username}</h5>
                 <img src="images/avatars/side-friend2.jpg" />
@@ -83,7 +77,10 @@ function Header() {
                 <span className="seting-title">User setting <a href="#">see all</a></span>
                 <ul className="log-out">
                   <li> <Link href="/profile"><a><i className="ti-user" /> view profile</a></Link></li>
-                  <li><a onClick={() => onLogout}><i className="ti-power-off"/>log out</a></li>
+                  <li> <a><i className="ti-user" /> view profile</a></li>
+                  <li><a onClick={() => {
+                    dispatch({ type: actionTypes.LOGOUT })
+                  }}><i className="ti-power-off"/>log out</a></li>
                 </ul>
               </div>
             </> ) : <></> }

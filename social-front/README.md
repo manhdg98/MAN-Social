@@ -1,4 +1,4 @@
-<h1 align="center">Next.js Template</h1>
+<h1 align="center">MAN Social</h1>
 <h3 align="center">Full-featured template for JAMstack websites using next.js</h3>
 <p align="center">
 	<a href="https://travis-ci.org/jsulpis/nextjs-template">

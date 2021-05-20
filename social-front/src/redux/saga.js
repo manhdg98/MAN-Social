@@ -65,9 +65,10 @@ function* sagaLogin(action) {
     response = yield call(() => axios.post("/auth/login", info));
     if (response.status >= 200 && response.status < 300) {
       toastify.toastifySuccess('Login successfull!');
-      localStorage.setItem(config.local_storage.token, response.data.token);
-      localStorage.setItem(config.local_storage._ID, response.data.id);
-      Router.push("/profile");
+      yield localStorage.setItem(config.local_storage.token, response.data.token);
+      yield localStorage.setItem(config.local_storage._ID, response.data.id);
+      yield axios.defaults.headers.common["Authorization"] = `Bearer ${localStorage.getItem(config.local_storage.token)}`;
+      yield Router.push("/profile")
     } else {
       console.log(response);
     }
@@ -77,29 +78,29 @@ function* sagaLogin(action) {
 }
 
 function* sagaInfo() {
-  let response;
-  try {
-    response = yield call(() => axios.get(`/users/${localStorage.getItem(config.local_storage._ID)}`));
-    if (response.status >= 200 && response.status < 300) {
-      yield put({
-        type: actionTypes.GET_INFO,
-        payload: response.data
-      });
-    } else {
-      console.log(response);
+  if(localStorage.getItem(config.local_storage._ID) != undefined) {
+    let response;
+    try {
+      response = yield call(() => axios.get(`/users/${localStorage.getItem(config.local_storage._ID)}`));
+      if (response.status >= 200 && response.status < 300) {
+        yield put({
+          type: actionTypes.GET_INFO,
+          payload: response.data
+        });
+      } else {
+        console.log(response);
+      }
+    } catch (error) {
+      toastify.toastifyError(error.response.data.message ? error.response.data.message : error.response.data);
     }
-  } catch (error) {
-    toastify.toastifyError(error.response.data.message ? error.response.data.message : error.response.data);
   }
 }
 
 function* sagaLogout() {
-  console.log('object');
-  localStorage.removeItem(config.local_storage.token, response.data.token);
-  localStorage.removeItem(config.local_storage._ID, response.data.id);
-  yield put({
-    type: actionTypes.TO_LOGIN
-  });
+  yield localStorage.removeItem(config.local_storage.token);
+  yield localStorage.removeItem(config.local_storage._ID);
+  yield axios.defaults.headers.common["Authorization"] = '';
+  yield Router.push("/");
 }
 
 function* rootSaga() {
