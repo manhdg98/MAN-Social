@@ -2,8 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { actionTypes } from 'redux/actions';
 import { contentPage } from './ProfileConstants';
+import { Button } from 'antd';
+import UploadAvatar from './modal/UploadAvatar';
+import UploadBackground from './modal/UploadBackground';
 
 const Profile = (props) => {
+    // fetch api get info
     const [tabactive, setTabactive] = useState(props.tab);
     const dispatch = useDispatch();
     let data;
@@ -18,14 +22,39 @@ const Profile = (props) => {
         props.changeTab(data);
     }
 
+    // show modal upload avatar
+    const [isModalVisible, setIsModalVisible] = useState(false);
+    const showModal = () => {
+        setIsModalVisible(true);
+    };
+    const handleOk = () => {
+        setIsModalVisible(false);
+    };
+    const handleCancel = () => {
+        setIsModalVisible(false);
+    };
+
+    // show modal upload background
+    const [isModalUpdateBG, setIsModalUpdateBG] = useState(false);
+    const showModalUpdateBG = () => {
+        setIsModalUpdateBG(true);
+    };
+    const handleOkUpdateBG = () => {
+        setIsModalUpdateBG(false);
+    };
+    const handleCancelUpdateBG = () => {
+        setIsModalUpdateBG(false);
+    };
+
     return (
     <div className="user-profile">
         <figure>
             <div className="edit-pp">
-                <label className="fileContainer"> 
-                    <i className="fa fa-camera" />
-                    <input type="file" />
-                </label>
+                <Button type="primary" onClick={showModalUpdateBG} className="hidden-btn-antd">
+                    <label className="fileContainer"> 
+                        <i className="fa fa-camera" />
+                    </label>
+                </Button>
             </div>
             <img alt="author" src="images/backgrounds/profile-image.jpg" />
             <ul className="profile-controls">
@@ -62,10 +91,11 @@ const Profile = (props) => {
                         <div className="profile-author-thumb">
                             <img alt="author" src="images/avatars/author.jpg" />
                             <div className="edit-dp">
-                            <label className="fileContainer">
-                                <i className="fa fa-camera" />
-                                <input type="file" />
-                            </label>
+                                <Button type="primary" onClick={showModal} className="hidden-btn-antd">
+                                    <label className="fileContainer m-0">
+                                        <i className="fa fa-camera" />
+                                    </label>
+                                </Button>
                             </div>
                         </div>
                         <div className="author-content">
@@ -94,6 +124,9 @@ const Profile = (props) => {
                 </div>
             </div>
         </div>	
+        {/* Modal */}
+        <UploadAvatar handleCancel={handleCancel} handleOk={handleOk} isModalVisible={isModalVisible}/>
+        <UploadBackground handleCancel={handleCancelUpdateBG} handleOk={handleOkUpdateBG} isModalVisible={isModalUpdateBG}/>
     </div>
     );
 };

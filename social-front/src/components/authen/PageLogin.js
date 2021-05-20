@@ -1,33 +1,33 @@
-import React, { useEffect, useState } from "react";
-import LoginForm from "./LoginForm";
-import RecenLogin from "./RecenLogin";
-import Register from "./Register";
-import Verify from "./Verify";
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import { useSelector, useDispatch } from "react-redux";
-import { actionTypes } from "redux/actions";
+import React, { useEffect, useState } from "react"
+import LoginForm from "./LoginForm"
+import RecenLogin from "./RecenLogin"
+import Register from "./Register"
+import Verify from "./Verify"
+import { ToastContainer } from "react-toastify"
+import "react-toastify/dist/ReactToastify.css"
+import { useSelector, useDispatch } from "react-redux"
+import { actionTypes } from "redux/actions"
 
 const PageLogin = () => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
 
   useEffect(() => {
     dispatch({
       type: actionTypes.TO_LOGIN
-    });
-  }, []);
+    })
+  }, [])
 
-  let data = useSelector((state) => state);
+  let data = useSelector((state) => state)
 
   const showForm = () => {
     if (data === undefined || data.type === actionTypes.TO_LOGIN) {
-      return <LoginForm/>;
+      return <LoginForm/>
     } else if (data.type === actionTypes.TO_REGISTER) {
-      return <Register/>;
+      return <Register/>
     } else if (data.type === actionTypes.TO_VERIFY) {
-      return <Verify/>;
+      return <Verify/>
     }
-  };
+  }
 
   return (
     <>
@@ -58,7 +58,7 @@ const PageLogin = () => {
         </div>
       </section>
     </>
-  );
-};
+  )
+}
 
-export default PageLogin;
+export default PageLogin

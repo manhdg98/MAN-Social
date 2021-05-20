@@ -1,108 +1,108 @@
-const express = require("express");
-const mongoose = require("mongoose");
-const bcrypt = require("bcrypt");
+const express = require("express")
+const mongoose = require("mongoose")
+const bcrypt = require("bcrypt")
 
 const {
   auth: { hashPassword },
   jwt: { generateToken },
   mailgun: { sendEmail },
-} = require("../utils");
+} = require("../utils")
 
-mongoose.set("debug", true);
+mongoose.set("debug", true)
 
-const { User, Verification } = require("@db");
+const { User, Verification } = require("@db")
 
-const router = express.Router();
+const router = express.Router()
 
 router.route("/login").post(async (req, res) => {
   try {
-    const { email, password } = req.body;
-    const user = await User.findOne({ email });
+    const { email, password } = req.body
+    const user = await User.findOne({ email })
 
-    const isValid = await bcrypt.compare(password, user.password);
+    const isValid = await bcrypt.compare(password, user.password)
     if (!isValid) {
-      res.status(401).send("Invalid Login Credentials");
+      res.status(401).send("Invalid Login Credentials")
     }
 
-    const token = generateToken(user._id);
+    const token = generateToken(user._id)
 
     let payload = {
       id: user._id,
       username: user.username,
       email: user.email,
       token,
-    };
+    }
 
-    res.send(payload);
+    res.send(payload)
   } catch (err) {
-    console.error(err);
+    console.error(err)
   }
-});
+})
 
 router.route("/register").post(async (req, res) => {
-  const { username, email, password } = req.body;
-  console.log(req.body);
+  const { username, email, password } = req.body
+  console.log(req.body)
 
   try {
-    const emailDB = await User.findOne({ email });
+    const emailDB = await User.findOne({ email })
     if (emailDB) {
       res.status(400).send({
         statusEmail: "exist",
-      });
+      })
     }
     if (password.length >= 8) {
-      const hash = await hashPassword(password);
+      const hash = await hashPassword(password)
       const user = new User({
         username,
         email,
         password: hash,
-      });
-      const userRes = await user.save();
-      console.log(userRes);
+      })
+      const userRes = await user.save()
+      console.log(userRes)
 
-      const code = Math.floor(Math.random() * (999999 - 100000) + 100000);
+      const code = Math.floor(Math.random() * (999999 - 100000) + 100000)
       const verification = new Verification({
         userId: userRes._id,
         code,
-      });
-      await verification.save();
+      })
+      await verification.save()
 
       const payload = {
         code,
         email,
         username,
-      };
-      await sendEmail(payload);
-      res.send(201, { username, email });
+      }
+      await sendEmail(payload)
+      res.send(201, { username, email })
     } else {
-      res.send("Invalid credentials").status(400);
+      res.send("Invalid credentials").status(400)
     }
   } catch (err) {
-    console.log(err);
-    res.send(400);
+    console.log(err)
+    res.send(400)
   }
-});
+})
 
 router.route("/verify").post(async (req, res) => {
-  const { email, code } = req.body;
+  const { email, code } = req.body
 
   try {
-    const user = await User.findOne({ email });
-    const verify = await Verification.findOne({ userId: user._id });
+    const user = await User.findOne({ email })
+    const verify = await Verification.findOne({ userId: user._id })
 
     if (verify.code === parseInt(code)) {
-      user.isVerified = true;
-      await user.save();
-      res.send("Verified");
-      return true;
+      user.isVerified = true
+      await user.save()
+      res.send("Verified")
+      return true
     } else {
-      res.status(400).send("Invalid Code");
+      res.status(400).send("Invalid Code")
     }
   } catch (err) {
-    res.status(400).send("Invalid Code");
+    res.status(400).send("Invalid Code")
   }
-});
+})
 
-router.route("/logout");
+router.route("/logout")
 
-module.exports = router;
+module.exports = router

@@ -1,5 +1,5 @@
-const express = require("express");
-const mongoose = require("mongoose");
+const express = require("express")
+const mongoose = require("mongoose")
 
 const {
   singleFileUpload,
@@ -10,11 +10,11 @@ const {
   getAllImgTimeLine,
 } = require("../controllers/fileuploaderController");
 
-const router = express.Router();
-const { upload } = require("../utils/filehelper");
+const router = express.Router()
+const { upload } = require("../utils/filehelper")
 
 if (process.env.NODE_ENV !== "production") {
-  mongoose.set("debug", true);
+  mongoose.set("debug", true)
 }
 
 router.post("/singleFile", upload.single("file"), singleFileUpload);

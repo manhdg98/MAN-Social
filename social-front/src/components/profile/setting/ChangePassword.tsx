@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useForm } from "react-hook-form";
+import { actionTypes } from '../../../redux/actions'
 
 const ChangePassword = () => {
     const dispatch = useDispatch();
@@ -17,10 +18,13 @@ const ChangePassword = () => {
     const onSubmit = () => {
         const data = {
             oldPassword,
-            newPassword,
-            confirmPassword
+            newPassword
         };
-        console.log(data);
+        
+        dispatch({
+            type: actionTypes.CHANGEPASSWORD,
+            payload: data
+        })
     };
 
     return (
@@ -100,8 +104,7 @@ const ChangePassword = () => {
                             </div>
                         </div>
                         <div>
-                            <button type="submit" className="m-0 btn-danger">Cancel</button>
-                            <button type="submit" className="ml-0 mr-3 btn-dark">Save</button>
+                            <button type="submit" className="ml-0 btn-dark">Save</button>
                         </div>
                     </form>
                 </div>

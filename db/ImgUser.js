@@ -1,6 +1,6 @@
-const mongoose = require("mongoose");
+const mongoose = require("mongoose")
 
-const Schema = mongoose.Schema;
+const Schema = mongoose.Schema
 
 const imgUserSchema = new Schema(
   {
@@ -25,6 +25,6 @@ const imgUserSchema = new Schema(
     imgTimelines: [Object],
   },
   { timestamps: true }
-);
+)
 
-module.exports = mongoose.model("imgUser", imgUserSchema);
+module.exports = mongoose.model("imgUser", imgUserSchema)

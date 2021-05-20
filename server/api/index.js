@@ -1,6 +1,6 @@
-const express = require("express");
-const router = express.Router();
-const path = require("path");
+const express = require("express")
+const router = express.Router()
+const path = require("path")
 
 const authMiddleware = require("../middleware/auth");
 const auth = require("./auth");
@@ -13,6 +13,6 @@ router.use("/images", authMiddleware, images);
 router.use(
   "/uploads",
   express.static(path.join(__dirname, "..", "..", "uploads"))
-);
+)
 
-module.exports = router;
+module.exports = router

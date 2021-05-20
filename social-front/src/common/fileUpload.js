@@ -1,13 +1,13 @@
-import axios from "./axiosConfig";
+import axios from "./axiosConfig"
 
 export const singleFileUpload = async data => {
   try {
     await axios.post("/images/singleFile", data);
     console.log("done");
   } catch (error) {
-    throw error.response;
+    throw error.response
   }
-};
+}
 export const getSingleFiles = async () => {
   try {
     const info = {
@@ -19,7 +19,7 @@ export const getSingleFiles = async () => {
     });
     return data;
   } catch (error) {
-    throw error;
+    throw error
   }
 };
 

@@ -1,27 +1,27 @@
-import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useForm } from "react-hook-form";
-import { actionTypes } from '../../redux/actions';
+import React, { useState } from "react"
+import { useDispatch, useSelector } from "react-redux"
+import { useForm } from "react-hook-form"
+import { actionTypes } from '../../redux/actions'
 
 const Verify = props => {
   
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
 
-  const [code, setCode] = useState("");
-  let data = useSelector(state => state);
+  const [code, setCode] = useState("")
+  let data = useSelector(state => state)
   
-  const { register, formState: { errors }, handleSubmit } = useForm();
+  const { register, formState: { errors }, handleSubmit } = useForm()
 
   const onSubmit = () => {
     const info = {
       code: code,
       email: data.email
-    };
+    }
 
     dispatch({
       type: actionTypes.VERIFY,
       payload: info
-    });
+    })
   }
 
   return (
@@ -51,7 +51,7 @@ const Verify = props => {
         </form>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Verify;
+export default Verify

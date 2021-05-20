@@ -1,11 +1,11 @@
-require("dotenv").config();
-const webpack = require("webpack");
-const withBundleAnalyzer = require("@zeit/next-bundle-analyzer");
-const withSass = require("@zeit/next-sass");
-const withCss = require("@zeit/next-css");
-const withFonts = require("next-fonts");
-const withPurgeCss = require("next-purgecss");
-const path = require("path");
+require("dotenv").config()
+const webpack = require("webpack")
+const withBundleAnalyzer = require("@zeit/next-bundle-analyzer")
+const withSass = require("@zeit/next-sass")
+const withCss = require("@zeit/next-css")
+const withFonts = require("next-fonts")
+const withPurgeCss = require("next-purgecss")
+const path = require("path")
 
 const nextConfig = {
   env: {
@@ -33,7 +33,7 @@ const nextConfig = {
       contact: {
         page: "/contact"
       }
-    };
+    }
   },
   purgeCssEnabled: ({ dev }) => !dev, // Disable purgecss during development
   purgeCss: {
@@ -42,17 +42,17 @@ const nextConfig = {
     whitelistPatterns: () => [/svg.*/, /fa.*/] // Keep Fontawesome classes
   },
   webpack: config => {
-    config.resolve.modules = [path.resolve("./node_modules"), path.resolve("src")];
-    config.plugins.push(new webpack.IgnorePlugin(/\/__tests__\//));
+    config.resolve.modules = [path.resolve("./node_modules"), path.resolve("src")]
+    config.plugins.push(new webpack.IgnorePlugin(/\/__tests__\//))
     // Fixes npm packages that depend on `fs` module
     config.node = {
       fs: "empty"
-    };
+    }
 
-    return config;
+    return config
   }
-};
+}
 
 module.exports = withSass(
   withCss(withPurgeCss(withFonts(withBundleAnalyzer(nextConfig))))
-);
+)
