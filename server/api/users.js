@@ -1,20 +1,20 @@
 // TODO: make /users/:username or email api endpoints
 
-const express = require("express");
-const mongoose = require("mongoose");
+const express = require("express")
+const mongoose = require("mongoose")
 
-const { User } = require("@db");
-const bcrypt = require("bcrypt");
-const { hashPassword } = require("../utils/auth");
+const { User } = require("@db")
+const bcrypt = require("bcrypt")
+const { hashPassword } = require("../utils/auth")
 
-const router = express.Router();
+const router = express.Router()
 
 if (process.env.NODE_ENV !== "production") {
-  mongoose.set("debug", true);
+  mongoose.set("debug", true)
 }
 
 router.route("/:id/update-password").post(async (req, res) => {
-  const { oldPassword, newPassword } = req.body;
+  const { oldPassword, newPassword } = req.body
 
   if (newPassword.length >= 8) {
     const { id } = req.params;
@@ -36,36 +36,36 @@ router.route("/:id/update-password").post(async (req, res) => {
 router
   .route("/:id")
   .get(async (req, res) => {
-    console.log("manhnt");
-    const userId = req.params.id;
-    const user = await User.findById(userId);
-    res.send(user);
+    console.log("manhnt")
+    const userId = req.params.id
+    const user = await User.findById(userId)
+    res.send(user)
   })
   .patch(async (req, res) => {
-    const userId = req.params.id;
-    const { username, email } = req.body;
+    const userId = req.params.id
+    const { username, email } = req.body
 
-    const user = await User.findById(userId);
+    const user = await User.findById(userId)
 
-    if (email) user.email = email;
-    if (username) user.username = username;
+    if (email) user.email = email
+    if (username) user.username = username
 
-    await user.save();
+    await user.save()
 
-    res.send(201);
+    res.send(201)
   })
-  .delete(async (req, res) => {});
+  .delete(async (req, res) => {})
 
 router.route("/").get(async (req, res) => {
   User.find({}, (err, users) => {
-    let userMap = {};
+    let userMap = {}
 
     users.forEach((user) => {
-      userMap[user._id] = user;
-    });
+      userMap[user._id] = user
+    })
 
-    res.send(userMap);
-  });
-});
+    res.send(userMap)
+  })
+})
 
-module.exports = router;
+module.exports = router

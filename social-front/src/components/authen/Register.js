@@ -1,17 +1,17 @@
-import React, { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { useForm } from "react-hook-form";
-import { actionTypes } from '../../redux/actions';
+import React, { useState, useEffect } from "react"
+import { useDispatch } from "react-redux"
+import { useForm } from "react-hook-form"
+import { actionTypes } from '../../redux/actions'
 
 const Register = props => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
   
-  const { register, watch, formState: { errors }, handleSubmit } = useForm();
+  const { register, watch, formState: { errors }, handleSubmit } = useForm()
 
-  const [username, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
+  const [username, setName] = useState("")
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+  const [confirmPassword, setConfirmPassword] = useState("")
 
   const onSubmit = () => {
     const info = {
@@ -19,13 +19,13 @@ const Register = props => {
       email,
       password,
       confirmPassword
-    };
+    }
 
     dispatch({
       type: "REGISTER",
       payload: info
-    });
-  };
+    })
+  }
 
   return (
     <div className="logout-f">
@@ -100,7 +100,7 @@ const Register = props => {
         </div>
       </form>
     </div>
-  );
-};
+  )
+}
 
-export default Register;
+export default Register

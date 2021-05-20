@@ -1,5 +1,5 @@
-import { actionTypes } from "./actions";
-import { HYDRATE } from "next-redux-wrapper";
+import { actionTypes } from "./actions"
+import { HYDRATE } from "next-redux-wrapper"
 
 const initialState = {
   type: null,
@@ -9,36 +9,36 @@ const initialState = {
     id: null,
     username: null
   }
-};
+}
 
 function reducer(state, action) {
   switch (action.type) {
     case HYDRATE: {
-      return { ...state, ...action.payload };
+      return { ...state, ...action.payload }
     }
     case actionTypes.TO_LOGIN:
       return {
         ...state,
         type: action.type
-      };
+      }
     case actionTypes.TO_REGISTER:
       return {
         ...state,
         type: action.type
-      };
+      }
     case actionTypes.TO_VERIFY:
       return {
         ...state,
         type: action.type, 
         email: action.payload
-      };
+      }
     case actionTypes.GET_INFO:
       return {
         info: action.payload
       }
     default:
-      return state;
+      return state
   }
 }
 
-export default reducer;
+export default reducer

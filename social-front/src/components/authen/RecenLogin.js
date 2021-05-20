@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"
 
 const RecenLogin = () => {
   return (
@@ -39,7 +39,7 @@ const RecenLogin = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default RecenLogin;
+export default RecenLogin

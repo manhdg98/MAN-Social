@@ -19,6 +19,6 @@ app.use(express.urlencoded({ extended: true }))
 
 app.use('/api/v1', routes)
 
-app.use(express.static('dist'));
+app.use(express.static('dist'))
 
 app.listen(port, () => console.log(`App listening on port ${port}!`))

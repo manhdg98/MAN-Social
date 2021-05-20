@@ -1,26 +1,26 @@
-import React, { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { useForm } from "react-hook-form";
-import { actionTypes } from '../../redux/actions';
+import React, { useState, useEffect } from "react"
+import { useDispatch } from "react-redux"
+import { useForm } from "react-hook-form"
+import { actionTypes } from '../../redux/actions'
 
 const LoginForm = props => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
   
-  const { register, formState: { errors }, handleSubmit } = useForm();
+  const { register, formState: { errors }, handleSubmit } = useForm()
 
   const onSubmit = (data) => {
     const info = {
       email,
       password
-    };
+    }
 
     dispatch({
       type: actionTypes.LOGIN,
       payload: info
-    });
+    })
   }
 
   return (
@@ -61,15 +61,15 @@ const LoginForm = props => {
           <div className="d-flex align-items-center justify-content-center mt-3">
             <button type="submit" className="mr-3 btn-dark">Login</button>
             <button onClick={  () => dispatch({
-                type: actionTypes.TO_REGISTER
-              })}
-              className="btn-light"
+              type: actionTypes.TO_REGISTER
+            })}
+            className="btn-light"
             >Register</button>
           </div>
         </form>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default LoginForm;
+export default LoginForm
