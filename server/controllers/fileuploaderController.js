@@ -19,13 +19,82 @@ const singleFileUpload = async (req, res, next) => {
   }
 };
 
-const getallSingleFiles = async (req, res, next) => {
+const getSingleFiles = async (req, res, next) => {
   try {
-    const { file_id, type } = req.query;
-    console.log("manhnt", file_id);
+    const { type, file_id } = req.body;
+    const files = await imgUser
+      .find({
+        type: type,
+        fileId: file_id,
+      })
+      .sort({ createdAt: -1 })
+      .limit(1);
+    res.status(200).send(files);
+  } catch (error) {
+    res.status(400).send(error.message);
+  }
+};
+
+const getAllSingleFiles = async (req, res, next) => {
+  try {
+    const { type, file_id } = req.body;
     const files = await imgUser.find({
-      fileId: file_id,
       type: type,
+      fileId: file_id,
+    });
+    res.status(200).send(files);
+  } catch (error) {
+    res.status(400).send(error.message);
+  }
+};
+
+const imgTimelineUploads = async (req, res, next) => {
+  try {
+    let filesArray = [];
+    const { type, file_id } = req.body;
+    req.files.forEach((element) => {
+      const file = {
+        fileName: element.originalname,
+        filePath: element.path,
+        fileType: element.mimetype,
+        fileSize: fileSizeFormatter(element.size, 2),
+      };
+      filesArray.push(file);
+    });
+    const multipleFiles = new imgUser({
+      imgTimelines: filesArray,
+      type: type,
+      fileId: file_id,
+    });
+    await multipleFiles.save();
+    res.status(201).send("Files Uploaded Successfully");
+  } catch (error) {
+    res.status(400).send(error.message);
+  }
+};
+
+const getImgTimeLine = async (req, res, next) => {
+  try {
+    const { type, file_id } = req.query;
+    let files = await imgUser
+      .find({
+        type: type,
+        fileId: file_id,
+      })
+      .sort({ createdAt: -1 })
+      .limit(1);
+    res.status(200).send(files);
+  } catch (error) {
+    res.status(400).send(error.message);
+  }
+};
+
+const getAllImgTimeLine = async (req, res, next) => {
+  try {
+    const { type, file_id } = req.query;
+    let files = await imgUser.find({
+      type: type,
+      fileId: file_id,
     });
     res.status(200).send(files);
   } catch (error) {
@@ -47,5 +116,9 @@ const fileSizeFormatter = (bytes, decimal) => {
 
 module.exports = {
   singleFileUpload,
-  getallSingleFiles,
+  getSingleFiles,
+  getAllSingleFiles,
+  imgTimelineUploads,
+  getImgTimeLine,
+  getAllImgTimeLine,
 };
