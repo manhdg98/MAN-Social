@@ -12,12 +12,11 @@ export const getSingleFiles = async () => {
   try {
     const info = {
       type: "avatar",
-      file_id: "user-2"
+      file_id: "user-1"
     };
     const { data } = await axios.get("/images/getSingleFiles", {
       params: info
     });
-    console.log("data", data);
     return data;
   } catch (error) {
     throw error;
@@ -36,8 +35,8 @@ export const multipleFilesUpload = async data => {
 export const getMultipleFiles = async () => {
   try {
     const info = {
-      type: "timeline",
-      file_id: "user-2"
+      type: "avatar",
+      file_id: "user-3"
     };
     const { data } = await axios.get("/images/imgTimeLines", {
       params: info

@@ -1,19 +1,40 @@
 "use strict";
 const { imgUser } = require("@db");
+const cloudinary = require("cloudinary").v2;
+
+cloudinary.config({
+  cloud_name: "manteam",
+  api_key: "998254271125192",
+  api_secret: "yfMsXKFUW0VIR_y54u9qjmhZnAw",
+});
 
 const singleFileUpload = async (req, res, next) => {
   try {
     const { type, file_id } = req.body;
-    const file = new imgUser({
-      fileName: req.file.originalname,
-      filePath: req.file.path,
-      fileType: req.file.mimetype,
-      fileSize: fileSizeFormatter(req.file.size, 2), // 0.00,
-      type: type,
-      fileId: file_id,
-    });
-    await file.save();
-    res.status(201).send("File Uploaded Successfully");
+    const { originalname, path, mimetype } = req.file;
+    await cloudinary.uploader.upload(
+      path,
+      {
+        folder: `uploads/${file_id}/${type}`,
+        use_filename: true,
+      },
+      async (error, result) => {
+        if (result) {
+          const file = new imgUser({
+            fileName: originalname,
+            filePath: result.url,
+            fileType: mimetype,
+            fileSize: fileSizeFormatter(req.file.size, 2), // 0.00,
+            type: type,
+            fileId: file_id,
+          });
+          await file.save();
+          res.status(201).send("File Uploaded Successfully");
+        } else {
+          console.log({ message: "image upload fail", error });
+        }
+      }
+    );
   } catch (error) {
     res.status(400).send(error.message);
   }
@@ -21,7 +42,8 @@ const singleFileUpload = async (req, res, next) => {
 
 const getSingleFiles = async (req, res, next) => {
   try {
-    const { type, file_id } = req.body;
+    const { type, file_id } = req.query;
+    console.log("man", req);
     const files = await imgUser
       .find({
         type: type,
@@ -37,7 +59,7 @@ const getSingleFiles = async (req, res, next) => {
 
 const getAllSingleFiles = async (req, res, next) => {
   try {
-    const { type, file_id } = req.body;
+    const { type, file_id } = req.query;
     const files = await imgUser.find({
       type: type,
       fileId: file_id,
@@ -51,23 +73,47 @@ const getAllSingleFiles = async (req, res, next) => {
 const imgTimelineUploads = async (req, res, next) => {
   try {
     let filesArray = [];
+    let filePath;
     const { type, file_id } = req.body;
-    req.files.forEach((element) => {
+    await req.files.forEach(async (element, index) => {
+      await cloudinary.uploader.upload(
+        element.path,
+        {
+          folder: `uploads/${file_id}/${type}`,
+          use_filename: true,
+        },
+        function (error, result) {
+          if (result) {
+            filePath = result.url;
+          } else {
+            console.log({ message: "image upload fail", error });
+          }
+        }
+      );
+
       const file = {
         fileName: element.originalname,
-        filePath: element.path,
+        filePath: filePath,
         fileType: element.mimetype,
         fileSize: fileSizeFormatter(element.size, 2),
       };
+
       filesArray.push(file);
+      console.log("run-nt", filesArray);
+      if (filesArray.length === req.files.length) {
+        console.log("run-ManhNT", filesArray);
+        const multipleFiles = new imgUser({
+          imgTimelines: filesArray,
+          type: type,
+          fileId: file_id,
+        });
+        await multipleFiles.save();
+      }
     });
-    const multipleFiles = new imgUser({
-      imgTimelines: filesArray,
-      type: type,
-      fileId: file_id,
+
+    res.status(201).send({
+      message: "Files Uploaded Successfully",
     });
-    await multipleFiles.save();
-    res.status(201).send("Files Uploaded Successfully");
   } catch (error) {
     res.status(400).send(error.message);
   }

@@ -30,10 +30,10 @@ const Index = props => {
 
   const getSingleFileslist = async () => {
     try {
-      // const fileslist = await getSingleFiles();
-      // setSingleFiles(fileslist);
-      const fileslist = await getMultipleFiles();
-      setMultipleFiles(fileslist);
+      const fileslist = await getSingleFiles();
+      setSingleFiles(fileslist);
+      //   const fileslist = await getMultipleFiles();
+      //   setMultipleFiles(fileslist);
     } catch (error) {
       console.log(error.response);
     }
@@ -41,8 +41,8 @@ const Index = props => {
 
   const UploadMultipleFiles = async () => {
     const formData = new FormData();
-    formData.append("type", "timeline");
-    formData.append("file_id", "user-2");
+    formData.append("type", "avatar");
+    formData.append("file_id", "user-3");
     for (let i = 0; i < multipleFiles.length; i++) {
       formData.append("files", multipleFiles[i]);
     }
@@ -101,7 +101,7 @@ const Index = props => {
             <div className="col-6">
               <div className="card mb-2 border-0 p-0">
                 <img
-                  src={`http://localhost:5000/api/v1/${file.filePath}`}
+                  src={`${file.filePath}`}
                   height="200"
                   className="card-img-top img-responsive"
                   alt="img"
@@ -121,7 +121,7 @@ const Index = props => {
                     <div className="col-6">
                       <div className="card mb-2 border-0 p-0">
                         <img
-                          src={`http://localhost:5000/api/v1/${file.filePath}`}
+                          src={`${file.filePath}`}
                           height="200"
                           className="card-img-top img-responsive"
                           alt="img"
