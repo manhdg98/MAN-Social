@@ -112,7 +112,12 @@ function* sagaChangePassword(action){
   let response
   try {
     response = yield call(() => axios.post(`/users/${localStorage.getItem(config.local_storage._ID)}/update-password`, info))
-    console.log(response)
+    if (response.status >= 200 && response.status < 300) {
+      toastify.toastifySuccess('Change password successfull.')
+      
+    } else {
+      console.log(response)
+    }
   } catch (error) {
     toastify.toastifyError(error.response.data.message ? error.response.data.message : error.response.data)
   }
