@@ -27,9 +27,6 @@ const Profile = (props) => {
     const showModal = () => {
         setIsModalVisible(true);
     };
-    const handleOk = () => {
-        setIsModalVisible(false);
-    };
     const handleCancel = () => {
         setIsModalVisible(false);
     };
@@ -125,7 +122,7 @@ const Profile = (props) => {
             </div>
         </div>	
         {/* Modal */}
-        <UploadAvatar handleCancel={handleCancel} handleOk={handleOk} isModalVisible={isModalVisible}/>
+        <UploadAvatar handleCancel={handleCancel} isModalVisible={isModalVisible}/>
         <UploadBackground handleCancel={handleCancelUpdateBG} handleOk={handleOkUpdateBG} isModalVisible={isModalUpdateBG}/>
     </div>
     );

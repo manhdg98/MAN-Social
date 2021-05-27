@@ -3,11 +3,11 @@ import axios from "./axiosConfig"
 export const singleFileUpload = async data => {
   try {
     await axios.post("/images/singleFile", data);
-    console.log("done");
   } catch (error) {
     throw error.response
   }
 }
+
 export const getSingleFiles = async () => {
   try {
     const info = {
@@ -25,7 +25,6 @@ export const getSingleFiles = async () => {
 
 export const multipleFilesUpload = async data => {
   try {
-    console.log("manhnt", data);
     await axios.post("/images/imgTimelineUploads", data);
   } catch (error) {
     throw error;
