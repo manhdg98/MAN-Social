@@ -11,12 +11,14 @@ Tech Stack:
     - NodeMailer
     - cors
 - MongoDB
-- Nodejs  
+- Nodejs 
+- Cloudinary 
 
 UI  
 - Login
 - Verify
 - Register
+- Profile
 
 Author: 
 ManhNT, 
