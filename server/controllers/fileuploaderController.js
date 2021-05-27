@@ -29,7 +29,10 @@ const singleFileUpload = async (req, res, next) => {
             fileId: file_id,
           });
           await file.save();
-          res.status(201).send("File Uploaded Successfully");
+          res.status(201).send({
+            path: result.url,
+            message: "File Uploaded Successfully",
+          });
         } else {
           console.log({ message: "image upload fail", error });
         }
