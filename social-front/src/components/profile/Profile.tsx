@@ -122,9 +122,9 @@ const Profile = (props) => {
                             onClick={() =>  changeTabActive(contentPage.SETTING)}
                         >Setting</a></li>
                         <li><a 
-                            className={tabactive === contentPage.IMAGES ? "active" : ''} 
-                            onClick={() =>  changeTabActive(contentPage.IMAGES)}
-                        >Images</a></li>
+                            className={tabactive === contentPage.PHOTOS ? "active" : ''} 
+                            onClick={() =>  changeTabActive(contentPage.PHOTOS)}
+                        >Photos</a></li>
                     </ul>
                     <ol className="folw-detail">
                         <li><span>Posts</span><ins>101</ins></li>

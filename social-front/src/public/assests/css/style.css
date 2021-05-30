@@ -1387,8 +1387,13 @@ header.sticky {
   width: 3px;
 }
 
+.sidebar .widget li.active {
+  color: #fa6342;
+}
+
 .sidebar .widget li {
-  display: inline-block;
+  display: flex;
+  align-items: center;
   margin-bottom: 14px;
   position: relative;
   width: 100%;
@@ -1410,6 +1415,7 @@ header.sticky {
 }
 
 .sidebar .widget li > a {
+  flex: 1;
   display: inline-block;
   font-size: 13px;
   font-weight: 400;
@@ -3718,6 +3724,10 @@ nav.breadcrumb {
 .card-body ul {
   margin-top: 20px;
   padding-left: 40px;
+}
+
+.strip > div {
+  height: 100%;
 }
 
 .strip {
@@ -8019,10 +8029,12 @@ input[type="checkbox"]:checked + label {
 }
 .item-box {
   float: left;
-  margin-bottom: 10px;
   overflow: hidden;
   position: relative;
   width: 100%;
+}
+.item-box.show-img {
+  background-color: #0000005c;
 }
 .item-box > a {
   display: inline-block;

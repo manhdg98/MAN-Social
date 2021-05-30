@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from "react-redux";
+import React, { useState } from 'react';
 import { ContentTabSetting }  from '../ProfileConstants';
 
 const Sidebar = (props) => {
@@ -10,7 +9,7 @@ const Sidebar = (props) => {
     }
 
     return (
-    <div className="col-lg-4 col-md-4">
+    <div className="col-lg-3 col-md-3">
         <ul className="nav nav-tabs nav-tabs--vertical nav-tabs--left">
             <li className="nav-item">
                 <a className={`${childTabActive === ContentTabSetting.EDITINFO ? "active" : ''} nav-link`} 

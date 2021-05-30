@@ -17,21 +17,21 @@ router.route("/:id/update-password").post(async (req, res) => {
   const { oldPassword, newPassword } = req.body
 
   if (newPassword.length >= 8) {
-    const { id } = req.params;
-    const user = await User.findById(id);
-    const isValid = await bcrypt.compare(oldPassword, user.password);
+    const { id } = req.params
+    const user = await User.findById(id)
+    const isValid = await bcrypt.compare(oldPassword, user.password)
     if (!isValid) {
-      res.status(400).send("Invalid Password");
+      res.status(400).send("Invalid Password")
     }
 
-    user.password = await hashPassword(newPassword);
-    await user.save();
+    user.password = await hashPassword(newPassword)
+    await user.save()
 
     res.send(200).send({
       message: "Update password success. ",
-    });
+    })
   }
-});
+})
 
 router
   .route("/:id")
