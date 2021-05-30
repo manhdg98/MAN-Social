@@ -1,18 +1,21 @@
 import axios from "./axiosConfig"
 
 export const singleFileUpload = async data => {
+  let res;
   try {
-    await axios.post("/images/singleFile", data);
+    res = await axios.post("/images/singleFile", data);
   } catch (error) {
-    throw error.response
+    res = error;
+    throw error.response;
   }
+  return res;
 }
 
-export const getSingleFiles = async () => {
+export const getSingleFiles = async (type_img , user_id) => {
   try {
     const info = {
-      type: "avatar",
-      file_id: "user-1"
+      type: type_img,
+      file_id: user_id
     };
     const { data } = await axios.get("/images/getSingleFiles", {
       params: info

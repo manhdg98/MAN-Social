@@ -2,6 +2,7 @@ import React, { useCallback, useState } from 'react';
 import Profile from './Profile'
 import AboutTab from "./about/AboutTab";
 import SettingTab from "./setting/SettingTab";
+import ImagesTab from "./Images/ImagesTab";
 import { contentPage } from './ProfileConstants';
 
 const UserProfile = () => {
@@ -13,6 +14,9 @@ const UserProfile = () => {
                 break;
             case contentPage.SETTING:
                 return <SettingTab/>
+                break;
+            case contentPage.IMAGES:
+                return <ImagesTab/>
                 break;
             default:
                 break;

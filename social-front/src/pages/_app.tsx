@@ -12,6 +12,10 @@ function MyApp({ Component, pageProps }) {
         const token = localStorage.getItem("MAN-Social-Token");
         if (!token) {
             router.push("/");
+        } else {
+            if(router.pathname === '/') {
+                router.push("/profile");
+            }
         }
     }, []);
     return <Component {...pageProps} />

@@ -3,6 +3,7 @@ import { UserOutlined } from '@ant-design/icons';
 import { Modal, Avatar, Button, Image } from 'antd';
 import { singleFileUpload } from "../../../common/fileUpload";
 import config from "../../../common/config.json"
+import * as toastify from '../../../common/toastify';
 
 const UploadAvatar = (props) => {
   const [picture, setPicture] = useState(null);
@@ -20,11 +21,17 @@ const UploadAvatar = (props) => {
 
   const handleOk = async () => {
     let formData = new FormData();
-    formData.append("type", "avatar");
+    formData.append("type", config.type_img.avatar);
     formData.append("file_id", localStorage.getItem(config.local_storage._ID));
     formData.append("file", picture);
-    await singleFileUpload(formData);
+    const res: any = await singleFileUpload(formData);
+    if (200 <= res.status && res.status < 300) {
+      toastify.toastifySuccess(res.data.message);
+    } else {
+      toastify.toastifyError(res.response.data.message ? res.response.data.message : res.response.data)
+    }
     props.handleCancel();
+    setImgData(null);
   };
 
   return (
