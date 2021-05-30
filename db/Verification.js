@@ -1,4 +1,4 @@
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
 
 const VerificationSchema = new mongoose.Schema({
   userId: {
@@ -12,8 +12,8 @@ const VerificationSchema = new mongoose.Schema({
     max: 999999,
     required: true
   },
-}, { timestamps: true })
+}, { timestamps: true });
 
-const Verification = mongoose.model('Verification', VerificationSchema)
+const Verification = mongoose.model('Verification', VerificationSchema);
 
-module.exports = Verification
+module.exports = Verification;

@@ -35,7 +35,7 @@ function reducer(state, action) {
     case actionTypes.GET_INFO:
       return {
         info: action.payload
-      }
+      };
     default:
       return state;
   }

@@ -2,7 +2,7 @@ import React from 'react';
 
 const Content = () => {
     return (
-    <div className="col-lg-8 col-md-8">
+    <div className="col-lg-9 col-md-9">
         <div className="tab-content">
             <div className="tab-pane fade show active" id="edit-profile">
                 <div className="set-title">

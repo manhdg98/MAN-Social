@@ -1,23 +1,48 @@
 import axios from "./axiosConfig";
 
 export const singleFileUpload = async data => {
+  let res;
   try {
-    await axios.post("/avatar/singleFile", data);
-    console.log("done");
+    res = await axios.post("/images/singleFile", data);
   } catch (error) {
+    res = error;
     throw error.response;
   }
+  return res;
 };
-export const getSingleFiles = async () => {
+
+export const getSingleFiles = async (type_img , user_id) => {
   try {
     const info = {
-      type: "avatar",
-      file_id: "user-2"
+      type: type_img,
+      file_id: user_id
     };
-    const { data } = await axios.get("/avatar/getSingleFiles", {
+    const { data } = await axios.get("/images/getSingleFiles", {
       params: info
     });
-    console.log("data", data);
+    return data;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const multipleFilesUpload = async data => {
+  try {
+    await axios.post("/images/imgTimelineUploads", data);
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const getMultipleFiles = async (type_img , user_id) => {
+  try {
+    const info = {
+      type: type_img,
+      file_id: user_id
+    };
+    const { data } = await axios.get("/images/getAllSingleFiles", {
+      params: info
+    });
     return data;
   } catch (error) {
     throw error;

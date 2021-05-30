@@ -22,7 +22,7 @@ const Verify = props => {
       type: actionTypes.VERIFY,
       payload: info
     });
-  }
+  };
 
   return (
     <div className="logout-f">

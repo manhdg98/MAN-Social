@@ -4,7 +4,6 @@ const fs = require("fs-extra");
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    console.log("manhnttt", req.body);
     const { type, file_id } = req.body;
     if (fs.existsSync(`uploads/${file_id}`)) {
       if (fs.existsSync(`uploads/${file_id}/${type}`)) {

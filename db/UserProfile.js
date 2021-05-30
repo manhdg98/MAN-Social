@@ -1,4 +1,4 @@
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
 
 const UserProfileSchema = new mongoose.Schema({
   userId: {
@@ -31,8 +31,8 @@ const UserProfileSchema = new mongoose.Schema({
   website: {
     type: String
   }
-}, { timestamps: true })
+}, { timestamps: true });
 
-const UserProfile = mongoose.model('User', UserProfileSchema)
+const UserProfile = mongoose.model('User', UserProfileSchema);
 
-module.exports = UserProfile
+module.exports = UserProfile;

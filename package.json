@@ -24,8 +24,10 @@
   "author": "Gwendolyn Faraday <gwenfaraday@pm.me> (https://gwenfaraday.com/)",
   "license": "MIT",
   "dependencies": {
+    "babel-eslint": "^10.1.0",
     "base-64": "^1.0.0",
     "bcrypt": "5.0.0",
+    "cloudinary": "^1.25.1",
     "cors": "2.8.5",
     "cross-env": "7.0.2",
     "dotenv": "8.2.0",
