@@ -68,7 +68,7 @@ function* sagaLogin(action) {
       yield localStorage.setItem(config.local_storage.token, response.data.token);
       yield localStorage.setItem(config.local_storage._ID, response.data.id);
       yield axios.defaults.headers.common["Authorization"] = `Bearer ${localStorage.getItem(config.local_storage.token)}`;
-      yield Router.push("/profile")
+      yield Router.push("/profile");
     } else {
       console.log(response);
     }
@@ -103,6 +103,26 @@ function* sagaLogout() {
   yield Router.push("/");
 }
 
+function* sagaChangePassword(action){
+  const { oldPassword, newPassword } = action.payload;
+  const info = {
+    oldPassword,
+    newPassword
+  };
+  let response;
+  try {
+    response = yield call(() => axios.post(`/users/${localStorage.getItem(config.local_storage._ID)}/update-password`, info));
+    if (response.status >= 200 && response.status < 300) {
+      toastify.toastifySuccess('Change password successfull.');
+      
+    } else {
+      console.log(response);
+    }
+  } catch (error) {
+    toastify.toastifyError(error.response.data.message ? error.response.data.message : error.response.data);
+  }
+}
+
 function* rootSaga() {
   yield all([
     takeLatest(actionTypes.REGISTER, sagaRegister),
@@ -110,6 +130,7 @@ function* rootSaga() {
     takeLatest(actionTypes.LOGIN, sagaLogin),
     takeLatest(actionTypes.INFO, sagaInfo),
     takeLatest(actionTypes.LOGOUT, sagaLogout),
+    takeLatest(actionTypes.CHANGEPASSWORD, sagaChangePassword),
   ]);
 }
 

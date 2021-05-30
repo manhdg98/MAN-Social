@@ -21,7 +21,7 @@ const LoginForm = props => {
       type: actionTypes.LOGIN,
       payload: info
     });
-  }
+  };
 
   return (
     <div className="logout-f">
@@ -61,9 +61,9 @@ const LoginForm = props => {
           <div className="d-flex align-items-center justify-content-center mt-3">
             <button type="submit" className="mr-3 btn-dark">Login</button>
             <button onClick={  () => dispatch({
-                type: actionTypes.TO_REGISTER
-              })}
-              className="btn-light"
+              type: actionTypes.TO_REGISTER
+            })}
+            className="btn-light"
             >Register</button>
           </div>
         </form>

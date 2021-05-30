@@ -2,6 +2,7 @@ import React, { useCallback, useState } from 'react';
 import Profile from './Profile'
 import AboutTab from "./about/AboutTab";
 import SettingTab from "./setting/SettingTab";
+import PhotosTab from "./photos/PhotosTab";
 import { contentPage } from './ProfileConstants';
 
 const UserProfile = () => {
@@ -13,6 +14,9 @@ const UserProfile = () => {
                 break;
             case contentPage.SETTING:
                 return <SettingTab/>
+                break;
+            case contentPage.PHOTOS:
+                return <PhotosTab/>
                 break;
             default:
                 break;
@@ -30,9 +34,7 @@ const UserProfile = () => {
                 <div className="row">
                     <div className="col-lg-12">
                         <div className="row merged20" id="page-contents">
-                            {/* user profile */}
                             <ShowProfile/>
-                            {/* tab */}
                             {showContent(tab)}
                         </div>
                     </div>

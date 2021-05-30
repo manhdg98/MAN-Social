@@ -1387,8 +1387,13 @@ header.sticky {
   width: 3px;
 }
 
+.sidebar .widget li.active {
+  color: #fa6342;
+}
+
 .sidebar .widget li {
-  display: inline-block;
+  display: flex;
+  align-items: center;
   margin-bottom: 14px;
   position: relative;
   width: 100%;
@@ -1410,6 +1415,7 @@ header.sticky {
 }
 
 .sidebar .widget li > a {
+  flex: 1;
   display: inline-block;
   font-size: 13px;
   font-weight: 400;
@@ -3718,6 +3724,10 @@ nav.breadcrumb {
 .card-body ul {
   margin-top: 20px;
   padding-left: 40px;
+}
+
+.strip > div {
+  height: 100%;
 }
 
 .strip {
@@ -6782,6 +6792,9 @@ a.addnewforum {
   display: inline-block;
   width: 100%;
   border-radius: 5px 5px 0 0;
+  height: 370px;
+  width: 100%;
+  object-fit: cover;
 }
 .edit-pp {
   background: rgba(0, 0, 0, 0.5) none repeat scroll 0 0;
@@ -6803,6 +6816,7 @@ a.addnewforum {
 .user-profile:hover .edit-pp {
   opacity: 1;
   transform: scale(1);
+  z-index: 1;
 }
 
 .user-profile .pit-rate {
@@ -6995,12 +7009,12 @@ a.addnewforum {
   display: inline-block;
   position: relative;
 }
-.profile-author-thumb > img {
+.profile-author-thumb img {
   border: 3px solid #fff;
   border-radius: 100%;
-  max-width: 155px;
-  min-width: 155px;
   width: 155px;
+  height: 155px;
+  object-fit: cover;
   display: inline-block;
 }
 
@@ -8015,10 +8029,12 @@ input[type="checkbox"]:checked + label {
 }
 .item-box {
   float: left;
-  margin-bottom: 10px;
   overflow: hidden;
   position: relative;
   width: 100%;
+}
+.item-box.show-img {
+  background-color: #0000005c;
 }
 .item-box > a {
   display: inline-block;
