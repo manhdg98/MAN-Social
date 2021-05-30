@@ -34,13 +34,13 @@ export const multipleFilesUpload = async data => {
   }
 };
 
-export const getMultipleFiles = async () => {
+export const getMultipleFiles = async (type_img , user_id) => {
   try {
     const info = {
-      type: "avatar",
-      file_id: "user-3"
+      type: type_img,
+      file_id: user_id
     };
-    const { data } = await axios.get("/images/imgTimeLines", {
+    const { data } = await axios.get("/images/getAllSingleFiles", {
       params: info
     });
     return data;
