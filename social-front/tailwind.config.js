@@ -1,4 +1,4 @@
-const { colors } = require("tailwindcss/defaultTheme")
+const { colors } = require("tailwindcss/defaultTheme");
 
 module.exports = {
   theme: {
@@ -17,4 +17,4 @@ module.exports = {
   corePlugins: {
     container: false // custom container class defined in styles/_compounds.scss
   }
-}
+};

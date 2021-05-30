@@ -21,13 +21,13 @@
 
 let sum = async (a,b) => {
 
-  console.log(`a = ${a}, b = ${b}`)
+  console.log(`a = ${a}, b = ${b}`);
   let c = async (a,b) => {
-    return ++a 
-  } 
-  d = await c(a,b)
-  console.log("2", d)
-}
+    return ++a; 
+  }; 
+  d = await c(a,b);
+  console.log("2", d);
+};
 
-sum(3,4)
+sum(3,4);
     

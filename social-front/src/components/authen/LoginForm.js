@@ -1,27 +1,27 @@
-import React, { useState, useEffect } from "react"
-import { useDispatch } from "react-redux"
-import { useForm } from "react-hook-form"
-import { actionTypes } from '../../redux/actions'
+import React, { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { useForm } from "react-hook-form";
+import { actionTypes } from '../../redux/actions';
 
 const LoginForm = props => {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
-  const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   
-  const { register, formState: { errors }, handleSubmit } = useForm()
+  const { register, formState: { errors }, handleSubmit } = useForm();
 
   const onSubmit = (data) => {
     const info = {
       email,
       password
-    }
+    };
 
     dispatch({
       type: actionTypes.LOGIN,
       payload: info
-    })
-  }
+    });
+  };
 
   return (
     <div className="logout-f">
@@ -69,7 +69,7 @@ const LoginForm = props => {
         </form>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default LoginForm
+export default LoginForm;
