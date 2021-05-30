@@ -6782,6 +6782,9 @@ a.addnewforum {
   display: inline-block;
   width: 100%;
   border-radius: 5px 5px 0 0;
+  height: 370px;
+  width: 100%;
+  object-fit: cover;
 }
 .edit-pp {
   background: rgba(0, 0, 0, 0.5) none repeat scroll 0 0;
@@ -6803,6 +6806,7 @@ a.addnewforum {
 .user-profile:hover .edit-pp {
   opacity: 1;
   transform: scale(1);
+  z-index: 1;
 }
 
 .user-profile .pit-rate {
@@ -6995,12 +6999,12 @@ a.addnewforum {
   display: inline-block;
   position: relative;
 }
-.profile-author-thumb > img {
+.profile-author-thumb img {
   border: 3px solid #fff;
   border-radius: 100%;
-  max-width: 155px;
-  min-width: 155px;
   width: 155px;
+  height: 155px;
+  object-fit: cover;
   display: inline-block;
 }
 

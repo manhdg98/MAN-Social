@@ -1,6 +1,7 @@
 export const contentPage = {
     ABOUTTAB: 'ABOUTTAB',
-    SETTING: 'SETTING'
+    SETTING: 'SETTING',
+    IMAGES: 'IMAGES',
 }
 
 export const ContentTabSetting = {
