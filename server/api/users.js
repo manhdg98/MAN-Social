@@ -36,7 +36,6 @@ router.route("/:id/update-password").post(async (req, res) => {
 router
   .route("/:id")
   .get(async (req, res) => {
-    console.log("manhnt");
     const userId = req.params.id;
     const user = await User.findById(userId);
     res.send(user);

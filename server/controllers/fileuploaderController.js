@@ -46,7 +46,6 @@ const singleFileUpload = async (req, res, next) => {
 const getSingleFiles = async (req, res, next) => {
   try {
     const { type, file_id } = req.query;
-    console.log("man", req);
     const files = await imgUser
       .find({
         type: type,
@@ -102,9 +101,7 @@ const imgTimelineUploads = async (req, res, next) => {
       };
 
       filesArray.push(file);
-      console.log("run-nt", filesArray);
       if (filesArray.length === req.files.length) {
-        console.log("run-ManhNT", filesArray);
         const multipleFiles = new imgUser({
           imgTimelines: filesArray,
           type: type,
