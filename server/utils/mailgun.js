@@ -5,7 +5,6 @@ const mailHost = "smtp.gmail.com";
 const mailPort = 587;
 const sendEmail = (payload) => {
   const { code, email, username } = payload;
-  console.log("payload", payload);
   const subject = "Verify account";
   // Create admin email
   const transporter = nodeMailer.createTransport({
