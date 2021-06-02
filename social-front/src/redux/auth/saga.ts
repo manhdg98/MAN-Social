@@ -1,10 +1,10 @@
-import { all, call, delay, put, take, takeLatest } from "redux-saga/effects";
+import { all, call, delay, put, takeEvery, takeLatest } from '@redux-saga/core/effects';
 import { actionTypes } from "./actions";
-import axios from "../common/axiosConfig";
-import * as toastify from "../common/toastify";
+import axios from "../../common/axiosConfig";
+import * as toastify from "../../common/toastify";
 import { useDispatch } from 'react-redux';
 import Router from "next/router";
-import config from "../common/config.json";
+import config from "../../common/config.json";
 
 function* sagaRegister(action) {
   const { username, email, password } = action.payload;
@@ -123,15 +123,15 @@ function* sagaChangePassword(action){
   }
 }
 
-function* rootSaga() {
+function* authSaga() {
   yield all([
-    takeLatest(actionTypes.REGISTER, sagaRegister),
-    takeLatest(actionTypes.VERIFY, sagaVerify),
-    takeLatest(actionTypes.LOGIN, sagaLogin),
-    takeLatest(actionTypes.INFO, sagaInfo),
-    takeLatest(actionTypes.LOGOUT, sagaLogout),
-    takeLatest(actionTypes.CHANGEPASSWORD, sagaChangePassword),
+    takeEvery(actionTypes.REGISTER, sagaRegister),
+    takeEvery(actionTypes.VERIFY, sagaVerify),
+    takeEvery(actionTypes.LOGIN, sagaLogin),
+    takeEvery(actionTypes.INFO, sagaInfo),
+    takeEvery(actionTypes.LOGOUT, sagaLogout),
+    takeEvery(actionTypes.CHANGEPASSWORD, sagaChangePassword),
   ]);
 }
 
-export default rootSaga;
+export default authSaga;

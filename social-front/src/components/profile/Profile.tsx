@@ -1,16 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from "react-redux";
-import { actionTypes } from 'redux/actions';
+import { actionTypes } from 'redux/auth/actions';
 import { contentPage } from './ProfileConstants';
 import { Button, Skeleton, Image } from 'antd';
 import UploadAvatar from './modal/UploadAvatar';
 import UploadBackground from './modal/UploadBackground';
 import { getSingleFiles } from 'common/fileUpload';
 import config from "../../common/config.json";
-import * as toastify from '../../common/toastify';
 
 const Profile = (props) => {
-    
     // fetch img
     const [imgAvatar, setImgAvatar] = useState(null);
     const [imgBackground, setImgBackground] = useState(null);

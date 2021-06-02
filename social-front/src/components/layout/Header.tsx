@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { actionTypes } from "redux/actions";
+import { actionTypes } from "redux/auth/actions";
 
 function Header() {
   const [active, setActive] = useState(false);

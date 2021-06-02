@@ -1,7 +1,7 @@
 import React from "react";
 import { toast } from "react-toastify";
 
-const property = {
+const property: any = {
   position: "top-right",
   autoClose: 5000,
   hideProgressBar: false,

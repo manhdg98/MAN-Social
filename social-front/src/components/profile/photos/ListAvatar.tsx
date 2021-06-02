@@ -14,14 +14,6 @@ function ListAvatar(props) {
     useEffect(() => {
         fetchImg();
     }, []);
-    
-    const parentRef = useRef(null);
-    const [elementtWidth, setElementtWidth] = useState(0);
-    useEffect(() => {
-        if(parentRef.current){
-            setElementtWidth(parentRef.current.offsetWidth);
-        }
-    }, [listImgAvatar]);
 
     return (
         <div className="col-lg-9">
@@ -73,7 +65,7 @@ function ListAvatar(props) {
                     { listImgAvatar != null ? <> {
                         listImgAvatar.map((item, index) => (
                             <div className="col-lg-3 col-md-3 col-sm-6 col-xs-6 mb-2" key={index}>
-                                <div className="item-box show-img" ref={parentRef} style={{height: `${elementtWidth}px`}}>
+                                <div className="item-box show-img">
                                     <a className="strip h-100">
                                         <img src={item.filePath} alt={item.fileName} className="h-100" style={{objectFit: 'cover'}}/> 
                                     </a>

@@ -2,7 +2,7 @@ import { actionTypes } from "./actions";
 import { HYDRATE } from "next-redux-wrapper";
 
 const initialState = {
-  type: null,
+  type: actionTypes.TO_LOGIN,
   email: null,
   info: {
     email: null,
@@ -37,7 +37,7 @@ function reducer(state, action) {
         info: action.payload
       };
     default:
-      return state;
+      return initialState;
   }
 }
 

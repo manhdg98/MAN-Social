@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useForm } from "react-hook-form";
-import { actionTypes } from '../../redux/actions';
+import { actionTypes } from '../../redux/auth/actions';
 
-const LoginForm = props => {
+const LoginForm = () => {
   const dispatch = useDispatch();
 
   const [email, setEmail] = useState("");
@@ -11,12 +11,11 @@ const LoginForm = props => {
   
   const { register, formState: { errors }, handleSubmit } = useForm();
 
-  const onSubmit = (data) => {
+  const onSubmit = () => {
     const info = {
       email,
       password
     };
-
     dispatch({
       type: actionTypes.LOGIN,
       payload: info
@@ -34,7 +33,7 @@ const LoginForm = props => {
               required: true, 
               pattern: /(^$|^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$)/i
             })}
-            maxLength="255"
+            maxLength={255}
             type="email" 
             placeholder="User Name" 
             autoComplete="off" 
@@ -47,7 +46,7 @@ const LoginForm = props => {
           </div>
           <input 
             {...register("password", { required: true, minLength: 8 })}
-            maxLength="255"
+            maxLength={255}
             type="password"
             placeholder="Enter your password"
             autoComplete="new-password"

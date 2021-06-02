@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useForm } from "react-hook-form";
-import { actionTypes } from '../../../redux/actions'
+import { actionTypes } from '../../../redux/auth/actions'
 
 const ChangePassword = () => {
     const dispatch = useDispatch();
