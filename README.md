@@ -13,6 +13,7 @@ Tech Stack:
 - MongoDB
 - Nodejs 
 - Cloudinary 
+- Socket io
 
 UI  
 - Login
