@@ -20,7 +20,8 @@ UI
 - Verify
 - Register
 - Profile
-
+- Timeline
+- 
 Author: 
 ManhNT, 
 AnhNT
