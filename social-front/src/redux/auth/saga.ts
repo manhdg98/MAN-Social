@@ -77,25 +77,6 @@ function* sagaLogin(action) {
   }
 }
 
-function* sagaInfo() {
-  if(localStorage.getItem(config.local_storage._ID) != undefined) {
-    let response;
-    try {
-      response = yield call(() => axios.get(`/users/${localStorage.getItem(config.local_storage._ID)}`));
-      if (response.status >= 200 && response.status < 300) {
-        yield put({
-          type: actionTypes.GET_INFO,
-          payload: response.data
-        });
-      } else {
-        console.log(response);
-      }
-    } catch (error) {
-      toastify.toastifyError(error.response.data.message ? error.response.data.message : error.response.data);
-    }
-  }
-}
-
 function* sagaLogout() {
   yield localStorage.removeItem(config.local_storage.token);
   yield localStorage.removeItem(config.local_storage._ID);
@@ -114,7 +95,6 @@ function* sagaChangePassword(action){
     response = yield call(() => axios.post(`/users/${localStorage.getItem(config.local_storage._ID)}/update-password`, info));
     if (response.status >= 200 && response.status < 300) {
       toastify.toastifySuccess('Change password successfull.');
-      
     } else {
       console.log(response);
     }
@@ -125,12 +105,11 @@ function* sagaChangePassword(action){
 
 function* authSaga() {
   yield all([
-    takeEvery(actionTypes.REGISTER, sagaRegister),
-    takeEvery(actionTypes.VERIFY, sagaVerify),
-    takeEvery(actionTypes.LOGIN, sagaLogin),
-    takeEvery(actionTypes.INFO, sagaInfo),
-    takeEvery(actionTypes.LOGOUT, sagaLogout),
-    takeEvery(actionTypes.CHANGEPASSWORD, sagaChangePassword),
+    takeLatest(actionTypes.REGISTER, sagaRegister),
+    takeLatest(actionTypes.VERIFY, sagaVerify),
+    takeLatest(actionTypes.LOGIN, sagaLogin),
+    takeLatest(actionTypes.LOGOUT, sagaLogout),
+    takeLatest(actionTypes.CHANGEPASSWORD, sagaChangePassword),
   ]);
 }
 

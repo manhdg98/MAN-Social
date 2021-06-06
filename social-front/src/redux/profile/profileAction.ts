@@ -1,0 +1,8 @@
+export const profileTypes = {
+    GET_IMG: "GET_IMG",
+    SHOW_IMG: "SHOW_IMG",
+    GET_INFO: "GET_INFO",
+    SHOW_INFO: "SHOW_INFO",
+    GET_LISt_AVATAR: "GET_LISt_AVATAR",
+    GET_LIST_BACKGROUND: "GET_LIST_BACKGROUND",
+};

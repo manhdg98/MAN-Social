@@ -1,6 +1,6 @@
 import Router, { useRouter } from "next/router";
 import 'antd/dist/antd.css';
-import "../styles/styles.scss";
+import "../public/styles/styles.scss";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import { store } from '../redux/store';
 import { useEffect } from "react";

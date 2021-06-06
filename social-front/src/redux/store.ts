@@ -1,8 +1,7 @@
 import { applyMiddleware, createStore } from "redux";
 import createSagaMiddleware from "redux-saga";
 import { createWrapper } from "next-redux-wrapper";
-
-import rootReducer from "./rootReducer";
+import combineReducers from "./rootReducer";
 import rootSaga from "./rootSaga";
 
 const bindMiddleware = middleware => {
@@ -15,7 +14,7 @@ const bindMiddleware = middleware => {
 
 export const makeStore = () => {
   const sagaMiddleware = createSagaMiddleware();
-  const store: any = createStore(rootReducer, bindMiddleware([sagaMiddleware]));
+  const store: any = createStore(combineReducers, bindMiddleware([sagaMiddleware]));
   store.sagaTask = sagaMiddleware.run(rootSaga);
   return store;
 };

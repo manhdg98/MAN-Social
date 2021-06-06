@@ -1,10 +1,10 @@
-import Document, { Head, Main, NextScript } from "next/document";
+import Document, { Html, Head, Main, NextScript } from "next/document";
 import React from "react";
 
 export default class extends Document {
   public render() {
     return (
-      <html>
+      <Html>
         <Head>
           <script async src={`https://www.googletagmanager.com/gtag/js?id=${process.env.GA_TRACKING_ID}`} />
           <script dangerouslySetInnerHTML={{
@@ -15,7 +15,7 @@ export default class extends Document {
           <Main />
           <NextScript />
         </body>
-      </html>
+      </Html>
     );
   }
 }
