@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { useForm } from "react-hook-form";
 import { actionTypes } from "../../redux/auth/actions";
 
-const Register = props => {
+const Register = () => {
   const dispatch = useDispatch();
 
   const {
@@ -25,9 +25,8 @@ const Register = props => {
       password,
       confirmPassword
     };
-
     dispatch({
-      type: "REGISTER",
+      type: actionTypes.REGISTER,
       payload: info
     });
   };

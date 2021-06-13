@@ -11,40 +11,40 @@ if (process.env.NODE_ENV !== "production") {
   mongoose.set("debug", true);
 }
 
-router.route("/:id/update-password").post(async (req, res) => {
-  const { oldPassword, newPassword } = req.body;
-  if (newPassword.length >= 8) {
+router
+  .route("/:id/update-password")
+  .post(async (req, res) => {
+    const { oldPassword, newPassword } = req.body;
+    if (newPassword.length >= 8) {
+      const { id } = req.params;
+      const user = await User.findById(id);
+      const isValid = await bcrypt.compare(oldPassword, user.password);
+      if (!isValid) {
+        res.status(400).send("Invalid Password");
+      }
+      user.password = await hashPassword(newPassword);
+      await user.save();
+      res.send(200).send({
+        message: "Update password success. ",
+      });
+    }
+  });
+
+router
+  .route("/:id/update-info")
+  .patch(async (req, res) => {
+    const mapInfoUser = { ...req.body };
     const { id } = req.params;
     const user = await User.findById(id);
-    const isValid = await bcrypt.compare(oldPassword, user.password);
-    if (!isValid) {
-      res.status(400).send("Invalid Password");
+    for (let key of Object.keys(mapInfoUser)) {
+      if (!mapInfoUser[key]) { mapInfoUser[key] = null; }
+      user[key] = mapInfoUser[key];
     }
-    user.password = await hashPassword(newPassword);
     await user.save();
     res.send(200).send({
-      message: "Update password success. ",
+      message: "Update profile success.",
     });
-  }
-});
-
-router.route("/:id/update-info").patch(async (req, res) => {
-  const mapInfoUser = { ...req.body };
-  const { id } = req.params;
-  const user = await User.findById(id);
-  for (let key of Object.keys(mapInfoUser)) {
-    if (!user[key]) {
-      throw new Error(`${key} is invalid`);
-    }
-
-    user[key] = mapInfoUser[key];
-  }
-
-  await user.save();
-  res.send(200).send({
-    message: "Update password success. ",
   });
-});
 
 router
   .route("/:id")
@@ -64,14 +64,16 @@ router
   })
   .delete(async (req, res) => {});
 
-router.route("/").get(async (req, res) => {
-  User.find({}, (err, users) => {
-    let userMap = {};
-    users.forEach((user) => {
-      userMap[user._id] = user;
+router
+  .route("/")
+  .get(async (req, res) => {
+    User.find({}, (err, users) => {
+      let userMap = {};
+      users.forEach((user) => {
+        userMap[user._id] = user;
+      });
+      res.send(userMap);
     });
-    res.send(userMap);
   });
-});
 
 module.exports = router;

@@ -145,6 +145,25 @@ function* sagaGetListBackground() {
   }
 }
 
+function* sagaUpdateProfile(action) {
+  const info = action.payload;
+  let response;
+  try {
+	  response = yield call(() =>
+      axios.patch(`/users/${localStorage.getItem(config.local_storage._ID)}/update-info`, info)
+	  );
+	  if (response.status >= 200 && response.status < 300) {
+      toastify.toastifySuccess("Update profile successfull.");
+	  } else {
+      console.log(response);
+	  }
+  } catch (error) {
+	  toastify.toastifyError(
+      error.response.data.message ? error.response.data.message : error.response.data
+	  );
+  }
+}
+
 function* profileSaga() {
   yield all([
     takeEvery(profileTypes.GET_IMG, sagaImg),
@@ -153,6 +172,7 @@ function* profileSaga() {
     takeEvery(profileTypes.UPLOAD_BACKGROUND, sagaUploadBackground),
     takeEvery(profileTypes.GET_LISt_AVATAR, sagaGetListAvatar),
     takeEvery(profileTypes.GET_LIST_BACKGROUND, sagaGetListBackground),
+    takeEvery(profileTypes.UPDATE_PROFILE, sagaUpdateProfile),
   ]);
 }
 

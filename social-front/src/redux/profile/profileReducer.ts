@@ -1,5 +1,6 @@
 import { profileTypes } from "./profileAction";
 import { HYDRATE } from "next-redux-wrapper";
+import { multipleFilesUpload } from "common/fileUpload";
 
 const initialState = {
   imgAvatar: null,
@@ -7,9 +8,18 @@ const initialState = {
   imgBackground: null,
   listBackground: null,
   info: {
-    _id: null,
     email: null,
-    username: null
+    username: null,
+    gender: null,
+    about: null,
+    phone: null,
+    dob: null,
+    education: null,
+    job: null,
+    company: null,
+    location: null,
+    state: null,
+    country: null,
   }
 };
 

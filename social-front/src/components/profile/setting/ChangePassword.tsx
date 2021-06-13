@@ -25,7 +25,6 @@ const ChangePassword = () => {
       oldPassword,
       newPassword
     };
-
     dispatch({
       type: actionTypes.CHANGEPASSWORD,
       payload: data
