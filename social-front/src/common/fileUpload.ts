@@ -11,7 +11,7 @@ export const singleFileUpload = async data => {
   return res;
 };
 
-export const getSingleFiles = async (type_img , user_id) => {
+export const getSingleFiles = async (type_img, user_id) => {
   try {
     const info = {
       type: type_img,
@@ -34,7 +34,7 @@ export const multipleFilesUpload = async data => {
   }
 };
 
-export const getMultipleFiles = async (type_img , user_id) => {
+export const getMultipleFiles = async (type_img, user_id) => {
   try {
     const info = {
       type: type_img,

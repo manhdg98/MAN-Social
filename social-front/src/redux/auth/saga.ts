@@ -1,8 +1,8 @@
-import { all, call, delay, put, takeEvery, takeLatest } from '@redux-saga/core/effects';
+import { all, call, delay, put, takeEvery, takeLatest } from "@redux-saga/core/effects";
 import { actionTypes } from "./actions";
 import axios from "../../common/axiosConfig";
 import * as toastify from "../../common/toastify";
-import { useDispatch } from 'react-redux';
+import { useDispatch } from "react-redux";
 import Router from "next/router";
 import config from "../../common/config.json";
 
@@ -17,7 +17,7 @@ function* sagaRegister(action) {
   try {
     response = yield call(() => axios.post("/auth/register", info));
     if (response.status >= 200 && response.status < 300) {
-      toastify.toastifySuccess('Create new account successful, please check your email.');
+      toastify.toastifySuccess("Create new account successful, please check your email.");
       yield put({
         type: actionTypes.TO_VERIFY,
         payload: info.email
@@ -27,7 +27,9 @@ function* sagaRegister(action) {
       console.log(response);
     }
   } catch (error) {
-    toastify.toastifyError(error.response.data.message ? error.response.data.message : error.response.data);
+    toastify.toastifyError(
+      error.response.data.message ? error.response.data.message : error.response.data
+    );
   }
 }
 
@@ -41,7 +43,7 @@ function* sagaVerify(action) {
   try {
     response = yield call(() => axios.post("/auth/verify", info));
     if (response.status >= 200 && response.status < 300) {
-      toastify.toastifySuccess('Verify successfull!');
+      toastify.toastifySuccess("Verify successfull!");
       yield put({
         type: actionTypes.TO_LOGIN
       });
@@ -50,7 +52,9 @@ function* sagaVerify(action) {
       console.log(response);
     }
   } catch (error) {
-    toastify.toastifyError(error.response.data.message ? error.response.data.message : error.response.data);
+    toastify.toastifyError(
+      error.response.data.message ? error.response.data.message : error.response.data
+    );
   }
 }
 
@@ -64,27 +68,31 @@ function* sagaLogin(action) {
   try {
     response = yield call(() => axios.post("/auth/login", info));
     if (response.status >= 200 && response.status < 300) {
-      toastify.toastifySuccess('Login successfull!');
+      toastify.toastifySuccess("Login successfull!");
       yield localStorage.setItem(config.local_storage.token, response.data.token);
       yield localStorage.setItem(config.local_storage._ID, response.data.id);
-      yield axios.defaults.headers.common["Authorization"] = `Bearer ${localStorage.getItem(config.local_storage.token)}`;
+      yield (axios.defaults.headers.common[
+        "Authorization"
+      ] = `Bearer ${localStorage.getItem(config.local_storage.token)}`);
       yield Router.push("/profile");
     } else {
       console.log(response);
     }
   } catch (error) {
-    toastify.toastifyError(error.response.data.message ? error.response.data.message : error.response.data);
+    toastify.toastifyError(
+      error.response.data.message ? error.response.data.message : error.response.data
+    );
   }
 }
 
 function* sagaLogout() {
   yield localStorage.removeItem(config.local_storage.token);
   yield localStorage.removeItem(config.local_storage._ID);
-  yield axios.defaults.headers.common["Authorization"] = '';
+  yield (axios.defaults.headers.common["Authorization"] = "");
   yield Router.push("/");
 }
 
-function* sagaChangePassword(action){
+function* sagaChangePassword(action) {
   const { oldPassword, newPassword } = action.payload;
   const info = {
     oldPassword,
@@ -92,14 +100,21 @@ function* sagaChangePassword(action){
   };
   let response;
   try {
-    response = yield call(() => axios.post(`/users/${localStorage.getItem(config.local_storage._ID)}/update-password`, info));
+    response = yield call(() =>
+      axios.post(
+        `/users/${localStorage.getItem(config.local_storage._ID)}/update-password`,
+        info
+      )
+    );
     if (response.status >= 200 && response.status < 300) {
-      toastify.toastifySuccess('Change password successfull.');
+      toastify.toastifySuccess("Change password successfull.");
     } else {
       console.log(response);
     }
   } catch (error) {
-    toastify.toastifyError(error.response.data.message ? error.response.data.message : error.response.data);
+    toastify.toastifyError(
+      error.response.data.message ? error.response.data.message : error.response.data
+    );
   }
 }
 
@@ -109,7 +124,7 @@ function* authSaga() {
     takeLatest(actionTypes.VERIFY, sagaVerify),
     takeLatest(actionTypes.LOGIN, sagaLogin),
     takeLatest(actionTypes.LOGOUT, sagaLogout),
-    takeLatest(actionTypes.CHANGEPASSWORD, sagaChangePassword),
+    takeLatest(actionTypes.CHANGEPASSWORD, sagaChangePassword)
   ]);
 }
 

@@ -1,6 +1,5 @@
 const express = require("express");
 const mongoose = require("mongoose");
-
 const {
   singleFileUpload,
   getSingleFiles,
@@ -9,7 +8,6 @@ const {
   getImgTimeLine,
   getAllImgTimeLine,
 } = require("../controllers/fileuploaderController");
-
 const router = express.Router();
 const { upload } = require("../utils/filehelper");
 
@@ -23,4 +21,5 @@ router.route("/getAllSingleFiles").get(getAllSingleFiles);
 router.post("/imgTimelineUploads", upload.array("files"), imgTimelineUploads);
 router.get("/imgTimeLines", getImgTimeLine);
 router.get("/allImgTimeLines", getAllImgTimeLine);
+
 module.exports = router;

@@ -742,11 +742,19 @@ header.sticky {
 }
 
 .top-area .user-img {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
   cursor: pointer;
-  display: inline-block;
   vertical-align: middle;
   position: relative;
   line-height: 65px;
+}
+
+.top-area .user-img img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
 }
 
 .user-img > h5 {
@@ -2942,7 +2950,7 @@ footer .widget .colla-apps > li a {
   background: #fff none repeat scroll 0 0;
   border-radius: 0 0 3px 3px;
   position: absolute;
-  left: 70px;
+  right: 0;
   text-align: left;
   top: 100%;
   width: 200px;
@@ -2950,7 +2958,6 @@ footer .widget .colla-apps > li a {
   visibility: hidden;
   line-height: initial;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-  transform: translate(-50%);
   transition: all 0.2s linear 0s;
 }
 
@@ -2959,7 +2966,7 @@ footer .widget .colla-apps > li a {
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
   content: "";
-  left: 40%;
+  left: 85%;
   position: absolute;
   top: -9px;
   transform: translate(-50%);
@@ -7508,6 +7515,7 @@ input[type="checkbox"]:checked + label {
   font-weight: 500;
   text-transform: capitalize;
 }
+.c-form > div select,
 .c-form > div input,
 .c-form > div textarea,
 .c-form > input,

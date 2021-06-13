@@ -20,11 +20,11 @@ const PageLogin = () => {
 
   const showForm = () => {
     if (data === undefined || data.type === actionTypes.TO_LOGIN) {
-      return <LoginForm/>;
+      return <LoginForm />;
     } else if (data.type === actionTypes.TO_REGISTER) {
-      return <Register/>;
+      return <Register />;
     } else if (data.type === actionTypes.TO_VERIFY) {
-      return <Verify/>;
+      return <Verify />;
     }
   };
 

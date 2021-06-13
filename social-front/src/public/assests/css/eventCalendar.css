@@ -1,8 +1,6 @@
-@import url(
-  http://fonts.googleapis.com/css?family=Open + Sans:400,
+@import url(http://fonts.googleapis.com/css?family=Open + Sans:400,
   700&amp;subset=latin,
-  latin-ext
-);
+  latin-ext);
 @import url(../../../../maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css);
 .jalendar-input {
   position: relative;

@@ -1,15 +1,19 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
-import { actionTypes } from '../../redux/auth/actions';
+import { actionTypes } from "../../redux/auth/actions";
 
 const Verify = () => {
   const dispatch = useDispatch();
 
   const [code, setCode] = useState("");
   let data: any = useSelector(state => state);
-  
-  const { register, formState: { errors }, handleSubmit } = useForm();
+
+  const {
+    register,
+    formState: { errors },
+    handleSubmit
+  } = useForm();
   const onSubmit = () => {
     const info = {
       code: code,
@@ -32,18 +36,20 @@ const Verify = () => {
           <input
             {...register("code", { required: true, pattern: /^\d{6}$/ })}
             maxLength={255}
-            type="number" 
-            placeholder="Enter your code..." 
+            type="number"
+            placeholder="Enter your code..."
             autoComplete="off"
             defaultValue={code}
             onChange={e => setCode(e.currentTarget.value)}
           />
           <div className="text-danger">
-            {errors.code?.type === 'required' && "Please enter your code verify."}
-            {errors.code?.type === 'pattern' && "Verify code has only 6 character."}
+            {errors.code?.type === "required" && "Please enter your code verify."}
+            {errors.code?.type === "pattern" && "Verify code has only 6 character."}
           </div>
           <div className="d-flex align-items-center justify-content-center mt-3">
-            <button type="submit" className="mr-3 btn-dark">Submit</button>
+            <button type="submit" className="mr-3 btn-dark">
+              Submit
+            </button>
           </div>
         </form>
       </div>
