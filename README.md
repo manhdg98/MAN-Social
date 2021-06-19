@@ -22,6 +22,8 @@ UI
 - Profile
 - Timeline
 
+Build docker image from dockerfile
+
 Author: 
 ManhNT, 
 AnhNT
