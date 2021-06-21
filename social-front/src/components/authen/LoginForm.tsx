@@ -49,8 +49,7 @@ const LoginForm = () => {
           />
           <div className="text-danger">
             {errors.email?.type === "required" && "Please enter your email."}
-            {errors.email?.type === "pattern" &&
-              "Email should be in the format 'abc@gmail.com'."}
+            {errors.email?.type === "pattern" && "Email should be in the format 'abc@gmail.com'."}
           </div>
           <input
             {...register("password", { required: true, minLength: 8 })}

@@ -24,6 +24,7 @@
   "author": "Gwendolyn Faraday <gwenfaraday@pm.me> (https://gwenfaraday.com/)",
   "license": "MIT",
   "dependencies": {
+    "axios": "^0.21.1",
     "babel-eslint": "^10.1.0",
     "base-64": "^1.0.0",
     "bcrypt": "5.0.0",

@@ -36,6 +36,10 @@ router
     const mapInfoUser = { ...req.body };
     const { id } = req.params;
     const user = await User.findById(id);
+    if(mapInfoUser.email != user.email) {
+      res.send(400).send({ message: "Email cannot be changed." });
+      return false;
+	  }
     for (let key of Object.keys(mapInfoUser)) {
       if (!mapInfoUser[key]) { mapInfoUser[key] = null; }
       user[key] = mapInfoUser[key];

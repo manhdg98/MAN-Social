@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { profileTypes } from "redux/profile/profileAction";
 import { Skeleton } from "antd";
@@ -16,7 +16,6 @@ const Content = () => {
     handleSubmit
   } = useForm();
   const [username, setUsername] = useState(data.profileReducer.info.username);
-  const [email, setEmail] = useState(data.profileReducer.info.email);
   const [gender, setGender] = useState(data.profileReducer.info.gender);
   const [education, setEducation] = useState(data.profileReducer.info.education);
   const [country, setCountry] = useState(data.profileReducer.info.username);
@@ -33,7 +32,6 @@ const Content = () => {
   const onSubmit = () => {
     const info = {
       username,
-      email,
       gender,
       education,
       country,
@@ -63,6 +61,16 @@ const Content = () => {
             { data.profileReducer.info ? 
               <form className="c-form" onSubmit={handleSubmit(onSubmit)}>
                 <div>
+                  <label>Email Address</label>
+                  <input 
+                    disabled
+                    maxLength={255}
+                    type="text" 
+                    placeholder="abc@pitnikmail.com" 
+                    defaultValue={data.profileReducer.info.email}
+                  />
+                </div>
+                <div>
                   <label>User Name</label>
                   <input
                     {...register("username", { required: true })}
@@ -71,20 +79,6 @@ const Content = () => {
                     placeholder="abc"
                     defaultValue={username}
                     onChange={e => setUsername(e.currentTarget.value)}
-                  />
-                </div>
-                <div className="text-danger">
-                  {errors.confirmPassword?.type === "required" && "Please enter confirm password."}
-                </div>
-                <div>
-                  <label>Email Address</label>
-                  <input 
-                    {...register("email", { required: true })}
-                    maxLength={255}
-                    type="text" 
-                    placeholder="abc@pitnikmail.com" 
-                    defaultValue={email}
-                    onChange={e => setEmail(e.currentTarget.value)}
                   />
                 </div>
                 <div className="text-danger">

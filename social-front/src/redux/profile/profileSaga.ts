@@ -154,6 +154,9 @@ function* sagaUpdateProfile(action) {
 	  );
 	  if (response.status >= 200 && response.status < 300) {
       toastify.toastifySuccess("Update profile successfull.");
+      yield put({
+        type: profileTypes.GET_INFO
+		  });
 	  } else {
       console.log(response);
 	  }

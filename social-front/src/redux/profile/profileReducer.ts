@@ -20,6 +20,7 @@ const initialState = {
     location: null,
     state: null,
     country: null,
+    createdAt: null
   }
 };
 
