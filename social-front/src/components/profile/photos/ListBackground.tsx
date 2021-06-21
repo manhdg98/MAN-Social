@@ -3,12 +3,12 @@ import { Skeleton, Image } from "antd";
 import { useDispatch, useSelector } from "react-redux";
 import { profileTypes } from "redux/profile/profileAction";
 
-function ListAvatar() {
+function ListBackground() {
   // fetch API Img
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch({
-      type: profileTypes.GET_LISt_AVATAR
+      type: profileTypes.GET_LIST_BACKGROUND
     });
   }, []);
 
@@ -23,7 +23,7 @@ function ListAvatar() {
           <div className="row">
             <div className="col-lg-6">
               <div className="align-left">
-                <h5>Photos <span>{data.profileReducer.listAvatar != null ? data.profileReducer.listAvatar.length : 0}</span></h5>
+                <h5>Photos <span>{data.profileReducer.listBackground != null ? data.profileReducer.listBackground.length : 0}</span></h5>
               </div>
             </div>
             <div className="col-lg-6">
@@ -74,8 +74,8 @@ function ListAvatar() {
               </div>
             </div>
           </div>
-          {data.profileReducer.listAvatar != null ? (
-            <> {data.profileReducer.listAvatar.map((item, index) => (
+          {data.profileReducer.listBackground != null ? (
+            <> {data.profileReducer.listBackground.map((item, index) => (
               <div className="col-lg-3 col-md-3 col-sm-6 col-xs-6 mb-2" key={index}>
                 <div className="item-box show-img">
                   <a className="strip h-100">
@@ -107,4 +107,4 @@ function ListAvatar() {
   );
 }
 
-export default ListAvatar;
+export default ListBackground;

@@ -1,17 +1,18 @@
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { actionTypes } from "redux/actions";
+import { actionTypes } from "redux/auth/actions";
+import { profileTypes } from "redux/profile/profileAction";
 
 function Header() {
   const [active, setActive] = useState(false);
   const dispatch = useDispatch();
   let data;
-  useSelector((state) => data = state);
+  useSelector(state => (data = state));
   useEffect(() => {
-      dispatch({
-          type: actionTypes.INFO
-      });
+    dispatch({
+      type: profileTypes.GET_INFO
+    });
   }, []);
 
   return (
@@ -68,22 +69,47 @@ function Header() {
             </li>
           </ul>
           <div className="user-img">
-            {(data != undefined && data.info != undefined) ? ( <>
-              <div className="user-img" onClick={() => setActive(!active)}>
-                <h5 className="mr-1">{data.info.username}</h5>
-                <img src="images/avatars/side-friend2.jpg" />
-              </div>
-              <div className={`${active ? 'active' : ''} user-setting`}>
-                <span className="seting-title">User setting <a href="#">see all</a></span>
-                <ul className="log-out">
-                  <li> <Link href="/profile"><a><i className="ti-user" /> view profile</a></Link></li>
-                  <li> <a><i className="ti-user" /> view profile</a></li>
-                  <li><a onClick={() => {
-                    dispatch({ type: actionTypes.LOGOUT })
-                  }}><i className="ti-power-off"/>log out</a></li>
-                </ul>
-              </div>
-            </> ) : <></> }
+            {data.profileReducer.info.username != null ? (
+              <>
+                <div className="user-img" onClick={() => setActive(!active)}>
+                  <h5 className="mr-1">{data.profileReducer.info.username}</h5>
+                  <img src={data.profileReducer.imgAvatar} />
+                </div>
+                <div className={`${active ? "active" : ""} user-setting`}>
+                  <span className="seting-title">
+                    User setting <a href="#">see all</a>
+                  </span>
+                  <ul className="log-out">
+                    <li>
+                      {" "}
+                      <Link href="/profile">
+                        <a>
+                          <i className="ti-user" /> view profile
+                        </a>
+                      </Link>
+                    </li>
+                    <li>
+                      {" "}
+                      <a>
+                        <i className="ti-user" /> view profile
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        onClick={() => {
+                          dispatch({ type: actionTypes.LOGOUT });
+                        }}
+                      >
+                        <i className="ti-power-off" />
+                        log out
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </>
+            ) : (
+              <></>
+            )}
           </div>
         </div>
       </div>

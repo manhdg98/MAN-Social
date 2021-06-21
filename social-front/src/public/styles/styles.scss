@@ -1,0 +1,48 @@
+.input-password {
+  position: relative;
+
+  .input-group-addon {
+    position: absolute;
+    height: 100%;
+    display: flex;
+    z-index: 1;
+    width: 50px;
+    background-color: #ccc;
+    justify-content: center;
+    align-items: center;
+    right: 0;
+    top: 0;
+    cursor: pointer;
+    transition: 0.3s;
+
+    &:hover {
+      background-color: #aaa;
+    }
+  }
+}
+
+.hidden-btn-antd {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  color: inherit;
+  text-shadow: none;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+
+  > * {
+    cursor: pointer;
+  }
+
+  &:active,
+  &:focus,
+  &:hover {
+    background-color: transparent;
+    color: inherit;
+  }
+}

@@ -10,7 +10,7 @@ module.exports = {
         primary: colors.blue
       },
       opacity: {
-        "90": ".9"
+        90: ".9"
       }
     }
   },

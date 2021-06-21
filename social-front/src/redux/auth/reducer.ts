@@ -2,19 +2,17 @@ import { actionTypes } from "./actions";
 import { HYDRATE } from "next-redux-wrapper";
 
 const initialState = {
-  type: null,
-  email: null,
-  info: {
-    email: null,
-    id: null,
-    username: null
-  }
+  type: actionTypes.TO_LOGIN,
+  email: null
 };
 
-function reducer(state, action) {
+function reducer(state = initialState, action) {
   switch (action.type) {
     case HYDRATE: {
-      return { ...state, ...action.payload };
+      return {
+        ...state,
+        ...action.payload
+      };
     }
     case actionTypes.TO_LOGIN:
       return {
@@ -29,15 +27,11 @@ function reducer(state, action) {
     case actionTypes.TO_VERIFY:
       return {
         ...state,
-        type: action.type, 
+        type: action.type,
         email: action.payload
       };
-    case actionTypes.GET_INFO:
-      return {
-        info: action.payload
-      };
     default:
-      return state;
+      return initialState;
   }
 }
 

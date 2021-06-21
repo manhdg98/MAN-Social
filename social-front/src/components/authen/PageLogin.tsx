@@ -6,7 +6,7 @@ import Verify from "./Verify";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useSelector, useDispatch } from "react-redux";
-import { actionTypes } from "redux/actions";
+import { actionTypes } from "redux/auth/actions";
 
 const PageLogin = () => {
   const dispatch = useDispatch();
@@ -16,16 +16,15 @@ const PageLogin = () => {
       type: actionTypes.TO_LOGIN
     });
   }, []);
-
-  let data = useSelector((state) => state);
+  let data: any = useSelector((state: any) => state.reducer);
 
   const showForm = () => {
     if (data === undefined || data.type === actionTypes.TO_LOGIN) {
-      return <LoginForm/>;
+      return <LoginForm />;
     } else if (data.type === actionTypes.TO_REGISTER) {
-      return <Register/>;
+      return <Register />;
     } else if (data.type === actionTypes.TO_VERIFY) {
-      return <Verify/>;
+      return <Verify />;
     }
   };
 

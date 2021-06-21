@@ -22,6 +22,48 @@ const UserSchema = new mongoose.Schema(
       type: Boolean,
       default: false,
     },
+    gender: {
+      type: String,
+      required: false,
+    },
+    country: {
+      type: String,
+      required: false,
+    },
+    state: {
+      type: String,
+      required: false,
+    },
+    location: {
+      type: String,
+      required: false,
+    },
+    job: {
+      type: String,
+      required: false,
+    },
+    about: {
+      type: String,
+      required: false,
+    },
+    company: {
+      type: String,
+      required: false,
+    },
+    dob: {
+      type: String,
+      required: false,
+    },
+    education: {
+      type: String,
+      required: false,
+    },
+    phone: {
+      type: String,
+      minLength: 10,
+      maxLength: 11,
+      required: false,
+    },
   },
   { timestamps: true }
 );
