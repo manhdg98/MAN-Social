@@ -26,6 +26,20 @@ function* sagaImg() {
       config.type_img.background,
       localStorage.getItem(config.local_storage._ID)
     );
+
+    if (resImgAvatar.length === 0) {
+      resImgAvatar.push({
+        filePath:
+          "https://www.winhelponline.com/blog/wp-content/uploads/2017/12/user.png?ezimgfmt=rs:254x254/rscb2"
+      });
+    }
+
+    if (resImgBackground.length === 0) {
+      resImgBackground.push({
+        filePath:
+          "https://oswallpapers.com/wp-content/uploads/2020/04/warty-final-ubuntu.resized.png"
+      });
+    }
   } catch (error) {
     console.log(error);
   }
@@ -118,7 +132,10 @@ function* sagaUploadBackground(action) {
 function* sagaGetListAvatar() {
   let listImgAvatar;
   try {
-    listImgAvatar = yield getMultipleFiles(config.type_img.avatar, localStorage.getItem(config.local_storage._ID));
+    listImgAvatar = yield getMultipleFiles(
+      config.type_img.avatar,
+      localStorage.getItem(config.local_storage._ID)
+    );
     yield put({
       type: profileTypes.SHOW_LISt_AVATAR,
       payload: listImgAvatar
@@ -133,7 +150,10 @@ function* sagaGetListAvatar() {
 function* sagaGetListBackground() {
   let listImgBackground;
   try {
-    listImgBackground = yield getMultipleFiles(config.type_img.background, localStorage.getItem(config.local_storage._ID));
+    listImgBackground = yield getMultipleFiles(
+      config.type_img.background,
+      localStorage.getItem(config.local_storage._ID)
+    );
     yield put({
       type: profileTypes.SHOW_LIST_BACKGROUND,
       payload: listImgBackground
@@ -149,21 +169,24 @@ function* sagaUpdateProfile(action) {
   const info = action.payload;
   let response;
   try {
-	  response = yield call(() =>
-      axios.patch(`/users/${localStorage.getItem(config.local_storage._ID)}/update-info`, info)
-	  );
-	  if (response.status >= 200 && response.status < 300) {
+    response = yield call(() =>
+      axios.patch(
+        `/users/${localStorage.getItem(config.local_storage._ID)}/update-info`,
+        info
+      )
+    );
+    if (response.status >= 200 && response.status < 300) {
       toastify.toastifySuccess("Update profile successfull.");
       yield put({
         type: profileTypes.GET_INFO
-		  });
-	  } else {
+      });
+    } else {
       console.log(response);
-	  }
+    }
   } catch (error) {
-	  toastify.toastifyError(
+    toastify.toastifyError(
       error.response.data.message ? error.response.data.message : error.response.data
-	  );
+    );
   }
 }
 
@@ -175,7 +198,7 @@ function* profileSaga() {
     takeEvery(profileTypes.UPLOAD_BACKGROUND, sagaUploadBackground),
     takeEvery(profileTypes.GET_LISt_AVATAR, sagaGetListAvatar),
     takeEvery(profileTypes.GET_LIST_BACKGROUND, sagaGetListBackground),
-    takeEvery(profileTypes.UPDATE_PROFILE, sagaUpdateProfile),
+    takeEvery(profileTypes.UPDATE_PROFILE, sagaUpdateProfile)
   ]);
 }
 

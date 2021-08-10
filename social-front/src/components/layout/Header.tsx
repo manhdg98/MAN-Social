@@ -19,7 +19,7 @@ function Header() {
     <header>
       <div className="topbar stick d-flex align-items-center justify-content-between pt-3 pb-3">
         <div className="logo h-100">
-          <a href="newsfeed.html" className="h-100 d-block">
+          <a href="newsfeed" className="h-100 d-block">
             <img src="static/logo.png" className="mh-100 mw-100" />
           </a>
         </div>
