@@ -13,6 +13,7 @@ import * as toastify from "../../common/toastify";
 import config from "../../common/config.json";
 import { getSingleFiles, getMultipleFiles } from "../../common/fileUpload";
 import { singleFileUpload } from "../../common/fileUpload";
+import Router from "next/router";
 
 function* sagaImg() {
   let resImgAvatar: any;
@@ -190,6 +191,35 @@ function* sagaUpdateProfile(action) {
   }
 }
 
+function* sagaSearchFriends(action) {
+  const userName = action.query;
+  if (!userName) {
+    return;
+  }
+
+  let resultSearchFriends;
+  try {
+    resultSearchFriends = yield call(() =>
+      axios.get("/search/friends", {
+        params: userName
+      })
+    );
+    if (resultSearchFriends.status >= 200 && resultSearchFriends.status < 300) {
+      yield put({
+        type: profileTypes.FIND_FRIENDS,
+        data: resultSearchFriends.data
+      });
+      yield Router.push("/search/friends");
+    } else {
+      console.log(resultSearchFriends);
+    }
+  } catch (error) {
+    toastify.toastifyError(
+      error.response.data.message ? error.response.data.message : error.response.data
+    );
+  }
+}
+
 function* profileSaga() {
   yield all([
     takeEvery(profileTypes.GET_IMG, sagaImg),
@@ -198,7 +228,8 @@ function* profileSaga() {
     takeEvery(profileTypes.UPLOAD_BACKGROUND, sagaUploadBackground),
     takeEvery(profileTypes.GET_LISt_AVATAR, sagaGetListAvatar),
     takeEvery(profileTypes.GET_LIST_BACKGROUND, sagaGetListBackground),
-    takeEvery(profileTypes.UPDATE_PROFILE, sagaUpdateProfile)
+    takeEvery(profileTypes.UPDATE_PROFILE, sagaUpdateProfile),
+    takeEvery(profileTypes.FIND_FRIENDS, sagaSearchFriends)
   ]);
 }
 

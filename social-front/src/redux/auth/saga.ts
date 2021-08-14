@@ -17,11 +17,13 @@ function* sagaRegister(action) {
   try {
     response = yield call(() => axios.post("/auth/register", info));
     if (response.status >= 200 && response.status < 300) {
-      toastify.toastifySuccess("Create new account successful, please check your email.");
       yield put({
         type: actionTypes.TO_VERIFY,
         payload: info.email
       });
+      toastify.toastifySuccess(
+        "Create new account successfully, please check your email."
+      );
       return response;
     } else {
       console.log(response);

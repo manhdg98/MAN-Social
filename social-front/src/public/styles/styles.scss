@@ -50,3 +50,9 @@
 .ant-image {
   display: block !important;
 }
+
+.pit-friends > figure img,
+.pit-groups > figure img,
+.pit-pages > figure img {
+  height: 45px;
+}

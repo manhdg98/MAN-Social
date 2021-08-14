@@ -21,7 +21,8 @@ const initialState = {
     state: null,
     country: null,
     createdAt: null
-  }
+  },
+  resultSearchFriends: null
 };
 
 function profileReducer(state = initialState, action) {
@@ -62,6 +63,11 @@ function profileReducer(state = initialState, action) {
       return {
         ...state,
         listBackground: action.payload
+      };
+    case profileTypes.FIND_FRIENDS:
+      return {
+        ...state,
+        resultSearchFriends: action.data
       };
     default:
       return { ...state };

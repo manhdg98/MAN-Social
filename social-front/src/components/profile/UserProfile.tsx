@@ -11,13 +11,10 @@ const UserProfile = () => {
     switch (key) {
       case contentPage.ABOUTTAB:
         return <AboutTab />;
-        break;
       case contentPage.SETTING:
         return <SettingTab />;
-        break;
       case contentPage.PHOTOS:
         return <PhotosTab />;
-        break;
       default:
         break;
     }

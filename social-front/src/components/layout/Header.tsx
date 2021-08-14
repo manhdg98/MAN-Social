@@ -15,6 +15,16 @@ function Header() {
     });
   }, []);
 
+  const handleKeyDown = e => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      dispatch({
+        type: profileTypes.FIND_FRIENDS,
+        query: { userName: e.target.value }
+      });
+    }
+  };
+
   return (
     <header>
       <div className="topbar stick d-flex align-items-center justify-content-between pt-3 pb-3">
@@ -26,7 +36,11 @@ function Header() {
         <div className="top-area">
           <div className="top-search">
             <form method="post">
-              <input type="text" placeholder="Search People, Pages, Groups etc" />
+              <input
+                type="text"
+                onKeyDown={handleKeyDown}
+                placeholder="Search People, Pages, Groups etc"
+              />
               <button data-ripple>
                 <i className="ti-search" />
               </button>

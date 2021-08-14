@@ -40,14 +40,14 @@ const Head = (props: HeadProps) => (
     <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 
     <script src="/assests/js/main.min.js"></script>
-    <script src="/assests/js/jquery-stories.js"></script>
+    {/* <script src="/assests/js/jquery-stories.js"></script> */}
     <script src="/assests/js/toast-notificatons.js"></script>
     <script src="../../../cdnjs.cloudflare.com/ajax/libs/gsap/1.18.2/TweenMax.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8c55_YHLvDHGACkQscgbGLtLRdxBDCfI"></script>
     <script src="/assests/js/locationpicker.jquery.js"></script>
     <script src="/assests/js/map-init.js"></script>
     <script src="/assests/js/page-tourintro.js"></script>
-    <script src="/assests/js/page-tour-init.js"></script>
+    {/* <script src="/assests/js/page-tour-init.js"></script> */}
     <script src="/assests/js/script.js"></script>
   </NextHead>
 );
