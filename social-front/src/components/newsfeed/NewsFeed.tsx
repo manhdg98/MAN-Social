@@ -14,7 +14,10 @@ const NewsFeed = () => {
                       <div className="weather-widget low-opacity bluesh">
                         <div
                           className="bg-image"
-                          style={{ backgroundImage: "url(images/resources/weather.jpg)" }}
+                          style={{
+                            backgroundImage:
+                              "url(https://res.cloudinary.com/manteam/image/upload/v1628845422/images/resources/weather_crjr91.jpg)"
+                          }}
                         />
                         <span className="refresh-content">
                           <i className="fa fa-refresh" />
@@ -98,11 +101,17 @@ const NewsFeed = () => {
                     {/* weather widget*/}
                     <div className="widget whitish low-opacity">
                       <div
-                        style={{ backgroundImage: "url(images/resources/dob2.png)" }}
+                        style={{
+                          backgroundImage:
+                            "url(https://res.cloudinary.com/manteam/image/upload/v1628845460/images/resources/dob2_aednlu.png"
+                        }}
                         className="bg-image"
                       />
                       <div className="dob-head">
-                        <img src="images/resources/sug-page-5.jpg" alt="" />
+                        <img
+                          src="https://res.cloudinary.com/manteam/image/upload/v1628845515/images/resources/sug-page-5_lzyvcr.jpg"
+                          alt=""
+                        />
                         <span>22nd Birthday</span>
                         <div className="dob">
                           <i>19</i>
@@ -111,7 +120,10 @@ const NewsFeed = () => {
                       </div>
                       <div className="dob-meta">
                         <figure>
-                          <img src="images/resources/dob-cake.gif" alt="" />
+                          <img
+                            src="https://res.cloudinary.com/manteam/image/upload/v1628845484/images/resources/dob-cake_siyme6.gif"
+                            alt=""
+                          />
                         </figure>
                         <h6>
                           <a href="#">Lucy Carbel</a> valentine's birthday
@@ -166,7 +178,10 @@ const NewsFeed = () => {
                       <h4>advertisment</h4>
                       <figure>
                         <a href="#" title="Advertisment">
-                          <img src="images/resources/ad-widget.gif" alt="" />
+                          <img
+                            src="https://res.cloudinary.com/manteam/image/upload/v1628845424/images/resources/ad-widget_ttxbpa.gif"
+                            alt=""
+                          />
                         </a>
                       </figure>
                     </div>
@@ -264,7 +279,10 @@ const NewsFeed = () => {
                       <ul className="followers">
                         <li>
                           <figure>
-                            <img src="images/resources/friend-avatar2.jpg" alt="" />
+                            <img
+                              src="https://res.cloudinary.com/manteam/image/upload/v1628845476/images/resources/friend-avatar2_xh2mbr.jpg"
+                              alt=""
+                            />
                           </figure>
                           <div className="friend-meta">
                             <h4>
@@ -277,7 +295,10 @@ const NewsFeed = () => {
                         </li>
                         <li>
                           <figure>
-                            <img src="images/resources/friend-avatar4.jpg" alt="" />
+                            <img
+                              src="https://res.cloudinary.com/manteam/image/upload/v1628845477/images/resources/friend-avatar4_y0cqwt.jpg"
+                              alt=""
+                            />
                           </figure>
                           <div className="friend-meta">
                             <h4>
@@ -290,7 +311,10 @@ const NewsFeed = () => {
                         </li>
                         <li>
                           <figure>
-                            <img src="images/resources/friend-avatar6.jpg" alt="" />
+                            <img
+                              src="https://res.cloudinary.com/manteam/image/upload/v1628845478/images/resources/friend-avatar6_waag9v.jpg"
+                              alt=""
+                            />
                           </figure>
                           <div className="friend-meta">
                             <h4>
@@ -303,7 +327,10 @@ const NewsFeed = () => {
                         </li>
                         <li>
                           <figure>
-                            <img src="images/resources/friend-avatar8.jpg" alt="" />
+                            <img
+                              src="https://res.cloudinary.com/manteam/image/upload/v1628845478/images/resources/friend-avatar8_x1oyts.jpg"
+                              alt=""
+                            />
                           </figure>
                           <div className="friend-meta">
                             <h4>
@@ -316,7 +343,10 @@ const NewsFeed = () => {
                         </li>
                         <li>
                           <figure>
-                            <img src="images/resources/friend-avatar3.jpg" alt="" />
+                            <img
+                              src="https://res.cloudinary.com/manteam/image/upload/v1628845477/images/resources/friend-avatar3_pwyblm.jpg"
+                              alt=""
+                            />
                           </figure>
                           <div className="friend-meta">
                             <h4>
@@ -338,7 +368,10 @@ const NewsFeed = () => {
                     <span className="create-post">Create post</span>
                     <div className="new-postbox">
                       <figure>
-                        <img src="images/resources/admin.jpg" alt="" />
+                        <img
+                          src="https://res.cloudinary.com/manteam/image/upload/v1628845423/images/resources/admin_ubxdud.jpg"
+                          alt=""
+                        />
                       </figure>
                       <div className="newpst-input">
                         <form method="post">
@@ -421,7 +454,10 @@ const NewsFeed = () => {
                         <div className="col-lg-3 col-md-3 col-sm-3">
                           <div className="story-box">
                             <figure>
-                              <img src="images/resources/story-1.jpg" alt="" />
+                              <img
+                                src="https://res.cloudinary.com/manteam/image/upload/v1628845513/images/resources/story-1_lwmuly.jpg"
+                                alt=""
+                              />
                               <span>Add Your Story</span>
                             </figure>
                             <div
@@ -436,7 +472,10 @@ const NewsFeed = () => {
                         <div className="col-lg-3 col-md-3 col-sm-3">
                           <div className="story-box">
                             <figure>
-                              <img src="images/resources/story-2.jpg" alt="" />
+                              <img
+                                src="https://res.cloudinary.com/manteam/image/upload/v1628845514/images/resources/story-2_onibdh.jpg"
+                                alt=""
+                              />
                               <span>Adam James</span>
                             </figure>
                             <div
@@ -444,14 +483,20 @@ const NewsFeed = () => {
                               data-toggle="tooltip"
                               title="Adam James"
                             >
-                              <img src="images/resources/thumb-2.jpg" alt="" />
+                              <img
+                                src="https://res.cloudinary.com/manteam/image/upload/v1628845517/images/resources/thumb-2_bz0by6.jpg"
+                                alt=""
+                              />
                             </div>
                           </div>
                         </div>
                         <div className="col-lg-3 col-md-3 col-sm-3">
                           <div className="story-box">
                             <figure>
-                              <img src="images/resources/story-3.jpg" alt="" />
+                              <img
+                                src="https://res.cloudinary.com/manteam/image/upload/v1628845514/images/resources/story-3_ofjdnm.jpg"
+                                alt=""
+                              />
                               <span>Emily grey</span>
                             </figure>
                             <div
@@ -459,14 +504,20 @@ const NewsFeed = () => {
                               data-toggle="tooltip"
                               title="Emily grey"
                             >
-                              <img src="images/resources/thumb-3.jpg" alt="" />
+                              <img
+                                src="https://res.cloudinary.com/manteam/image/upload/v1628845517/images/resources/thumb-3_fmkbcd.jpg"
+                                alt=""
+                              />
                             </div>
                           </div>
                         </div>
                         <div className="col-lg-3 col-md-3 col-sm-3">
                           <div className="story-box">
                             <figure>
-                              <img src="images/resources/story-4.jpg" alt="" />
+                              <img
+                                src="https://res.cloudinary.com/manteam/image/upload/v1628845514/images/resources/story-4_daigfq.jpg"
+                                alt=""
+                              />
                               <span>Jhon Deo</span>
                             </figure>
                             <div
@@ -474,7 +525,10 @@ const NewsFeed = () => {
                               data-toggle="tooltip"
                               title="Jhon Deo"
                             >
-                              <img src="images/resources/thumb-4.jpg" alt="" />
+                              <img
+                                src="https://res.cloudinary.com/manteam/image/upload/v1628845517/images/resources/thumb-4_cj5zwn.jpg"
+                                alt=""
+                              />
                             </div>
                           </div>
                         </div>
@@ -491,7 +545,7 @@ const NewsFeed = () => {
                                 <div className="my-status">
                                   <figure>
                                     <img
-                                      src="images/resources/friend-avatar10.jpg"
+                                      src="https://res.cloudinary.com/manteam/image/upload/v1628845479/images/resources/friend-avatar10_ajprrc.jpg"
                                       alt=""
                                     />
                                   </figure>
@@ -507,7 +561,7 @@ const NewsFeed = () => {
                                   <li>
                                     <figure>
                                       <img
-                                        src="images/resources/friend-avatar11.jpg"
+                                        src="https://res.cloudinary.com/manteam/image/upload/v1628845479/images/resources/friend-avatar11_vhjty1.jpg"
                                         alt=""
                                       />
                                     </figure>
@@ -519,7 +573,7 @@ const NewsFeed = () => {
                                   <li>
                                     <figure>
                                       <img
-                                        src="images/resources/friend-avatar15.jpg"
+                                        src="https://res.cloudinary.com/manteam/image/upload/v1628845480/images/resources/friend-avatar15_xd9h1e.jpg"
                                         alt=""
                                       />
                                     </figure>
@@ -531,7 +585,7 @@ const NewsFeed = () => {
                                   <li>
                                     <figure>
                                       <img
-                                        src="images/resources/friend-avatar12.jpg"
+                                        src="https://res.cloudinary.com/manteam/image/upload/v1628845479/images/resources/friend-avatar12_kp0v3k.jpg"
                                         alt=""
                                       />
                                     </figure>
@@ -543,7 +597,7 @@ const NewsFeed = () => {
                                   <li>
                                     <figure>
                                       <img
-                                        src="images/resources/friend-avatar13.jpg"
+                                        src="https://res.cloudinary.com/manteam/image/upload/v1628845479/images/resources/friend-avatar13_e32sor.jpg"
                                         alt=""
                                       />
                                     </figure>
@@ -555,7 +609,7 @@ const NewsFeed = () => {
                                   <li>
                                     <figure>
                                       <img
-                                        src="images/resources/friend-avatar14.jpg"
+                                        src="https://res.cloudinary.com/manteam/image/upload/v1628845480/images/resources/friend-avatar14_bpdvl3.jpg"
                                         alt=""
                                       />
                                     </figure>
@@ -567,7 +621,7 @@ const NewsFeed = () => {
                                   <li>
                                     <figure>
                                       <img
-                                        src="images/resources/friend-avatar16.jpg"
+                                        src="https://res.cloudinary.com/manteam/image/upload/v1628845480/images/resources/friend-avatar16_jp86ms.jpg"
                                         alt=""
                                       />
                                     </figure>
@@ -584,19 +638,19 @@ const NewsFeed = () => {
                               <div id="slideshow">
                                 <img
                                   className="slide"
-                                  src="https://placehold.it/856x380/FF6347/FFFFFF&text=1"
+                                  src="https://1.bp.blogspot.com/-ydS25hMYkRc/WLYeGBpYpjI/AAAAAAAAADA/V7N5F2l7vQoNh_th5N--UPVKScdbjEj4gCLcB/s1600/G%2B%25281%2529.jpg"
                                 />
                                 <img
                                   className="slide"
-                                  src="https://placehold.it/856x380/6FC6F7/FFFFFF&text=2"
+                                  src="https://nhacchuonghinhnen.com/wp-content/uploads/2020/03/hinh-nen-gai-xinh-full-hd-cho-dien-thoai-2-scaled.jpg"
                                 />
                                 <img
                                   className="slide"
-                                  src="https://placehold.it/856x380/f3e686/FFFFFF&text=3"
+                                  src="https://congngheads.com/media/images/anh-dep/hinh-nen-thien-nhien-dep-cho-laptop-1556704186/bo-hinh-nen-may-tinh-gai-xinh-dep-mac-ao-vao-de-thuong-kute-full-hd-9.jpg"
                                 />
                                 <img
                                   className="slide"
-                                  src="https://placehold.it/856x380/71eea3/FFFFFF&text=4"
+                                  src="https://img2.thuthuatphanmem.vn/uploads/2019/02/22/hinh-nen-gai-xinh-full-hd_121751381.jpg"
                                 />
                               </div>
                             </div>
@@ -771,19 +825,34 @@ const NewsFeed = () => {
                               </ul>
                               <div className="users-thumb-list">
                                 <a data-toggle="tooltip" title="Anderw" href="#">
-                                  <img alt="" src="images/resources/userlist-1.jpg" />
+                                  <img
+                                    alt=""
+                                    src="https://res.cloudinary.com/manteam/image/upload/v1628845417/images/resources/userlist-1_norgar.jpg"
+                                  />
                                 </a>
                                 <a data-toggle="tooltip" title="frank" href="#">
-                                  <img alt="" src="images/resources/userlist-2.jpg" />
+                                  <img
+                                    alt=""
+                                    src="https://res.cloudinary.com/manteam/image/upload/v1628845417/images/resources/userlist-2_bi5t3s.jpg"
+                                  />
                                 </a>
                                 <a data-toggle="tooltip" title="Sara" href="#">
-                                  <img alt="" src="images/resources/userlist-3.jpg" />
+                                  <img
+                                    alt=""
+                                    src="https://res.cloudinary.com/manteam/image/upload/v1628845418/images/resources/userlist-3_ezegdm.jpg"
+                                  />
                                 </a>
                                 <a data-toggle="tooltip" title="Amy" href="#">
-                                  <img alt="" src="images/resources/userlist-4.jpg" />
+                                  <img
+                                    alt=""
+                                    src="https://res.cloudinary.com/manteam/image/upload/v1628845417/images/resources/userlist-4_vpuu9g.jpg"
+                                  />
                                 </a>
                                 <a data-toggle="tooltip" title="Ema" href="#">
-                                  <img alt="" src="images/resources/userlist-5.jpg" />
+                                  <img
+                                    alt=""
+                                    src="https://res.cloudinary.com/manteam/image/upload/v1628845417/images/resources/userlist-5_nea3hs.jpg"
+                                  />
                                 </a>
                                 <span>
                                   <strong>You</strong>, <b>Sarah</b> and{" "}
@@ -796,7 +865,10 @@ const NewsFeed = () => {
                             <ul className="we-comet">
                               <li>
                                 <div className="comet-avatar">
-                                  <img src="images/resources/nearly3.jpg" alt="" />
+                                  <img
+                                    src="https://res.cloudinary.com/manteam/image/upload/v1628845489/images/resources/nearly3_kgqdio.jpg"
+                                    alt=""
+                                  />
                                 </div>
                                 <div className="we-comment">
                                   <h5>
@@ -821,7 +893,10 @@ const NewsFeed = () => {
                               </li>
                               <li>
                                 <div className="comet-avatar">
-                                  <img src="images/resources/comet-4.jpg" alt="" />
+                                  <img
+                                    src="https://res.cloudinary.com/manteam/image/upload/v1628845446/images/resources/comet-4_vy6vie.jpg"
+                                    alt=""
+                                  />
                                 </div>
                                 <div className="we-comment">
                                   <h5>
@@ -851,7 +926,10 @@ const NewsFeed = () => {
                               </li>
                               <li className="post-comment">
                                 <div className="comet-avatar">
-                                  <img src="images/resources/nearly1.jpg" alt="" />
+                                  <img
+                                    src="https://res.cloudinary.com/manteam/image/upload/v1628845489/images/resources/nearly1_uqp4ma.jpg"
+                                    alt=""
+                                  />
                                 </div>
                                 <div className="post-comt-box">
                                   <form method="post">
@@ -899,7 +977,10 @@ const NewsFeed = () => {
                       <div className="user-post">
                         <div className="friend-info">
                           <figure>
-                            <img src="images/resources/nearly1.jpg" alt="" />
+                            <img
+                              src="https://res.cloudinary.com/manteam/image/upload/v1628845489/images/resources/nearly1_uqp4ma.jpg"
+                              alt=""
+                            />
                           </figure>
                           <div className="friend-name">
                             <div className="more">
@@ -954,7 +1035,10 @@ const NewsFeed = () => {
                                 className="strip vdeo-link"
                                 data-strip-options="width: 700,height: 450,youtube: { autoplay: 1 }"
                               >
-                                <img src="images/resources/user-post.jpg" alt="" />
+                                <img
+                                  src="https://res.cloudinary.com/manteam/image/upload/v1628845421/images/resources/user-post_dxhiw0.jpg"
+                                  alt=""
+                                />
                                 <i>
                                   <svg
                                     version="1.1"
@@ -1042,19 +1126,34 @@ const NewsFeed = () => {
                               </ul>
                               <div className="users-thumb-list">
                                 <a data-toggle="tooltip" title="Anderw" href="#">
-                                  <img alt="" src="images/resources/userlist-1.jpg" />
+                                  <img
+                                    alt=""
+                                    src="https://res.cloudinary.com/manteam/image/upload/v1628845417/images/resources/userlist-1_norgar.jpg"
+                                  />
                                 </a>
                                 <a data-toggle="tooltip" title="frank" href="#">
-                                  <img alt="" src="images/resources/userlist-2.jpg" />
+                                  <img
+                                    alt=""
+                                    src="https://res.cloudinary.com/manteam/image/upload/v1628845417/images/resources/userlist-2_bi5t3s.jpg"
+                                  />
                                 </a>
                                 <a data-toggle="tooltip" title="Sara" href="#">
-                                  <img alt="" src="images/resources/userlist-3.jpg" />
+                                  <img
+                                    alt=""
+                                    src="https://res.cloudinary.com/manteam/image/upload/v1628845418/images/resources/userlist-3_ezegdm.jpg"
+                                  />
                                 </a>
                                 <a data-toggle="tooltip" title="Amy" href="#">
-                                  <img alt="" src="images/resources/userlist-4.jpg" />
+                                  <img
+                                    alt=""
+                                    src="https://res.cloudinary.com/manteam/image/upload/v1628845417/images/resources/userlist-4_vpuu9g.jpg"
+                                  />
                                 </a>
                                 <a data-toggle="tooltip" title="Ema" href="#">
-                                  <img alt="" src="images/resources/userlist-5.jpg" />
+                                  <img
+                                    alt=""
+                                    src="https://res.cloudinary.com/manteam/image/upload/v1628845417/images/resources/userlist-5_nea3hs.jpg"
+                                  />
                                 </a>
                                 <span>
                                   <strong>You</strong>, <b>Sarah</b> and{" "}
@@ -1280,19 +1379,34 @@ const NewsFeed = () => {
                               </ul>
                               <div className="users-thumb-list">
                                 <a data-toggle="tooltip" title="Anderw" href="#">
-                                  <img alt="" src="images/resources/userlist-1.jpg" />
+                                  <img
+                                    alt=""
+                                    src="https://res.cloudinary.com/manteam/image/upload/v1628845417/images/resources/userlist-1_norgar.jpg"
+                                  />
                                 </a>
                                 <a data-toggle="tooltip" title="frank" href="#">
-                                  <img alt="" src="images/resources/userlist-2.jpg" />
+                                  <img
+                                    alt=""
+                                    src="https://res.cloudinary.com/manteam/image/upload/v1628845417/images/resources/userlist-2_bi5t3s.jpg"
+                                  />
                                 </a>
                                 <a data-toggle="tooltip" title="Sara" href="#">
-                                  <img alt="" src="images/resources/userlist-3.jpg" />
+                                  <img
+                                    alt=""
+                                    src="https://res.cloudinary.com/manteam/image/upload/v1628845418/images/resources/userlist-3_ezegdm.jpg"
+                                  />
                                 </a>
                                 <a data-toggle="tooltip" title="Amy" href="#">
-                                  <img alt="" src="images/resources/userlist-4.jpg" />
+                                  <img
+                                    alt=""
+                                    src="https://res.cloudinary.com/manteam/image/upload/v1628845417/images/resources/userlist-4_vpuu9g.jpg"
+                                  />
                                 </a>
                                 <a data-toggle="tooltip" title="Ema" href="#">
-                                  <img alt="" src="images/resources/userlist-5.jpg" />
+                                  <img
+                                    alt=""
+                                    src="https://res.cloudinary.com/manteam/image/upload/v1628845417/images/resources/userlist-5_nea3hs.jpg"
+                                  />
                                 </a>
                                 <span>
                                   <strong>You</strong>, <b>Sarah</b> and{" "}
@@ -1525,19 +1639,34 @@ const NewsFeed = () => {
                               </ul>
                               <div className="users-thumb-list">
                                 <a data-toggle="tooltip" title="Anderw" href="#">
-                                  <img alt="" src="images/resources/userlist-1.jpg" />
+                                  <img
+                                    alt=""
+                                    src="https://res.cloudinary.com/manteam/image/upload/v1628845417/images/resources/userlist-1_norgar.jpg"
+                                  />
                                 </a>
                                 <a data-toggle="tooltip" title="frank" href="#">
-                                  <img alt="" src="images/resources/userlist-2.jpg" />
+                                  <img
+                                    alt=""
+                                    src="https://res.cloudinary.com/manteam/image/upload/v1628845417/images/resources/userlist-2_bi5t3s.jpg"
+                                  />
                                 </a>
                                 <a data-toggle="tooltip" title="Sara" href="#">
-                                  <img alt="" src="images/resources/userlist-3.jpg" />
+                                  <img
+                                    alt=""
+                                    src="https://res.cloudinary.com/manteam/image/upload/v1628845418/images/resources/userlist-3_ezegdm.jpg"
+                                  />
                                 </a>
                                 <a data-toggle="tooltip" title="Amy" href="#">
-                                  <img alt="" src="images/resources/userlist-4.jpg" />
+                                  <img
+                                    alt=""
+                                    src="https://res.cloudinary.com/manteam/image/upload/v1628845417/images/resources/userlist-4_vpuu9g.jpg"
+                                  />
                                 </a>
                                 <a data-toggle="tooltip" title="Ema" href="#">
-                                  <img alt="" src="images/resources/userlist-5.jpg" />
+                                  <img
+                                    alt=""
+                                    src="https://res.cloudinary.com/manteam/image/upload/v1628845417/images/resources/userlist-5_nea3hs.jpg"
+                                  />
                                 </a>
                                 <span>
                                   <strong>You</strong>, <b>Sarah</b> and{" "}
@@ -1752,19 +1881,34 @@ const NewsFeed = () => {
                               </ul>
                               <div className="users-thumb-list">
                                 <a data-toggle="tooltip" title="Anderw" href="#">
-                                  <img alt="" src="images/resources/userlist-1.jpg" />
+                                  <img
+                                    alt=""
+                                    src="https://res.cloudinary.com/manteam/image/upload/v1628845417/images/resources/userlist-1_norgar.jpg"
+                                  />
                                 </a>
                                 <a data-toggle="tooltip" title="frank" href="#">
-                                  <img alt="" src="images/resources/userlist-2.jpg" />
+                                  <img
+                                    alt=""
+                                    src="https://res.cloudinary.com/manteam/image/upload/v1628845417/images/resources/userlist-2_bi5t3s.jpg"
+                                  />
                                 </a>
                                 <a data-toggle="tooltip" title="Sara" href="#">
-                                  <img alt="" src="images/resources/userlist-3.jpg" />
+                                  <img
+                                    alt=""
+                                    src="https://res.cloudinary.com/manteam/image/upload/v1628845418/images/resources/userlist-3_ezegdm.jpg"
+                                  />
                                 </a>
                                 <a data-toggle="tooltip" title="Amy" href="#">
-                                  <img alt="" src="images/resources/userlist-4.jpg" />
+                                  <img
+                                    alt=""
+                                    src="https://res.cloudinary.com/manteam/image/upload/v1628845417/images/resources/userlist-4_vpuu9g.jpg"
+                                  />
                                 </a>
                                 <a data-toggle="tooltip" title="Ema" href="#">
-                                  <img alt="" src="images/resources/userlist-5.jpg" />
+                                  <img
+                                    alt=""
+                                    src="https://res.cloudinary.com/manteam/image/upload/v1628845417/images/resources/userlist-5_nea3hs.jpg"
+                                  />
                                 </a>
                                 <span>
                                   <strong>You</strong>, <b>Sarah</b> and{" "}
@@ -1993,19 +2137,34 @@ const NewsFeed = () => {
                               </ul>
                               <div className="users-thumb-list">
                                 <a data-toggle="tooltip" title="Anderw" href="#">
-                                  <img alt="" src="images/resources/userlist-1.jpg" />
+                                  <img
+                                    alt=""
+                                    src="https://res.cloudinary.com/manteam/image/upload/v1628845417/images/resources/userlist-1_norgar.jpg"
+                                  />
                                 </a>
                                 <a data-toggle="tooltip" title="frank" href="#">
-                                  <img alt="" src="images/resources/userlist-2.jpg" />
+                                  <img
+                                    alt=""
+                                    src="https://res.cloudinary.com/manteam/image/upload/v1628845417/images/resources/userlist-2_bi5t3s.jpg"
+                                  />
                                 </a>
                                 <a data-toggle="tooltip" title="Sara" href="#">
-                                  <img alt="" src="images/resources/userlist-3.jpg" />
+                                  <img
+                                    alt=""
+                                    src="https://res.cloudinary.com/manteam/image/upload/v1628845418/images/resources/userlist-3_ezegdm.jpg"
+                                  />
                                 </a>
                                 <a data-toggle="tooltip" title="Amy" href="#">
-                                  <img alt="" src="images/resources/userlist-4.jpg" />
+                                  <img
+                                    alt=""
+                                    src="https://res.cloudinary.com/manteam/image/upload/v1628845417/images/resources/userlist-4_vpuu9g.jpg"
+                                  />
                                 </a>
                                 <a data-toggle="tooltip" title="Ema" href="#">
-                                  <img alt="" src="images/resources/userlist-5.jpg" />
+                                  <img
+                                    alt=""
+                                    src="https://res.cloudinary.com/manteam/image/upload/v1628845417/images/resources/userlist-5_nea3hs.jpg"
+                                  />
                                 </a>
                                 <span>
                                   <strong>You</strong>, <b>Sarah</b> and{" "}
@@ -2264,19 +2423,34 @@ const NewsFeed = () => {
                               </ul>
                               <div className="users-thumb-list">
                                 <a data-toggle="tooltip" title="Anderw" href="#">
-                                  <img alt="" src="images/resources/userlist-1.jpg" />
+                                  <img
+                                    alt=""
+                                    src="https://res.cloudinary.com/manteam/image/upload/v1628845417/images/resources/userlist-1_norgar.jpg"
+                                  />
                                 </a>
                                 <a data-toggle="tooltip" title="frank" href="#">
-                                  <img alt="" src="images/resources/userlist-2.jpg" />
+                                  <img
+                                    alt=""
+                                    src="https://res.cloudinary.com/manteam/image/upload/v1628845417/images/resources/userlist-2_bi5t3s.jpg"
+                                  />
                                 </a>
                                 <a data-toggle="tooltip" title="Sara" href="#">
-                                  <img alt="" src="images/resources/userlist-3.jpg" />
+                                  <img
+                                    alt=""
+                                    src="https://res.cloudinary.com/manteam/image/upload/v1628845418/images/resources/userlist-3_ezegdm.jpg"
+                                  />
                                 </a>
                                 <a data-toggle="tooltip" title="Amy" href="#">
-                                  <img alt="" src="images/resources/userlist-4.jpg" />
+                                  <img
+                                    alt=""
+                                    src="https://res.cloudinary.com/manteam/image/upload/v1628845417/images/resources/userlist-4_vpuu9g.jpg"
+                                  />
                                 </a>
                                 <a data-toggle="tooltip" title="Ema" href="#">
-                                  <img alt="" src="images/resources/userlist-5.jpg" />
+                                  <img
+                                    alt=""
+                                    src="https://res.cloudinary.com/manteam/image/upload/v1628845417/images/resources/userlist-5_nea3hs.jpg"
+                                  />
                                 </a>
                                 <span>
                                   <strong>You</strong>, <b>Sarah</b> and{" "}
@@ -2473,26 +2647,35 @@ const NewsFeed = () => {
                                 35 new likes this week
                               </a>
                               <div className="users-thumb-list">
-                                <a href="#" title="Anderw" data-toggle="tooltip">
-                                  <img src="images/resources/userlist-1.jpg" alt="" />
+                                <a data-toggle="tooltip" title="Anderw" href="#">
+                                  <img
+                                    alt=""
+                                    src="https://res.cloudinary.com/manteam/image/upload/v1628845417/images/resources/userlist-1_norgar.jpg"
+                                  />
                                 </a>
-                                <a href="#" title="frank" data-toggle="tooltip">
-                                  <img src="images/resources/userlist-2.jpg" alt="" />
+                                <a data-toggle="tooltip" title="frank" href="#">
+                                  <img
+                                    alt=""
+                                    src="https://res.cloudinary.com/manteam/image/upload/v1628845417/images/resources/userlist-2_bi5t3s.jpg"
+                                  />
                                 </a>
-                                <a href="#" title="Sara" data-toggle="tooltip">
-                                  <img src="images/resources/userlist-3.jpg" alt="" />
+                                <a data-toggle="tooltip" title="Sara" href="#">
+                                  <img
+                                    alt=""
+                                    src="https://res.cloudinary.com/manteam/image/upload/v1628845418/images/resources/userlist-3_ezegdm.jpg"
+                                  />
                                 </a>
-                                <a href="#" title="Amy" data-toggle="tooltip">
-                                  <img src="images/resources/userlist-4.jpg" alt="" />
+                                <a data-toggle="tooltip" title="Amy" href="#">
+                                  <img
+                                    alt=""
+                                    src="https://res.cloudinary.com/manteam/image/upload/v1628845417/images/resources/userlist-4_vpuu9g.jpg"
+                                  />
                                 </a>
-                                <a href="#" title="Ema" data-toggle="tooltip">
-                                  <img src="images/resources/userlist-5.jpg" alt="" />
-                                </a>
-                                <a href="#" title="Sophie" data-toggle="tooltip">
-                                  <img src="images/resources/userlist-6.jpg" alt="" />
-                                </a>
-                                <a href="#" title="Maria" data-toggle="tooltip">
-                                  <img src="images/resources/userlist-7.jpg" alt="" />
+                                <a data-toggle="tooltip" title="Ema" href="#">
+                                  <img
+                                    alt=""
+                                    src="https://res.cloudinary.com/manteam/image/upload/v1628845417/images/resources/userlist-5_nea3hs.jpg"
+                                  />
                                 </a>
                               </div>
                             </div>
@@ -2505,26 +2688,35 @@ const NewsFeed = () => {
                                 440 new views this week
                               </a>
                               <div className="users-thumb-list">
-                                <a href="#" title="Anderw" data-toggle="tooltip">
-                                  <img src="images/resources/userlist-1.jpg" alt="" />
+                                <a data-toggle="tooltip" title="Anderw" href="#">
+                                  <img
+                                    alt=""
+                                    src="https://res.cloudinary.com/manteam/image/upload/v1628845417/images/resources/userlist-1_norgar.jpg"
+                                  />
                                 </a>
-                                <a href="#" title="frank" data-toggle="tooltip">
-                                  <img src="images/resources/userlist-2.jpg" alt="" />
+                                <a data-toggle="tooltip" title="frank" href="#">
+                                  <img
+                                    alt=""
+                                    src="https://res.cloudinary.com/manteam/image/upload/v1628845417/images/resources/userlist-2_bi5t3s.jpg"
+                                  />
                                 </a>
-                                <a href="#" title="Sara" data-toggle="tooltip">
-                                  <img src="images/resources/userlist-3.jpg" alt="" />
+                                <a data-toggle="tooltip" title="Sara" href="#">
+                                  <img
+                                    alt=""
+                                    src="https://res.cloudinary.com/manteam/image/upload/v1628845418/images/resources/userlist-3_ezegdm.jpg"
+                                  />
                                 </a>
-                                <a href="#" title="Amy" data-toggle="tooltip">
-                                  <img src="images/resources/userlist-4.jpg" alt="" />
+                                <a data-toggle="tooltip" title="Amy" href="#">
+                                  <img
+                                    alt=""
+                                    src="https://res.cloudinary.com/manteam/image/upload/v1628845417/images/resources/userlist-4_vpuu9g.jpg"
+                                  />
                                 </a>
-                                <a href="#" title="Ema" data-toggle="tooltip">
-                                  <img src="images/resources/userlist-5.jpg" alt="" />
-                                </a>
-                                <a href="#" title="Sophie" data-toggle="tooltip">
-                                  <img src="images/resources/userlist-6.jpg" alt="" />
-                                </a>
-                                <a href="#" title="Maria" data-toggle="tooltip">
-                                  <img src="images/resources/userlist-7.jpg" alt="" />
+                                <a data-toggle="tooltip" title="Ema" href="#">
+                                  <img
+                                    alt=""
+                                    src="https://res.cloudinary.com/manteam/image/upload/v1628845417/images/resources/userlist-5_nea3hs.jpg"
+                                  />
                                 </a>
                               </div>
                             </div>
