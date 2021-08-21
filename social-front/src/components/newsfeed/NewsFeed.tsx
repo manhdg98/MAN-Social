@@ -134,44 +134,6 @@ const NewsFeed = () => {
                     {/* birthday widget */}
                     <div className="widget">
                       <h4 className="widget-title">Twitter feed</h4>
-                      <ul className="twiter-feed">
-                        <li>
-                          <i className="fa fa-twitter" />
-                          <span>
-                            <i>jhon william</i>
-                            @jhonwilliam
-                          </span>
-                          <p>
-                            tomorrow with the company we were working and 5 child run away
-                            from the working place. <a href="#">#daydream5k</a>{" "}
-                          </p>
-                          <em>2 hours ago</em>
-                        </li>
-                        <li>
-                          <i className="fa fa-twitter" />
-                          <span>
-                            <i>Kelly watson</i>
-                            @kelly
-                          </span>
-                          <p>
-                            tomorrow with the company we were working and 5 child run away
-                            from the working place. <a href="#">#daydream5k</a>{" "}
-                          </p>
-                          <em>2 hours ago</em>
-                        </li>
-                        <li>
-                          <i className="fa fa-twitter" />
-                          <span>
-                            <i>Jony bravo</i>
-                            @jonibravo
-                          </span>
-                          <p>
-                            tomorrow with the company we were working and 5 child run away
-                            from the working place. <a href="#">#daydream5k</a>{" "}
-                          </p>
-                          <em>2 hours ago</em>
-                        </li>
-                      </ul>
                     </div>
                     {/* twitter feed*/}
                     <div className="advertisment-box">
@@ -665,7 +627,10 @@ const NewsFeed = () => {
                       <div className="user-post">
                         <div className="friend-info">
                           <figure>
-                            <img src="images/resources/nearly1.jpg" alt="" />
+                            <img
+                              src="https://res.cloudinary.com/manteam/image/upload/v1628845489/images/resources/nearly1_uqp4ma.jpg"
+                              alt=""
+                            />
                           </figure>
                           <div className="friend-name">
                             <div className="more">
@@ -726,7 +691,10 @@ const NewsFeed = () => {
                                         data-toggle="modal"
                                         data-target="#img-comt"
                                       >
-                                        <img src="images/resources/album1.jpg" alt="" />
+                                        <img
+                                          src="https://res.cloudinary.com/manteam/image/upload/v1628845489/images/resources/nearly1_uqp4ma.jpg"
+                                          alt=""
+                                        />
                                       </a>
                                     </figure>
                                     <figure>
@@ -735,7 +703,10 @@ const NewsFeed = () => {
                                         data-toggle="modal"
                                         data-target="#img-comt"
                                       >
-                                        <img src="images/resources/album2.jpg" alt="" />
+                                        <img
+                                          src="https://res.cloudinary.com/manteam/image/upload/v1628845425/images/resources/album2_tn6kxr.jpg"
+                                          alt=""
+                                        />
                                       </a>
                                     </figure>
                                   </div>
@@ -746,7 +717,10 @@ const NewsFeed = () => {
                                         data-toggle="modal"
                                         data-target="#img-comt"
                                       >
-                                        <img src="images/resources/album6.jpg" alt="" />
+                                        <img
+                                          src="https://res.cloudinary.com/manteam/image/upload/v1628845425/images/resources/album6_b65rxd.jpg"
+                                          alt=""
+                                        />
                                       </a>
                                     </figure>
                                     <figure>
@@ -755,7 +729,10 @@ const NewsFeed = () => {
                                         data-toggle="modal"
                                         data-target="#img-comt"
                                       >
-                                        <img src="images/resources/album5.jpg" alt="" />
+                                        <img
+                                          src="https://res.cloudinary.com/manteam/image/upload/v1628845425/images/resources/album5_figi3q.jpg"
+                                          alt=""
+                                        />
                                       </a>
                                     </figure>
                                     <figure>
@@ -764,7 +741,10 @@ const NewsFeed = () => {
                                         data-toggle="modal"
                                         data-target="#img-comt"
                                       >
-                                        <img src="images/resources/album4.jpg" alt="" />
+                                        <img
+                                          src="https://res.cloudinary.com/manteam/image/upload/v1628845425/images/resources/album4_tsr7lf.jpg"
+                                          alt=""
+                                        />
                                       </a>
                                       <div className="more-photos">
                                         <span>+15</span>
@@ -1166,7 +1146,10 @@ const NewsFeed = () => {
                             <ul className="we-comet">
                               <li>
                                 <div className="comet-avatar">
-                                  <img src="images/resources/nearly3.jpg" alt="" />
+                                  <img
+                                    src="https://res.cloudinary.com/manteam/image/upload/v1628845489/images/resources/nearly3_kgqdio.jpg"
+                                    alt=""
+                                  />
                                 </div>
                                 <div className="we-comment">
                                   <h5>
@@ -1191,7 +1174,10 @@ const NewsFeed = () => {
                               </li>
                               <li>
                                 <div className="comet-avatar">
-                                  <img src="images/resources/comet-4.jpg" alt="" />
+                                  <img
+                                    src="https://res.cloudinary.com/manteam/image/upload/v1628845446/images/resources/comet-4_vy6vie.jpg"
+                                    alt=""
+                                  />
                                 </div>
                                 <div className="we-comment">
                                   <h5>
@@ -1221,7 +1207,10 @@ const NewsFeed = () => {
                               </li>
                               <li className="post-comment">
                                 <div className="comet-avatar">
-                                  <img src="images/resources/nearly1.jpg" alt="" />
+                                  <img
+                                    src="https://res.cloudinary.com/manteam/image/upload/v1628845489/images/resources/nearly1_uqp4ma.jpg"
+                                    alt=""
+                                  />
                                 </div>
                                 <div className="post-comt-box">
                                   <form method="post">
@@ -1269,7 +1258,10 @@ const NewsFeed = () => {
                       <div className="user-post">
                         <div className="friend-info">
                           <figure>
-                            <img src="images/resources/nearly1.jpg" alt="" />
+                            <img
+                              src="https://res.cloudinary.com/manteam/image/upload/v1628845489/images/resources/nearly1_uqp4ma.jpg"
+                              alt=""
+                            />
                           </figure>
                           <div className="friend-name">
                             <div className="more">
@@ -1316,7 +1308,10 @@ const NewsFeed = () => {
                           </div>
                           <div className="post-meta">
                             <figure>
-                              <img src="images/sponsors.gif" alt="" />
+                              <img
+                                src="https://res.cloudinary.com/manteam/image/upload/v1628845264/images/sponsors_e1w1dq.gif"
+                                alt=""
+                              />
                               <ul className="like-dislike">
                                 <li>
                                   <a
@@ -1419,7 +1414,10 @@ const NewsFeed = () => {
                             <ul className="we-comet">
                               <li>
                                 <div className="comet-avatar">
-                                  <img src="images/resources/nearly3.jpg" alt="" />
+                                  <img
+                                    src="https://res.cloudinary.com/manteam/image/upload/v1628845489/images/resources/nearly3_kgqdio.jpg"
+                                    alt=""
+                                  />
                                 </div>
                                 <div className="we-comment">
                                   <h5>
@@ -1444,7 +1442,10 @@ const NewsFeed = () => {
                               </li>
                               <li>
                                 <div className="comet-avatar">
-                                  <img src="images/resources/comet-4.jpg" alt="" />
+                                  <img
+                                    src="https://res.cloudinary.com/manteam/image/upload/v1628845446/images/resources/comet-4_vy6vie.jpg"
+                                    alt=""
+                                  />
                                 </div>
                                 <div className="we-comment">
                                   <h5>
@@ -1474,7 +1475,10 @@ const NewsFeed = () => {
                               </li>
                               <li className="post-comment">
                                 <div className="comet-avatar">
-                                  <img src="images/resources/nearly1.jpg" alt="" />
+                                  <img
+                                    src="https://res.cloudinary.com/manteam/image/upload/v1628845489/images/resources/nearly1_uqp4ma.jpg"
+                                    alt=""
+                                  />
                                 </div>
                                 <div className="post-comt-box">
                                   <form method="post">
@@ -1522,7 +1526,10 @@ const NewsFeed = () => {
                       <div className="user-post">
                         <div className="friend-info">
                           <figure>
-                            <img alt="" src="images/resources/friend-avatar10.jpg" />
+                            <img
+                              alt=""
+                              src="https://res.cloudinary.com/manteam/image/upload/v1628845479/images/resources/friend-avatar10_ajprrc.jpg"
+                            />
                           </figure>
                           <div className="friend-name">
                             <div className="more">
@@ -1576,7 +1583,10 @@ const NewsFeed = () => {
                           <div className="post-meta">
                             <div className="linked-image align-left">
                               <a href="#">
-                                <img alt="" src="images/resources/page1.jpg" />
+                                <img
+                                  alt=""
+                                  src="https://res.cloudinary.com/manteam/image/upload/v1628845479/images/resources/friend-avatar10_ajprrc.jpg"
+                                />
                               </a>
                             </div>
                             <div className="detail">
@@ -1679,7 +1689,10 @@ const NewsFeed = () => {
                             <ul className="we-comet">
                               <li>
                                 <div className="comet-avatar">
-                                  <img src="images/resources/nearly3.jpg" alt="" />
+                                  <img
+                                    src="https://res.cloudinary.com/manteam/image/upload/v1628845489/images/resources/nearly3_kgqdio.jpg"
+                                    alt=""
+                                  />
                                 </div>
                                 <div className="we-comment">
                                   <h5>
@@ -1704,7 +1717,10 @@ const NewsFeed = () => {
                               </li>
                               <li>
                                 <div className="comet-avatar">
-                                  <img src="images/resources/comet-4.jpg" alt="" />
+                                  <img
+                                    src="https://res.cloudinary.com/manteam/image/upload/v1628845446/images/resources/comet-4_vy6vie.jpg"
+                                    alt=""
+                                  />
                                 </div>
                                 <div className="we-comment">
                                   <h5>
@@ -1734,7 +1750,10 @@ const NewsFeed = () => {
                               </li>
                               <li className="post-comment">
                                 <div className="comet-avatar">
-                                  <img src="images/resources/nearly1.jpg" alt="" />
+                                  <img
+                                    src="https://res.cloudinary.com/manteam/image/upload/v1628845489/images/resources/nearly1_uqp4ma.jpg"
+                                    alt=""
+                                  />
                                 </div>
                                 <div className="post-comt-box">
                                   <form method="post">
@@ -1782,7 +1801,10 @@ const NewsFeed = () => {
                       <div className="user-post">
                         <div className="friend-info">
                           <figure>
-                            <img src="images/resources/friend-avatar10.jpg" alt="" />
+                            <img
+                              src="https://res.cloudinary.com/manteam/image/upload/v1628845479/images/resources/friend-avatar10_ajprrc.jpg"
+                              alt=""
+                            />
                           </figure>
                           <div className="friend-name">
                             <div className="more">
@@ -1921,7 +1943,10 @@ const NewsFeed = () => {
                             <ul className="we-comet">
                               <li>
                                 <div className="comet-avatar">
-                                  <img src="images/resources/nearly3.jpg" alt="" />
+                                  <img
+                                    src="https://res.cloudinary.com/manteam/image/upload/v1628845489/images/resources/nearly3_kgqdio.jpg"
+                                    alt=""
+                                  />
                                 </div>
                                 <div className="we-comment">
                                   <h5>
@@ -1946,7 +1971,10 @@ const NewsFeed = () => {
                               </li>
                               <li>
                                 <div className="comet-avatar">
-                                  <img src="images/resources/comet-4.jpg" alt="" />
+                                  <img
+                                    src="https://res.cloudinary.com/manteam/image/upload/v1628845446/images/resources/comet-4_vy6vie.jpg"
+                                    alt=""
+                                  />
                                 </div>
                                 <div className="we-comment">
                                   <h5>
@@ -1976,7 +2004,10 @@ const NewsFeed = () => {
                               </li>
                               <li className="post-comment">
                                 <div className="comet-avatar">
-                                  <img src="images/resources/nearly1.jpg" alt="" />
+                                  <img
+                                    src="https://res.cloudinary.com/manteam/image/upload/v1628845489/images/resources/nearly1_uqp4ma.jpg"
+                                    alt=""
+                                  />
                                 </div>
                                 <div className="post-comt-box">
                                   <form method="post">
@@ -2024,7 +2055,10 @@ const NewsFeed = () => {
                       <div className="user-post">
                         <div className="friend-info">
                           <figure>
-                            <img src="images/resources/nearly6.jpg" alt="" />
+                            <img
+                              src="https://res.cloudinary.com/manteam/image/upload/v1628845489/images/resources/nearly6_uswaw2.jpg"
+                              alt=""
+                            />
                           </figure>
                           <div className="friend-name">
                             <div className="more">
@@ -2177,7 +2211,10 @@ const NewsFeed = () => {
                             <ul className="we-comet">
                               <li>
                                 <div className="comet-avatar">
-                                  <img src="images/resources/nearly3.jpg" alt="" />
+                                  <img
+                                    src="https://res.cloudinary.com/manteam/image/upload/v1628845489/images/resources/nearly3_kgqdio.jpg"
+                                    alt=""
+                                  />
                                 </div>
                                 <div className="we-comment">
                                   <h5>
@@ -2202,7 +2239,10 @@ const NewsFeed = () => {
                               </li>
                               <li>
                                 <div className="comet-avatar">
-                                  <img src="images/resources/comet-4.jpg" alt="" />
+                                  <img
+                                    src="https://res.cloudinary.com/manteam/image/upload/v1628845446/images/resources/comet-4_vy6vie.jpg"
+                                    alt=""
+                                  />
                                 </div>
                                 <div className="we-comment">
                                   <h5>
@@ -2232,7 +2272,10 @@ const NewsFeed = () => {
                               </li>
                               <li className="post-comment">
                                 <div className="comet-avatar">
-                                  <img src="images/resources/nearly1.jpg" alt="" />
+                                  <img
+                                    src="https://res.cloudinary.com/manteam/image/upload/v1628845489/images/resources/nearly1_uqp4ma.jpg"
+                                    alt=""
+                                  />
                                 </div>
                                 <div className="post-comt-box">
                                   <form method="post">
@@ -2280,7 +2323,10 @@ const NewsFeed = () => {
                       <div className="user-post">
                         <div className="friend-info">
                           <figure>
-                            <img src="images/resources/nearly1.jpg" alt="" />
+                            <img
+                              src="https://res.cloudinary.com/manteam/image/upload/v1628845489/images/resources/nearly1_uqp4ma.jpg"
+                              alt=""
+                            />
                           </figure>
                           <div className="friend-name">
                             <div className="more">
@@ -2335,7 +2381,10 @@ const NewsFeed = () => {
                                 className="strip vdeo-link"
                                 data-strip-options="width: 700,height: 450,youtube: { autoplay: 1 }"
                               >
-                                <img src="images/resources/user-post.jpg" alt="" />
+                                <img
+                                  src="https://res.cloudinary.com/manteam/image/upload/v1628845421/images/resources/user-post_dxhiw0.jpg"
+                                  alt=""
+                                />
                                 <i>
                                   <svg
                                     version="1.1"
@@ -2463,7 +2512,10 @@ const NewsFeed = () => {
                             <ul className="we-comet">
                               <li>
                                 <div className="comet-avatar">
-                                  <img src="images/resources/nearly3.jpg" alt="" />
+                                  <img
+                                    src="https://res.cloudinary.com/manteam/image/upload/v1628845489/images/resources/nearly3_kgqdio.jpg"
+                                    alt=""
+                                  />
                                 </div>
                                 <div className="we-comment">
                                   <h5>
@@ -2488,7 +2540,10 @@ const NewsFeed = () => {
                               </li>
                               <li>
                                 <div className="comet-avatar">
-                                  <img src="images/resources/comet-4.jpg" alt="" />
+                                  <img
+                                    src="https://res.cloudinary.com/manteam/image/upload/v1628845446/images/resources/comet-4_vy6vie.jpg"
+                                    alt=""
+                                  />
                                 </div>
                                 <div className="we-comment">
                                   <h5>
@@ -2518,7 +2573,10 @@ const NewsFeed = () => {
                               </li>
                               <li className="post-comment">
                                 <div className="comet-avatar">
-                                  <img src="images/resources/nearly1.jpg" alt="" />
+                                  <img
+                                    src="https://res.cloudinary.com/manteam/image/upload/v1628845489/images/resources/nearly1_uqp4ma.jpg"
+                                    alt=""
+                                  />
                                 </div>
                                 <div className="post-comt-box">
                                   <form method="post">
@@ -2572,7 +2630,10 @@ const NewsFeed = () => {
                       <div className="your-page">
                         <figure>
                           <a href="#">
-                            <img src="images/resources/friend-avatar9.jpg" alt="" />
+                            <img
+                              src="https://res.cloudinary.com/manteam/image/upload/v1628845478/images/resources/friend-avatar9_njpxfp.jpg"
+                              alt=""
+                            />
                           </a>
                         </figure>
                         <div className="page-meta">
@@ -2737,14 +2798,20 @@ const NewsFeed = () => {
                         <h6>
                           <a href="#">Ocean Motel good night event in columbia</a>
                         </h6>
-                        <img src="images/clock.png" alt="" />
+                        <img
+                          src="https://res.cloudinary.com/manteam/image/upload/v1628845265/images/clock_pjlw0f.png"
+                          alt=""
+                        />
                       </div>
                       <div className="rec-events bg-blue">
                         <i className="ti-microphone" />
                         <h6>
                           <a href="#">2016 The 3rd International Conference</a>
                         </h6>
-                        <img src="images/clock.png" alt="" />
+                        <img
+                          src="https://res.cloudinary.com/manteam/image/upload/v1628845265/images/clock_pjlw0f.png"
+                          alt=""
+                        />
                       </div>
                     </div>
                     {/* explore events */}
@@ -2779,7 +2846,10 @@ const NewsFeed = () => {
                       <ul className="recent-links">
                         <li>
                           <figure>
-                            <img src="images/resources/recentlink-1.jpg" alt="" />
+                            <img
+                              src="https://res.cloudinary.com/manteam/image/upload/v1628845503/images/resources/recentlink-1_thwirt.jpg"
+                              alt=""
+                            />
                           </figure>
                           <div className="re-links-meta">
                             <h6>
@@ -2792,7 +2862,10 @@ const NewsFeed = () => {
                         </li>
                         <li>
                           <figure>
-                            <img src="images/resources/recentlink-2.jpg" alt="" />
+                            <img
+                              src="https://res.cloudinary.com/manteam/image/upload/v1628845503/images/resources/recentlink-2_gcfrr3.jpg"
+                              alt=""
+                            />
                           </figure>
                           <div className="re-links-meta">
                             <h6>
@@ -2805,7 +2878,10 @@ const NewsFeed = () => {
                         </li>
                         <li>
                           <figure>
-                            <img src="images/resources/recentlink-3.jpg" alt="" />
+                            <img
+                              src="https://res.cloudinary.com/manteam/image/upload/v1628845503/images/resources/recentlink-3_q7ee8s.jpg"
+                              alt=""
+                            />
                           </figure>
                           <div className="re-links-meta">
                             <h6>
