@@ -15,17 +15,23 @@ import { getSingleFiles, getMultipleFiles } from "../../common/fileUpload";
 import { singleFileUpload } from "../../common/fileUpload";
 import Router from "next/router";
 
-function* sagaImg() {
+function* sagaImg(action) {
   let resImgAvatar: any;
   let resImgBackground: any;
+  let idUser: any;
+
+  if (action && action.query) {
+    idUser = action.query.idUser;
+  }
+
+  const flag_check_idUser_exist = idUser
+    ? idUser
+    : localStorage.getItem(config.local_storage._ID);
   try {
-    resImgAvatar = yield getSingleFiles(
-      config.type_img.avatar,
-      localStorage.getItem(config.local_storage._ID)
-    );
+    resImgAvatar = yield getSingleFiles(config.type_img.avatar, flag_check_idUser_exist);
     resImgBackground = yield getSingleFiles(
       config.type_img.background,
-      localStorage.getItem(config.local_storage._ID)
+      flag_check_idUser_exist
     );
 
     if (resImgAvatar.length === 0) {
@@ -51,17 +57,61 @@ function* sagaImg() {
   });
 }
 
-function* sagaInfo() {
+function* sagaInfo(action) {
+  let idUser: any;
+
+  if (action && action.query) {
+    idUser = action.query.idUser;
+  }
+
+  const flag_check_idUser_exist = idUser
+    ? idUser
+    : localStorage.getItem(config.local_storage._ID);
   if (localStorage.getItem(config.local_storage._ID) != undefined) {
-    let response;
+    let response: any;
     try {
-      response = yield call(() =>
-        axios.get(`/users/${localStorage.getItem(config.local_storage._ID)}`)
-      );
+      response = yield call(() => axios.get(`/users/${flag_check_idUser_exist}`));
       if (response.status >= 200 && response.status < 300) {
         yield put({
           type: profileTypes.SHOW_INFO,
           payload: response.data
+        });
+      } else {
+        console.log(response);
+      }
+    } catch (error) {
+      toastify.toastifyError(
+        error.response.data.message ? error.response.data.message : error.response.data
+      );
+    }
+  }
+}
+
+function* sagaInfoRoot() {
+  if (localStorage.getItem(config.local_storage._ID) != undefined) {
+    let response;
+    let resImgAvatar;
+    try {
+      response = yield call(() =>
+        axios.get(`/users/${localStorage.getItem(config.local_storage._ID)}`)
+      );
+      resImgAvatar = yield getSingleFiles(
+        config.type_img.avatar,
+        localStorage.getItem(config.local_storage._ID)
+      );
+      if (resImgAvatar.length === 0) {
+        resImgAvatar.push({
+          filePath:
+            "https://www.winhelponline.com/blog/wp-content/uploads/2017/12/user.png?ezimgfmt=rs:254x254/rscb2"
+        });
+      }
+      if (response.status >= 200 && response.status < 300) {
+        yield put({
+          type: profileTypes.SHOW_INFO_ROOT,
+          payload: {
+            userName: response.data ? response.data.username : "manhnt",
+            resImgAvatar: resImgAvatar[0].filePath
+          }
         });
       } else {
         console.log(response);
@@ -130,12 +180,21 @@ function* sagaUploadBackground(action) {
   }
 }
 
-function* sagaGetListAvatar() {
+function* sagaGetListAvatar(action) {
   let listImgAvatar;
+  let idUser: any;
+
+  if (action && action.query) {
+    idUser = action.query.idUser;
+  }
+
+  const flag_check_idUser_exist = idUser
+    ? idUser
+    : localStorage.getItem(config.local_storage._ID);
   try {
     listImgAvatar = yield getMultipleFiles(
       config.type_img.avatar,
-      localStorage.getItem(config.local_storage._ID)
+      flag_check_idUser_exist
     );
     yield put({
       type: profileTypes.SHOW_LISt_AVATAR,
@@ -148,12 +207,21 @@ function* sagaGetListAvatar() {
   }
 }
 
-function* sagaGetListBackground() {
+function* sagaGetListBackground(action) {
   let listImgBackground;
+  let idUser: any;
+
+  if (action && action.query) {
+    idUser = action.query.idUser;
+  }
+
+  const flag_check_idUser_exist = idUser
+    ? idUser
+    : localStorage.getItem(config.local_storage._ID);
   try {
     listImgBackground = yield getMultipleFiles(
       config.type_img.background,
-      localStorage.getItem(config.local_storage._ID)
+      flag_check_idUser_exist
     );
     yield put({
       type: profileTypes.SHOW_LIST_BACKGROUND,
@@ -192,6 +260,7 @@ function* sagaUpdateProfile(action) {
 }
 
 function* sagaSearchFriends(action) {
+  yield Router.push("/search/friends");
   const userName = action.query;
   if (!userName) {
     return;
@@ -207,9 +276,9 @@ function* sagaSearchFriends(action) {
     if (resultSearchFriends.status >= 200 && resultSearchFriends.status < 300) {
       yield put({
         type: profileTypes.FIND_FRIENDS,
-        data: resultSearchFriends.data
+        data: resultSearchFriends.data,
+        textSearch: userName
       });
-      yield Router.push("/search/friends");
     } else {
       console.log(resultSearchFriends);
     }
@@ -229,7 +298,8 @@ function* profileSaga() {
     takeEvery(profileTypes.GET_LISt_AVATAR, sagaGetListAvatar),
     takeEvery(profileTypes.GET_LIST_BACKGROUND, sagaGetListBackground),
     takeEvery(profileTypes.UPDATE_PROFILE, sagaUpdateProfile),
-    takeEvery(profileTypes.FIND_FRIENDS, sagaSearchFriends)
+    takeEvery(profileTypes.FIND_FRIENDS, sagaSearchFriends),
+    takeEvery(profileTypes.GET_INFO_ROOT, sagaInfoRoot)
   ]);
 }
 

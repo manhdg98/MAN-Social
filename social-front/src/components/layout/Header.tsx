@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Router from "next/router";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { actionTypes } from "redux/auth/actions";
@@ -11,7 +12,7 @@ function Header() {
   useSelector(state => (data = state));
   useEffect(() => {
     dispatch({
-      type: profileTypes.GET_INFO
+      type: profileTypes.GET_INFO_ROOT
     });
   }, []);
 
@@ -25,12 +26,16 @@ function Header() {
     }
   };
 
+  const redirectNewFeed = () => {
+    Router.push("/newsfeed");
+  };
+
   return (
     <header>
       <div className="topbar stick d-flex align-items-center justify-content-between pt-3 pb-3">
         <div className="logo h-100">
-          <a href="newsfeed" className="h-100 d-block">
-            <img src="static/logo.png" className="mh-100 mw-100" />
+          <a className="h-100 d-block" onClick={() => redirectNewFeed()}>
+            <img src="/static/logo.png" className="mh-100 mw-100" />
           </a>
         </div>
         <div className="top-area">
@@ -86,8 +91,18 @@ function Header() {
             {data.profileReducer.info.username != null ? (
               <>
                 <div className="user-img" onClick={() => setActive(!active)}>
-                  <h5 className="mr-1">{data.profileReducer.info.username}</h5>
-                  <img src={data.profileReducer.imgAvatar} />
+                  <h5 className="mr-1">
+                    {data.profileReducer.infoRootHeader
+                      ? data.profileReducer.infoRootHeader.userName
+                      : ""}
+                  </h5>
+                  <img
+                    src={
+                      data.profileReducer.infoRootHeader
+                        ? data.profileReducer.infoRootHeader.resImgAvatar
+                        : ""
+                    }
+                  />
                 </div>
                 <div className={`${active ? "active" : ""} user-setting`}>
                   <span className="seting-title">
@@ -101,12 +116,6 @@ function Header() {
                           <i className="ti-user" /> view profile
                         </a>
                       </Link>
-                    </li>
-                    <li>
-                      {" "}
-                      <a>
-                        <i className="ti-user" /> view profile
-                      </a>
                     </li>
                     <li>
                       <a

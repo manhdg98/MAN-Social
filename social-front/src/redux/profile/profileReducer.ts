@@ -22,7 +22,9 @@ const initialState = {
     country: null,
     createdAt: null
   },
-  resultSearchFriends: null
+  resultSearchFriends: null,
+  textSearch: null,
+  infoRootHeader: null
 };
 
 function profileReducer(state = initialState, action) {
@@ -67,7 +69,13 @@ function profileReducer(state = initialState, action) {
     case profileTypes.FIND_FRIENDS:
       return {
         ...state,
-        resultSearchFriends: action.data
+        resultSearchFriends: action.data,
+        textSearch: action.query ? action.query : action.textSearch
+      };
+    case profileTypes.SHOW_INFO_ROOT:
+      return {
+        ...state,
+        infoRootHeader: action.payload
       };
     default:
       return { ...state };

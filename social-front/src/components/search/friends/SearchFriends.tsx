@@ -1,5 +1,6 @@
 import Item from "antd/lib/list/Item";
 import React, { useEffect } from "react";
+import Router from "next/router";
 import { useDispatch, useSelector } from "react-redux";
 import { profileTypes } from "redux/profile/profileAction";
 
@@ -8,7 +9,28 @@ const SearchFriends = () => {
   let data: any;
   useSelector(state => (data = state));
 
-  const { resultSearchFriends } = data.profileReducer;
+  const { resultSearchFriends, textSearch } = data.profileReducer;
+  const dispatch = useDispatch();
+
+  const redirectProfile = id => {
+    dispatch({
+      type: profileTypes.GET_INFO,
+      query: { idUser: id }
+    });
+    dispatch({
+      type: profileTypes.GET_IMG,
+      query: { idUser: id }
+    });
+    dispatch({
+      type: profileTypes.GET_LISt_AVATAR,
+      query: { idUser: id }
+    });
+    dispatch({
+      type: profileTypes.GET_LIST_BACKGROUND,
+      query: { idUser: id }
+    });
+    Router.push(`/profile/${id}`);
+  };
 
   return (
     <section>
@@ -20,7 +42,9 @@ const SearchFriends = () => {
                 <div className="col-lg-12">
                   <div className="search-meta">
                     <span>
-                      Your search result for " <i>Tuan Anh</i> " 30
+                      Your search result for "{" "}
+                      <i>{textSearch ? textSearch.userName : ""}</i> "{" "}
+                      {resultSearchFriends ? resultSearchFriends.length : 0} result
                     </span>
                   </div>
                 </div>
@@ -214,12 +238,15 @@ const SearchFriends = () => {
                             ? resultSearchFriends.map((item, index) => (
                                 <div className="pit-friends" key={index}>
                                   <figure>
-                                    <a href="#">
+                                    <a href="#" onClick={() => redirectProfile(item._id)}>
                                       <img src={item.filePath} alt="" />
                                     </a>
                                   </figure>
                                   <div className="pit-frnz-meta">
-                                    <a href="#"> {item.username} </a>
+                                    <a href="#" onClick={() => redirectProfile(item._id)}>
+                                      {" "}
+                                      {item.username}{" "}
+                                    </a>
                                     <i>Tornoto</i>
                                     <ul className="add-remove-frnd">
                                       <li className="add-tofrndlist">
