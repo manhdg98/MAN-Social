@@ -9,10 +9,13 @@ if (process.env.NODE_ENV === "production") {
     }
   );
 } else {
-  mongoose.connect("mongodb://localhost:27017/manteam", {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  });
+  mongoose.connect(
+    `mongodb+srv://manhnt:a3580323A@cluster0.4pa11.mongodb.net/curriculum?retryWrites=true&w=majority`,
+    {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    }
+  );
 }
 
 const User = require("./User");
