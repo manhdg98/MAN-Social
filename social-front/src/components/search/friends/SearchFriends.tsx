@@ -1,5 +1,4 @@
-import Item from "antd/lib/list/Item";
-import React, { useEffect } from "react";
+import React from "react";
 import Router from "next/router";
 import { useDispatch, useSelector } from "react-redux";
 import { profileTypes } from "redux/profile/profileAction";

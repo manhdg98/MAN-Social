@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useForm } from "react-hook-form";
 import { actionTypes } from "../../redux/auth/actions";
@@ -38,7 +38,8 @@ const LoginForm = () => {
           <input
             {...register("email", {
               required: true,
-              pattern: /(^$|^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$)/i
+              pattern:
+                /(^$|^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$)/i
             })}
             maxLength={255}
             type="email"
@@ -49,7 +50,8 @@ const LoginForm = () => {
           />
           <div className="text-danger">
             {errors.email?.type === "required" && "Please enter your email."}
-            {errors.email?.type === "pattern" && "Email should be in the format 'abc@gmail.com'."}
+            {errors.email?.type === "pattern" &&
+              "Email should be in the format 'abc@gmail.com'."}
           </div>
           <input
             {...register("password", { required: true, minLength: 8 })}

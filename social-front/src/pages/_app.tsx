@@ -1,4 +1,4 @@
-import Router, { useRouter } from "next/router";
+import { useRouter } from "next/router";
 import "antd/dist/antd.css";
 import "../public/styles/styles.scss";
 import "@fortawesome/fontawesome-svg-core/styles.css";

@@ -1,7 +1,6 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Skeleton, Image } from "antd";
-import { useDispatch, useSelector } from "react-redux";
-import { profileTypes } from "redux/profile/profileAction";
+import { useSelector } from "react-redux";
 
 function ListBackground() {
   // get state

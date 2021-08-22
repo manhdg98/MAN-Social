@@ -24,17 +24,17 @@ const nextConfig = {
       reportFilename: "bundles/client.html"
     }
   },
-  exportPathMap: function () {
-    return {
-      "/": { page: "/" },
-      docs: {
-        page: "/docs"
-      },
-      contact: {
-        page: "/contact"
-      }
-    };
-  },
+  // exportPathMap: function () {
+  //   return {
+  //     "/": { page: "/" },
+  //     docs: {
+  //       page: "/docs"
+  //     },
+  //     contact: {
+  //       page: "/contact"
+  //     }
+  //   };
+  // },
   purgeCssEnabled: ({ dev }) => !dev, // Disable purgecss during development
   purgeCss: {
     defaultExtractor: content => content.match(/[A-Za-z0-9-_:/]+/g) || [],

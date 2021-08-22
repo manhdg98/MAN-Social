@@ -5,7 +5,6 @@ import { profileTypes } from "redux/profile/profileAction";
 import { Skeleton } from "antd";
 
 const Content = () => {
-  
   // get state
   let data: any;
   useSelector(state => (data = state));
@@ -58,15 +57,15 @@ const Content = () => {
             <span>People on Man Social will get to know you with the info below</span>
           </div>
           <div className="stg-form-area">
-            { data.profileReducer.info ? 
+            {data.profileReducer.info ? (
               <form className="c-form" onSubmit={handleSubmit(onSubmit)}>
                 <div>
                   <label>Email Address</label>
-                  <input 
+                  <input
                     disabled
                     maxLength={255}
-                    type="text" 
-                    placeholder="abc@pitnikmail.com" 
+                    type="text"
+                    placeholder="abc@pitnikmail.com"
                     defaultValue={data.profileReducer.info.email}
                   />
                 </div>
@@ -75,33 +74,36 @@ const Content = () => {
                   <input
                     {...register("username", { required: true })}
                     maxLength={255}
-                    type="text" 
+                    type="text"
                     placeholder="abc"
                     defaultValue={username}
                     onChange={e => setUsername(e.currentTarget.value)}
                   />
                 </div>
                 <div className="text-danger">
-                  {errors.confirmPassword?.type === "required" && "Please enter confirm password."}
+                  {errors.confirmPassword?.type === "required" &&
+                    "Please enter confirm password."}
                 </div>
                 <div>
                   <label>Phone Number</label>
-                  <input 
+                  <input
                     {...register("phone", { minLength: 8, maxLength: 8 })}
                     maxLength={255}
-                    type="number" 
-                    placeholder="0123456789" 
+                    type="number"
+                    placeholder="0123456789"
                     defaultValue={phone}
                     onChange={e => setPhone(e.currentTarget.value)}
                   />
                 </div>
                 <div className="text-danger">
-                  {errors.confirmPassword?.type === "minLength" && "Phone must more than or equal 10 characters."}
-                  {errors.confirmPassword?.type === "maxLength" && "Phone must less than or equal 11 characters."}
+                  {errors.confirmPassword?.type === "minLength" &&
+                    "Phone must more than or equal 10 characters."}
+                  {errors.confirmPassword?.type === "maxLength" &&
+                    "Phone must less than or equal 11 characters."}
                 </div>
                 <div>
                   <label>Date of Birth</label>
-                  <input 
+                  <input
                     type="date"
                     defaultValue={dob}
                     onChange={e => setBOB(e.currentTarget.value)}
@@ -112,11 +114,11 @@ const Content = () => {
                   <div className="form-radio">
                     <div className="radio">
                       <label>
-                        <input 
-                          type="radio" 
-                          name="Gender" 
+                        <input
+                          type="radio"
+                          name="Gender"
                           value="Male"
-                          checked={gender==="Male"}
+                          checked={gender === "Male"}
                           onChange={e => setGender(e.currentTarget.value)}
                         />
                         <i className="check-box" />
@@ -125,11 +127,11 @@ const Content = () => {
                     </div>
                     <div className="radio">
                       <label>
-                        <input 
-                          type="radio" 
-                          name="Gender" 
+                        <input
+                          type="radio"
+                          name="Gender"
                           value="Female"
-                          checked={gender==="Female"}
+                          checked={gender === "Female"}
                           onChange={e => setGender(e.currentTarget.value)}
                         />
                         <i className="check-box" />
@@ -138,11 +140,11 @@ const Content = () => {
                     </div>
                     <div className="radio">
                       <label>
-                        <input 
-                          type="radio" 
-                          name="Gender" 
-                          value="Custom" 
-                          checked={gender==="Custom"}
+                        <input
+                          type="radio"
+                          name="Gender"
+                          value="Custom"
+                          checked={gender === "Custom"}
                           onChange={e => setGender(e.currentTarget.value)}
                         />
                         <i className="check-box" />
@@ -198,29 +200,29 @@ const Content = () => {
                 </div>
                 <div>
                   <label>Job</label>
-                  <input 
-                    type="text" 
-                    placeholder="Ex: IT." 
+                  <input
+                    type="text"
+                    placeholder="Ex: IT."
                     defaultValue={job}
                     onChange={e => setJob(e.currentTarget.value)}
                   />
                 </div>
                 <div>
                   <label>Company</label>
-                  <input 
+                  <input
                     type="text"
-                    placeholder="Ex: MAN Social team." 
+                    placeholder="Ex: MAN Social team."
                     defaultValue={company}
                     onChange={e => setCompany(e.currentTarget.value)}
                   />
                 </div>
                 <div>
-                  <button type="submit" >
-                    Save
-                  </button>
+                  <button type="submit">Save</button>
                 </div>
-              </form> : <Skeleton paragraph={{ rows: 3 }} />
-            }
+              </form>
+            ) : (
+              <Skeleton paragraph={{ rows: 3 }} />
+            )}
           </div>
         </div>
       </div>

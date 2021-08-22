@@ -1,11 +1,8 @@
 import {
   all,
   call,
-  delay,
   put,
-  take,
-  takeEvery,
-  takeLatest
+  takeEvery
 } from "@redux-saga/core/effects";
 import { profileTypes } from "./profileAction";
 import axios from "../../common/axiosConfig";

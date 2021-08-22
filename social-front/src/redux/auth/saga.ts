@@ -1,8 +1,7 @@
-import { all, call, delay, put, takeEvery, takeLatest } from "@redux-saga/core/effects";
+import { all, call, put, takeLatest } from "@redux-saga/core/effects";
 import { actionTypes } from "./actions";
 import axios from "../../common/axiosConfig";
 import * as toastify from "../../common/toastify";
-import { useDispatch } from "react-redux";
 import Router from "next/router";
 import config from "../../common/config.json";
 

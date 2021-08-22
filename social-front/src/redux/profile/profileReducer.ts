@@ -1,6 +1,5 @@
 import { profileTypes } from "./profileAction";
 import { HYDRATE } from "next-redux-wrapper";
-import { multipleFilesUpload } from "common/fileUpload";
 
 const initialState = {
   imgAvatar: null,

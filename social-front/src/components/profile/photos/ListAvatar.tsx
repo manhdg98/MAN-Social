@@ -23,7 +23,14 @@ function ListAvatar() {
           <div className="row">
             <div className="col-lg-6">
               <div className="align-left">
-                <h5>Photos <span>{data.profileReducer.listAvatar != null ? data.profileReducer.listAvatar.length : 0}</span></h5>
+                <h5>
+                  Photos{" "}
+                  <span>
+                    {data.profileReducer.listAvatar != null
+                      ? data.profileReducer.listAvatar.length
+                      : 0}
+                  </span>
+                </h5>
               </div>
             </div>
             <div className="col-lg-6">
@@ -75,25 +82,29 @@ function ListAvatar() {
             </div>
           </div>
           {data.profileReducer.listAvatar != null ? (
-            <> {data.profileReducer.listAvatar.map((item, index) => (
-              <div className="col-lg-3 col-md-3 col-sm-6 col-xs-6 mb-2" key={index}>
-                <div className="item-box show-img">
-                  <a className="strip h-100">
-                    <Image src={item.filePath}
-                      className="h-100"
-                      style={{ objectFit: "cover" }}
-                      alt={item.fileName}
-                    />
-                  </a>
-                  <div className="over-photo">
-                    <a href="#">
-                      <i className="fa fa-heart" /> 15
+            <>
+              {" "}
+              {data.profileReducer.listAvatar.map((item, index) => (
+                <div className="col-lg-3 col-md-3 col-sm-6 col-xs-6 mb-2" key={index}>
+                  <div className="item-box show-img">
+                    <a className="strip h-100">
+                      <Image
+                        src={item.filePath}
+                        className="h-100"
+                        style={{ objectFit: "cover" }}
+                        alt={item.fileName}
+                      />
                     </a>
-                    <span>20 hours ago</span>
+                    <div className="over-photo">
+                      <a href="#">
+                        <i className="fa fa-heart" /> 15
+                      </a>
+                      <span>20 hours ago</span>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))} </>
+              ))}{" "}
+            </>
           ) : (
             <Skeleton />
           )}
