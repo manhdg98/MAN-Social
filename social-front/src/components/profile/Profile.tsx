@@ -156,6 +156,14 @@ const Profile = props => {
                   Photos
                 </a>
               </li>
+              <li>
+                <a
+                  className={tabactive === contentPage.FRIENDS ? "active" : ""}
+                  onClick={() => changeTabActive(contentPage.FRIENDS)}
+                >
+                  Friends
+                </a>
+              </li>
             </ul>
             <ol className="folw-detail">
               <li>

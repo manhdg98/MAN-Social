@@ -3,6 +3,7 @@ import Profile from "./Profile";
 import AboutTab from "./about/AboutTab";
 import SettingTab from "./setting/SettingTab";
 import PhotosTab from "./photos/PhotosTab";
+import Friends from "./friends/Friends";
 import { contentPage } from "./ProfileConstants";
 
 const UserProfile = () => {
@@ -15,6 +16,8 @@ const UserProfile = () => {
         return <SettingTab />;
       case contentPage.PHOTOS:
         return <PhotosTab />;
+      case contentPage.FRIENDS:
+        return <Friends />;
       default:
         break;
     }
