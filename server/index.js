@@ -3,7 +3,7 @@ const helmet = require("helmet");
 const cors = require("cors");
 const morgan = require("morgan");
 const compression = require("compression");
-const serveStatic = require('serve-static');
+// const serveStatic = require('serve-static');
 const path = require('path');
 
 const routes = require("./api");
@@ -22,7 +22,7 @@ app.use(compression());
 app.use(express.urlencoded({ extended: true }));
 
 app.use("/api/v1", routes);
-app.use('/', serveStatic(path.join(__dirname, '/dist')))
+// app.use('/', serveStatic(path.join(__dirname, '/dist')))
 
 app.use(express.static("dist"));
 
